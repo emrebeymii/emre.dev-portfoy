@@ -998,8 +998,9 @@ window.addEventListener('keydown',e=>{const typing=['INPUT','TEXTAREA'].includes
 cmdDialog.addEventListener('click',e=>{if(e.target===cmdDialog)closeCommands()});
 cmdDialog.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();closeCommands()}});
 
-// Contact links to actual working products, without exposing WTK source.
-$$('.projects > .project').forEach((article,i)=>{const container=$('.project-links',article);if(!container)return;const href=i===0?'https://au.wtkauportal.workers.dev':'https://emrebeymii.github.io/NOCTIS/';const a=document.createElement('a');a.href=href;a.target='_blank';a.rel='noopener noreferrer';a.className='kinetic-live-link';a.innerHTML='<span class="live-pulse" aria-hidden="true"></span><span>'+esc(t('live'))+'</span><span aria-hidden="true">↗</span>';container.prepend(a)});
+// The WTK Portal is members-only, so it stays a descriptive case study without a live link.
+const noctisArticle=$('.projects > .project')[1];
+if(noctisArticle){const container=$('.project-links',noctisArticle);if(container){const a=document.createElement('a');a.href='https://emrebeymii.github.io/NOCTIS/';a.target='_blank';a.rel='noopener noreferrer';a.className='kinetic-live-link';a.innerHTML='<span class="live-pulse" aria-hidden="true"></span><span>'+esc(t('live'))+'</span><span aria-hidden="true">↗</span>';container.prepend(a)}}
 
 // A real interaction rather than yet another list of cards.
 const concept=$('#concepts');
