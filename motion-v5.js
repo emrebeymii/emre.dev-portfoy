@@ -34,7 +34,6 @@
   };
   const t = (key) => copy[english() ? 'en' : 'tr'][key] || key;
   const sources = [
-    {key:'wtk', name:'WTK AU Portal', id:'WTK', kind:'live', url:'https://au.wtkauportal.workers.dev', hue:'#ff8a38', short:'WTK · COMMUNITY'},
     {key:'noctis', name:'NOCTIS', id:'N', kind:'live', url:'https://emrebeymii.github.io/NOCTIS/', hue:'#a9a5ff', short:'NOCTIS · FOCUS'},
     {key:'florist', name:'Flamingo Çiçekçilik', kind:'study', url:'./demos/flamingo-cicekcilik.html', hue:'#e3a1a8', short:'FLAMINGO · FLORAL'},
     {key:'record', name:'Kara Plak', kind:'study', url:'./demos/kara-plak.html', hue:'#fa9c57', short:'KARA PLAK · VINYL'},
@@ -42,6 +41,7 @@
     {key:'bike', name:'Hızlı Pedallar', kind:'study', url:'./demos/hizli-pedallar.html', hue:'#b7d878', short:'HIZLI PEDALLAR · CYCLE'},
     {key:'ceramic', name:'Atölye Kerpiç', kind:'study', url:'./demos/atolye-kerpic.html', hue:'#d6ad89', short:'ATÖLYE KERPİÇ · CLAY'}
   ];
+  const studies = sources.filter(item => item.kind === 'study');
   const nameFor = (item) => t(item.key) === item.key ? item.name : t(item.key);
   let motionMode = 'balanced';
   const getStored = () => { try { return localStorage.getItem('emre-motion-v5'); } catch { return null; } };
@@ -138,15 +138,15 @@
   function i18nAttr(key, tag='span') {return `<${tag} data-v5="${key}">${copy.tr[key]}</${tag}>`;}
   const previewMarkup = () => `<iframe id="v5-preview-frame" loading="lazy" title="${t('accessible')}" referrerpolicy="no-referrer" tabindex="-1"></iframe>`;
   const device = document.createElement('section');device.id='v5-device-showcase';device.className='v5';device.setAttribute('aria-label','Live device showcase');
-  device.innerHTML = `<div class="container"><div class="v5-head"><div><span class="v5-kicker" data-v5="cap"></span><h2 class="v5-title" data-v5="deviceTitle"></h2><p class="v5-lead" data-v5="deviceLead"></p></div><span class="v5-small-label">02 PRODUCTS / 05 CONCEPTS</span></div>
+  device.innerHTML = `<div class="container"><div class="v5-head"><div><span class="v5-kicker" data-v5="cap"></span><h2 class="v5-title" data-v5="deviceTitle"></h2><p class="v5-lead" data-v5="deviceLead"></p></div><span class="v5-small-label">01 PRODUCT / 05 CONCEPTS</span></div>
     <div class="v5-console"><div class="v5-console-head"><span class="v5-small-label" data-v5="deviceStatus"></span><div class="v5-switches" role="group" aria-label="Device format"><button type="button" data-device="laptop" aria-pressed="true" data-v5="deviceDesk"></button><button type="button" data-device="phone" aria-pressed="false" data-v5="devicePhone"></button></div></div>
-    <div class="v5-picks" role="group" aria-label="Select project">${sources.map((s,i)=>`<button type="button" data-project="${i}" aria-pressed="${i===2}">${s.name}</button>`).join('')}</div>
+    <div class="v5-picks" role="group" aria-label="Select project">${sources.map((s,i)=>`<button type="button" data-project="${i}" aria-pressed="${i===1}">${s.name}</button>`).join('')}</div>
     <div class="v5-device-zone" id="v5-device-zone"><div class="v5-device-shell" id="v5-device-shell"><div class="v5-device is-laptop" id="v5-device"><div class="v5-screen" id="v5-device-screen" aria-busy="true">${previewMarkup()}</div></div></div></div>
     <div class="v5-device-meta"><div><strong id="v5-selected-name">Flamingo Çiçekçilik</strong><p><span id="v5-project-kind"></span> · <span data-v5="deviceHint"></span></p></div><a id="v5-project-link" class="v5-link" href="./demos/flamingo-cicekcilik.html" target="_blank" rel="noopener noreferrer" data-v5="deviceOpen"></a></div></div><p class="v5-note" data-v5="deviceNotice"></p></div>`;
 
   const compare = document.createElement('section');compare.id='v5-before-after';compare.className='v5';compare.setAttribute('aria-label','Illustrative before and after design comparison');
   compare.innerHTML = `<div class="container"><div class="v5-head"><div><span class="v5-kicker" data-v5="compareCap"></span><h2 class="v5-title" data-v5="compareTitle"></h2><p class="v5-lead" data-v5="compareLead"></p></div></div>
-    <div class="v5-console"><div class="v5-picks" id="v5-compare-picks" role="group" aria-label="Select design concept">${sources.slice(2).map((s,i)=>`<button type="button" data-compare="${i}" aria-pressed="${i===0}">${s.name}</button>`).join('')}</div>
+    <div class="v5-console"><div class="v5-picks" id="v5-compare-picks" role="group" aria-label="Select design concept">${studies.map((s,i)=>`<button type="button" data-compare="${i}" aria-pressed="${i===0}">${s.name}</button>`).join('')}</div>
     <div class="v5-compare-board" id="v5-compare-board" style="--v5-split:50%" aria-label="Illustrative layout comparison"><div class="v5-before"><div class="v5-before-nav"><b id="v5-before-brand"></b><span data-v5="defaultTag"></span></div><div class="v5-before-body"><small data-v5="defaultSite"></small><h3 data-v5="defaultTitle"></h3><p data-v5="defaultCard"></p><button type="button" tabindex="-1" data-v5="defaultButton"></button><div class="v5-before-cards"><i></i><i></i><i></i></div></div></div><div class="v5-after" id="v5-after"><iframe id="v5-after-frame" loading="lazy" tabindex="-1" title="Independent redesign concept" referrerpolicy="no-referrer"></iframe></div><div class="v5-before-tag" data-v5="compareBefore"></div><div class="v5-after-tag" data-v5="compareAfter"></div><div class="v5-compare-line"></div></div>
     <div class="v5-compare-controls"><div class="v5-compare-meta"><strong id="v5-compare-name"></strong><small data-v5="compareInfo"></small></div><input class="v5-range" id="v5-compare-range" type="range" min="0" max="100" value="50" aria-label="${copy.tr.compareRange}" /><a class="v5-link" id="v5-compare-link" target="_blank" rel="noopener noreferrer" data-v5="compareAction"></a></div></div></div>`;
 
@@ -172,7 +172,7 @@
   function syncLanguage(){
     $$('[data-v5]').forEach(el=>{el.textContent=t(el.dataset.v5)});
     $$('[data-project]').forEach(el=>{const s=sources[+el.dataset.project];el.textContent=nameFor(s)});
-    $$('[data-compare]').forEach(el=>{const s=sources[+el.dataset.compare+2];el.textContent=nameFor(s)});
+    $$('[data-compare]').forEach(el=>{const s=studies[+el.dataset.compare];el.textContent=nameFor(s)});
     $('#v5-compare-range')?.setAttribute('aria-label',t('compareRange'));
     $('#v5-preview-frame')?.setAttribute('title',t('accessible'));
     refreshProjectLabels();refreshCompareLabels();setMode(motionMode,false);
@@ -180,7 +180,7 @@
   const languageWatcher=new MutationObserver(mutations=>{if(mutations.some(x=>x.attributeName==='lang'))syncLanguage()});
   languageWatcher.observe(root,{attributes:true,attributeFilter:['lang']});
 
-  let activeProject=2,deviceType='laptop',deviceLoaded=false;
+  let activeProject=1,deviceType='laptop',deviceLoaded=false;
   const preview=$('#v5-preview-frame'),screen=$('#v5-device-screen'),deviceEl=$('#v5-device'),zone=$('#v5-device-zone');
   let currentPreviewUrl='';
   const scaleDevice=()=>{
@@ -202,11 +202,11 @@
   preview.addEventListener('load',()=>screen.setAttribute('aria-busy','false'));
   function setDevice(type){if(type!=='laptop'&&type!=='phone')return;deviceType=type;deviceEl.classList.toggle('is-laptop',type==='laptop');deviceEl.classList.toggle('is-phone',type==='phone');$$('[data-device]').forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.device===type)));scaleDevice()}
   $$('[data-device]').forEach(btn=>btn.addEventListener('click',()=>setDevice(btn.dataset.device)));
-  if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){if(!deviceLoaded)selectProject(2);observer.disconnect()}},{rootMargin:'100px 0px'});observer.observe(zone)}else selectProject(2);
+  if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){if(!deviceLoaded)selectProject(1);observer.disconnect()}},{rootMargin:'100px 0px'});observer.observe(zone)}else selectProject(1);
   // GPU-friendly, desktop-only tilt. No continuous repaint on touch devices or in Balanced/Minimal modes.
   if(!coarse.matches){let pending=0;zone.addEventListener('pointermove',e=>{if(motionMode!=='cinematic')return;if(pending)return;const rect=zone.getBoundingClientRect();const x=(e.clientX-rect.left)/rect.width-.5,y=(e.clientY-rect.top)/rect.height-.5;pending=requestAnimationFrame(()=>{pending=0;$('#v5-device-shell').style.setProperty('--v5-tilt-y',(x*7).toFixed(2)+'deg');$('#v5-device-shell').style.setProperty('--v5-tilt-x',(-y*5).toFixed(2)+'deg')})},{passive:true});zone.addEventListener('pointerleave',()=>{$('#v5-device-shell').style.setProperty('--v5-tilt-y','0deg');$('#v5-device-shell').style.setProperty('--v5-tilt-x','0deg')})}
 
-  const studies=sources.slice(2);let activeCompare=0,compareLoaded=false;const afterFrame=$('#v5-after-frame'),after=$('#v5-after'),compareBoard=$('#v5-compare-board');
+  let activeCompare=0,compareLoaded=false;const afterFrame=$('#v5-after-frame'),after=$('#v5-after'),compareBoard=$('#v5-compare-board');
   function refreshCompareLabels(){const s=studies[activeCompare];$('#v5-compare-name').textContent=nameFor(s);$('#v5-before-brand').textContent=nameFor(s);$('#v5-compare-link').href=s.url}
   function selectCompare(index,load=true){
     if(index<0||index>=studies.length)return;activeCompare=index;
