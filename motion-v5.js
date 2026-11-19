@@ -18,7 +18,7 @@
       compareCap:'EXPERIENCE LAB / 02',compareTitle:'Farkı kaydırarak keşfet.',compareLead:'Solda temsili standart arayüz, sağda hazırladığım bağımsız konsept. Bu bir gerçek müşteri sitesinin eski/yeni karşılaştırması değildir.',compareBefore:'TEMSİLİ STANDART TASARIM',compareAfter:'KONSEPT TASARIM',compareAction:'Konsept demosunu aç ↗',compareInfo:'Karşılaştırma için çizilmiş örnek düzen. Gerçek bir işletmenin önceki sitesi değildir.', compareRange:'Önce / sonra karşılaştırma konumu',
       magCap:'EXPERIENCE LAB / 03', magTitle:'Arayüz sadece görünmez. Hissedilir.', magLead:'Kelimelere dokun, imlecini hareket ettir veya aşağıdaki düğmeyle etkileşimi başlat. Animasyon yoğunluğu cihazına uyum sağlar.',magButton:'Bir kıvılcım oluştur ✦',magHint:'HAREKET / DOKUNMA / DENE',magMain:'DAHA FAZLA',magSub:'HİSSET.',
       perfButton:'Hareket ayarları',perfTitle:'Performans modu',perfDesc:'Görsel hareket yoğunluğunu sen belirle.',perfCinema:'Cinematic',perfBalanced:'Balanced',perfMinimal:'Minimal',perfCinemaSub:'Tam görsel deneyim',perfBalancedSub:'Daha hafif animasyonlar',perfMinimalSub:'Minimum hareket',perfSaved:'Tercihin bu tarayıcıda saklanır.',
-      florist:'Flamingo Çiçekçilik', bakery:'Tarihi Beykoz Fırını',record:'Kara Plak',bike:'Hızlı Pedallar',ceramic:'Atölye Kerpiç',
+      florist:'Çiçekçi Konsepti', bakery:'Mahalle Fırını Konsepti',record:'Plak Dükkânı Konsepti',bike:'Bisiklet Servisi Konsepti',ceramic:'Seramik Atölyesi Konsepti',
       accessible:'Ekran önizlemesi', defaultSite:'ÖRNEK İŞLETME', defaultTitle:'İşletmeniz için web sitesi',defaultTag:'Anasayfa　Hizmetler　İletişim',defaultCard:'Ürün veya hizmet bilgisi',defaultButton:'İletişime geç',placeholder:'Önizleme yükleniyor…'
     },
     en: {
@@ -28,18 +28,18 @@
       compareCap:'EXPERIENCE LAB / 02',compareTitle:'Drag to discover the difference.',compareLead:'The left side is an illustrative standard layout; the right side is my independent concept. This does not depict an actual client’s old website.',compareBefore:'ILLUSTRATIVE BASELINE',compareAfter:'DESIGN CONCEPT',compareAction:'Open concept demo ↗',compareInfo:'An illustrative baseline, not the previous website of a real business.',compareRange:'Before and after comparison position',
       magCap:'EXPERIENCE LAB / 03',magTitle:'A UI is more than something you see.',magLead:'Move your cursor, touch the canvas or use the button to spark an interaction. Motion adapts to your device.',magButton:'Create a spark ✦',magHint:'MOVE / TOUCH / EXPLORE',magMain:'FEEL',magSub:'THE DIFFERENCE.',
       perfButton:'Motion settings',perfTitle:'Performance mode',perfDesc:'Choose how much movement your experience has.',perfCinema:'Cinematic',perfBalanced:'Balanced',perfMinimal:'Minimal',perfCinemaSub:'Full visual experience',perfBalancedSub:'Lighter animations',perfMinimalSub:'Minimal movement',perfSaved:'Your preference is saved in this browser.',
-      florist:'Flamingo Florist',bakery:'Historic Beykoz Bakery',record:'Kara Plak Records',bike:'Hızlı Pedallar Cycles',ceramic:'Atölye Kerpiç Ceramics',
+      florist:'Florist Concept',bakery:'Bakery Concept',record:'Record Shop Concept',bike:'Bicycle Workshop Concept',ceramic:'Ceramics Studio Concept',
       accessible:'Website preview',defaultSite:'EXAMPLE BUSINESS',defaultTitle:'A website for your business',defaultTag:'Home　Services　Contact',defaultCard:'Product or service information',defaultButton:'Contact us',placeholder:'Loading preview…'
     }
   };
   const t = (key) => copy[english() ? 'en' : 'tr'][key] || key;
   const sources = [
     {key:'noctis', name:'NOCTIS', id:'N', kind:'live', url:'https://emrebeymii.github.io/NOCTIS/', hue:'#a9a5ff', short:'NOCTIS · FOCUS'},
-    {key:'florist', name:'Flamingo Çiçekçilik', kind:'study', url:'./demos/flamingo-cicekcilik.html', hue:'#e3a1a8', short:'FLAMINGO · FLORAL'},
-    {key:'record', name:'Kara Plak', kind:'study', url:'./demos/kara-plak.html', hue:'#fa9c57', short:'KARA PLAK · VINYL'},
-    {key:'bakery', name:'Tarihi Beykoz Fırını', kind:'study', url:'./demos/tarihi-beykoz-firini.html', hue:'#d2b582', short:'BEYKOZ · BAKERY'},
-    {key:'bike', name:'Hızlı Pedallar', kind:'study', url:'./demos/hizli-pedallar.html', hue:'#b7d878', short:'HIZLI PEDALLAR · CYCLE'},
-    {key:'ceramic', name:'Atölye Kerpiç', kind:'study', url:'./demos/atolye-kerpic.html', hue:'#d6ad89', short:'ATÖLYE KERPİÇ · CLAY'}
+    {key:'florist', name:'Çiçekçi Konsepti', kind:'study', url:'./demos/cicekci-konsepti.html', hue:'#e3a1a8', short:'FLORAL · CONCEPT'},
+    {key:'record', name:'Plak Dükkânı Konsepti', kind:'study', url:'./demos/plak-konsepti.html', hue:'#fa9c57', short:'VINYL · CONCEPT'},
+    {key:'bakery', name:'Mahalle Fırını Konsepti', kind:'study', url:'./demos/firin-konsepti.html', hue:'#d2b582', short:'BAKERY · CONCEPT'},
+    {key:'bike', name:'Bisiklet Servisi Konsepti', kind:'study', url:'./demos/bisiklet-konsepti.html', hue:'#b7d878', short:'CYCLE · CONCEPT'},
+    {key:'ceramic', name:'Seramik Atölyesi Konsepti', kind:'study', url:'./demos/seramik-konsepti.html', hue:'#d6ad89', short:'CLAY · CONCEPT'}
   ];
   const studies = sources.filter(item => item.kind === 'study');
   const nameFor = (item) => t(item.key) === item.key ? item.name : t(item.key);
@@ -142,7 +142,7 @@
     <div class="v5-console"><div class="v5-console-head"><span class="v5-small-label" data-v5="deviceStatus"></span><div class="v5-switches" role="group" aria-label="Device format"><button type="button" data-device="laptop" aria-pressed="true" data-v5="deviceDesk"></button><button type="button" data-device="phone" aria-pressed="false" data-v5="devicePhone"></button></div></div>
     <div class="v5-picks" role="group" aria-label="Select project">${sources.map((s,i)=>`<button type="button" data-project="${i}" aria-pressed="${i===1}">${s.name}</button>`).join('')}</div>
     <div class="v5-device-zone" id="v5-device-zone"><div class="v5-device-shell" id="v5-device-shell"><div class="v5-device is-laptop" id="v5-device"><div class="v5-screen" id="v5-device-screen" aria-busy="true">${previewMarkup()}</div></div></div></div>
-    <div class="v5-device-meta"><div><strong id="v5-selected-name">Flamingo Çiçekçilik</strong><p><span id="v5-project-kind"></span> · <span data-v5="deviceHint"></span></p></div><a id="v5-project-link" class="v5-link" href="./demos/flamingo-cicekcilik.html" target="_blank" rel="noopener noreferrer" data-v5="deviceOpen"></a></div></div><p class="v5-note" data-v5="deviceNotice"></p></div>`;
+    <div class="v5-device-meta"><div><strong id="v5-selected-name">Çiçekçi Konsepti</strong><p><span id="v5-project-kind"></span> · <span data-v5="deviceHint"></span></p></div><a id="v5-project-link" class="v5-link" href="./demos/cicekci-konsepti.html" target="_blank" rel="noopener noreferrer" data-v5="deviceOpen"></a></div></div><p class="v5-note" data-v5="deviceNotice"></p></div>`;
 
   const compare = document.createElement('section');compare.id='v5-before-after';compare.className='v5';compare.setAttribute('aria-label','Illustrative before and after design comparison');
   compare.innerHTML = `<div class="container"><div class="v5-head"><div><span class="v5-kicker" data-v5="compareCap"></span><h2 class="v5-title" data-v5="compareTitle"></h2><p class="v5-lead" data-v5="compareLead"></p></div></div>
