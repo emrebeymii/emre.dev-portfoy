@@ -552,6 +552,19 @@ html[data-theme=light] .spatial-door{background:linear-gradient(100deg,#e3deeb,#
 @media(prefers-reduced-motion:reduce){.bxe-scene,.bxe-layer,.bxe-screen{transition:none!important;animation:none!important}}
 html[data-motion-mode=minimal] .bxe-scene,html[data-motion-mode=minimal] .bxe-layer{transition:none!important;animation:none!important}
 </style>
+<style id="global-touch-styles">
+/* TOUCH 2.3 / site-wide double-tap zoom prevention; keep native pinch and scroll. */
+html,body{touch-action:manipulation}
+:where(body *){touch-action:manipulation}
+.concept-rail,#v6-reel,.bxe-viewport{touch-action:pan-x pan-y pinch-zoom}
+.bxe-viewport{touch-action:pan-y pinch-zoom}
+#site-header #nav-links.apex-panel{touch-action:pan-y pinch-zoom}
+.arch-stage:not(.is-exploring) .arch-world{touch-action:pan-y pinch-zoom}
+.arch-stage.is-exploring,.arch-stage.is-exploring .arch-rail{touch-action:pan-x}
+.arch-stage.is-exploring .arch-world,.arch-stage.is-exploring .arch-dpad,.arch-stage.is-exploring .arch-dpad button{touch-action:none!important}
+.apex-backdrop,#spatial-transition{touch-action:none}
+@media(pointer:coarse){input:not([type=checkbox]):not([type=radio]):not([type=range]),textarea,select{font-size:16px!important}}
+</style>
 </head>
 <body>
 <div class="page-ambient" aria-hidden="true"><div class="ambient-blob one"></div><div class="ambient-blob two"></div></div>
@@ -1403,11 +1416,6 @@ function moveFree(dt){if(!exploring||!held.size)return;detachRoom();let f=(held.
 const keyMap={arrowup:'w',arrowdown:'s',arrowleft:'a',arrowright:'d',w:'w',a:'a',s:'s',d:'d'};document.addEventListener('keydown',e=>{if(!exploring)return;if(e.key==='Escape'){e.preventDefault();setExplore(false);return}if(e.key==='Tab'){const list=[...stage.querySelectorAll('button:not([hidden]),a[href]:not([hidden]),[tabindex="0"]')].filter(el=>el.getClientRects().length&&!el.closest('[hidden]'));if(list.length){const i=list.indexOf(document.activeElement);if(e.shiftKey&&i<=0){e.preventDefault();list[list.length-1].focus()}else if(!e.shiftKey&&(i===list.length-1||i<0)){e.preventDefault();list[0].focus()}}return}if(e.target.closest('input,textarea,select')||e.ctrlKey||e.metaKey||e.altKey)return;const k=keyMap[e.key.toLowerCase()];if(k){e.preventDefault();held.add(k);invalidate()}});document.addEventListener('keyup',e=>{const k=keyMap[e.key.toLowerCase()];if(k)held.delete(k)});window.addEventListener('blur',()=>held.clear());
 const moveButtons=[...nav.querySelectorAll('[data-arch-move]')],activeMovePointers=new Map();function clearMove(){held.clear();activeMovePointers.clear();moveButtons.forEach(b=>b.classList.remove('is-held'))}
 function blockNative(e){if(e.cancelable)e.preventDefault()}
-let lastTap=null,tapStart=null;
-stage.addEventListener('touchstart',e=>{if(e.touches.length!==1){tapStart=null;lastTap=null;return}const t=e.touches[0];tapStart={x:t.clientX,y:t.clientY,time:performance.now()};},{passive:true});
-stage.addEventListener('touchend',e=>{const t=e.changedTouches[0],start=tapStart;tapStart=null;if(!t||!start||e.touches.length)return;const now=performance.now();if(now-start.time>350||Math.hypot(t.clientX-start.x,t.clientY-start.y)>12){lastTap=null;return}if(lastTap&&now-lastTap.time<350&&Math.hypot(t.clientX-lastTap.x,t.clientY-lastTap.y)<30){blockNative(e);lastTap=null;return}lastTap={x:t.clientX,y:t.clientY,time:now};},{passive:false});
-stage.addEventListener('touchcancel',()=>{tapStart=null;lastTap=null},{passive:true});
-stage.addEventListener('dblclick',blockNative);
 for(const event of ['gesturestart','gesturechange','gestureend'])stage.addEventListener(event,e=>{if(exploring)blockNative(e)},{passive:false});
 
 for(const event of ['contextmenu','selectstart','dragstart'])stage.addEventListener(event,e=>{if(exploring)blockNative(e)});
@@ -1466,6 +1474,21 @@ form.addEventListener('submit',e=>{e.preventDefault();if(step<2){show(step+1,tru
 $('#bxe-copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(brief());$('#bxe-feedback').textContent=en()?'Brief copied.':'Proje özeti kopyalandı.'}catch{const box=document.createElement('textarea');box.value=brief();box.readOnly=true;box.style.position='fixed';box.style.opacity='0';document.body.append(box);box.select();let ok=false;try{ok=document.execCommand('copy')}catch{}box.remove();$('#bxe-copy').focus({preventScroll:true});$('#bxe-feedback').textContent=ok?(en()?'Brief copied.':'Proje özeti kopyalandı.'):(en()?'Copy unavailable. Use email.':'Kopyalanamadı. E-posta seçeneğini kullan.')}});
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));function rotate(x,y){rx=clamp(x,-28,32);ry=clamp(y,-52,52);scene.style.setProperty('--rx',rx+'deg');scene.style.setProperty('--ry',ry+'deg')}
 $('#bxe-left').addEventListener('click',()=>rotate(rx,ry-12));$('#bxe-right').addEventListener('click',()=>rotate(rx,ry+12));$('#bxe-reset').addEventListener('click',()=>rotate(13,-18));viewport.addEventListener('pointerdown',e=>{if(!e.isPrimary||e.button!==0)return;drag={id:e.pointerId,x:e.clientX,y:e.clientY,rx,ry};viewport.setPointerCapture(e.pointerId);viewport.classList.add('is-dragging')});viewport.addEventListener('pointermove',e=>{if(!drag||drag.id!==e.pointerId)return;rotate(drag.rx-(e.clientY-drag.y)*.2,drag.ry+(e.clientX-drag.x)*.25)});function end(e){if(!drag||drag.id!==e.pointerId)return;drag=null;viewport.classList.remove('is-dragging')}['pointerup','pointercancel','lostpointercapture'].forEach(k=>viewport.addEventListener(k,end));new MutationObserver(update).observe(root,{attributes:true,attributeFilter:['lang']});show(0);
+})();
+</script>
+<script id="global-touch-engine">
+(()=>{'use strict';
+// Safari fallback for non-control surfaces: prevent the native second-tap zoom without
+// suppressing normal button activation, text editing, pinch gestures or drag movement.
+let start=null,previous=null;
+const point=t=>({id:t.identifier,x:t.clientX,y:t.clientY});
+const control=target=>target instanceof Element&&!!target.closest('a,button,input,textarea,select,label,[role="button"],[role="switch"],[role="tab"],[contenteditable]:not([contenteditable="false"])');
+const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+function reset(){start=null;previous=null}
+document.addEventListener('touchstart',e=>{if(e.touches.length!==1){reset();return}const t=e.touches[0];start={...point(t),time:performance.now(),control:control(e.target)};if(start.control)previous=null},{capture:true,passive:true});
+document.addEventListener('touchmove',e=>{if(e.touches.length!==1||!start){reset();return}const t=point(e.touches[0]);if(t.id!==start.id||distance(t,start)>12)reset()},{capture:true,passive:true});
+document.addEventListener('touchend',e=>{const s=start;start=null;if(!s||e.touches.length!==0||e.changedTouches.length!==1){previous=null;return}const t=point(e.changedTouches[0]),now=performance.now();if(s.control||control(e.target)||e.defaultPrevented||t.id!==s.id||now-s.time>320||distance(t,s)>12){previous=null;return}if(previous&&now-previous.time<350&&distance(t,previous)<28){if(e.cancelable)e.preventDefault();previous=null}else previous={...t,time:now}},{capture:true,passive:false});
+document.addEventListener('touchcancel',reset,{capture:true,passive:true});document.addEventListener('gesturestart',reset,{passive:true});window.addEventListener('blur',reset);document.addEventListener('visibilitychange',reset);
 })();
 </script>
 </body></html>
