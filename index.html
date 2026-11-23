@@ -7,7 +7,7 @@
 <meta name="description" content="Gamze Sey'in sanat estetiğinden ilham alan bağımsız tattoo artist web tasarım konsepti. WEB STUDIO 01 tarafından hazırlanmış örnek çalışmadır; resmi sanatçı sitesi değildir." />
 <meta property="og:title" content="Gamze Sey · Dövme Atölyesi / Bağımsız Konsept" />
 <meta property="og:description" content="İnce çizgilerin, hayallerin ve zarif detayların buluştuğu bağımsız web tasarım konsepti. WEB STUDIO 01." />
-<title>Gamze Sey | DREAMSCAPE · Bağımsız Konsept | WEB STUDIO 01</title>
+<title>Gamze Sey | DREAMSCAPE V2.1 · Bağımsız Konsept | WEB STUDIO 01</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -18,6 +18,16 @@
 @media (max-width:760px){.container{padding:0 21px}.disclaimer-bar{font-size:8px;letter-spacing:.08em;padding:7px 13px}.nav-wrap{height:72px}.brand-top{font-size:34px}.brand-bottom{font-size:7px}.main-nav{display:none}.nav-social{display:none}.nav-cta{display:none}.menu-toggle{display:flex}.main-nav.open{position:fixed;display:flex;flex-direction:column;align-items:stretch;top:103px;left:0;right:0;background:#fbf8fa;padding:25px 23px 35px;z-index:92;box-shadow:0 25px 45px #30223429;gap:0;border-bottom:1px solid #d2bccc}.main-nav.open a{font-size:15px;padding:17px 4px;border-bottom:1px solid #e3d3df}.hero{min-height:0}.hero-grid{grid-template-columns:1fr;min-height:0}.hero-copy{padding:56px 0 15px}.hero-overline{font-size:9px}.hero h1{font-size:clamp(69px,14vw,112px);margin:21px 0 20px}.hero .hero-sub{font-size:12px;max-width:460px}.hero-buttons{gap:9px}.hero-buttons a{font-size:9px;padding:14px}.hero-media{height:380px;margin-top:-14px}.hero-footnote{margin-top:30px;font-size:8px}.hero-scroll{display:none}.orbit-caption{bottom:10px;right:12px}.orbit-vertical{display:none}.ribbon{padding:13px 0}.section{padding:87px 0}.section-head{display:block}.section-intro{margin-top:24px}.section-title{font-size:clamp(52px,11vw,73px)}.gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.art-visual{height:clamp(185px,57vw,330px)}.art-visual::before{inset:10px}.art-meta{padding:14px 11px;gap:7px}.art-title{font-size:22px}.art-kind{font-size:9px}.art-stamp{top:21px;left:18px;font-size:8px}.art-id{right:16px;bottom:19px}.circle-arrow{width:31px;height:31px}.split{grid-template-columns:1fr}.split-art{min-height:440px}.split-copy{padding:67px 30px 77px}.split-copy h2{font-size:68px}.flash-layout{grid-template-columns:1fr 1fr;gap:12px}.flash-head{grid-column:1/-1}.flash-head h2{font-size:70px}.flash-card{min-height:350px}.flash-art{min-height:270px}.flash-art svg.design{height:240px}.flash-bottom{padding:14px}.flash-bottom h3{font-size:23px}.flash-bottom p{font-size:9px}.process-grid{grid-template-columns:1fr;gap:18px}.process-card{padding:25px 5px 5px}.booking{padding:87px 0}.booking-grid{grid-template-columns:1fr;gap:40px}.booking-copy h2{font-size:75px}.footer-main{display:block}.footer-title{font-size:70px}.footer-links{margin-top:28px}.footer-bottom{flex-direction:column}.modal-card{grid-template-columns:1fr;max-width:580px}.modal-visual{min-height:300px}.modal-visual svg.design{height:285px}.modal-copy{padding:35px}.modal-copy h2{font-size:55px}}
 @media(max-width:420px){.brand-top{font-size:31px}.hero h1{font-size:clamp(62px,14.8vw,80px)}.hero-media{height:330px}.hero .hero-sub{font-size:11px}.hero-buttons{align-items:stretch}.hero-buttons a{min-height:45px}.art-visual{height:225px}.art-title{font-size:19px}.art-kind{font-size:8px}.flash-layout{grid-template-columns:1fr}.flash-card{min-height:390px}.flash-art{min-height:300px}.flash-art svg.design{height:300px}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.form-intro{align-items:start}.booking-card{padding:23px}.modal-copy h2{font-size:48px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}.ribbon-track{animation:none}}
+
+
+/* DREAMSCAPE V2.1 · Section-guided wandering flight and subtle motion trail */
+#dreamscape-stage { --dream-opacity: 1; }
+#dreamscape-stage .dreamscape-static { opacity:var(--dream-opacity); }
+#dreamscape-stage.is-webgl-ready .dreamscape-static { opacity:0; }
+#dreamscape-stage.is-webgl-ready .dreamscape-canvas { opacity:var(--dream-opacity); }
+#dreamscape-stage .dreamscape-trail{position:absolute;left:0;top:0;width:11px;height:11px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(255,251,255,.9) 0%,rgba(242,167,206,.68) 35%,rgba(158,211,244,0) 72%);filter:blur(1px);opacity:0;will-change:transform;contain:paint}
+#dreamscape-stage .dreamscape-trail:nth-of-type(even){width:8px;height:8px;background:radial-gradient(circle,rgba(255,255,255,.83) 0%,rgba(156,206,244,.7) 45%,transparent 75%)}
+@media(prefers-reduced-motion:reduce){#dreamscape-stage .dreamscape-trail{display:none!important}#dreamscape-stage .dream-wing-half{will-change:auto}}
 
 /* DREAMSCAPE V2 · Lightweight persistent butterfly flight */
 #dreamscape-stage{position:fixed;inset:0;z-index:24;pointer-events:none;overflow:hidden;contain:layout paint;--dream-x:72vw;--dream-y:44vh;--dream-scale:1;--dream-angle:0deg;--dream-flap:0.45;}
@@ -73,7 +83,7 @@
   <span class="dreamscape-spark dreamscape-spark-a"></span><span class="dreamscape-spark dreamscape-spark-b"></span>
 </div>
 <main>
-<section class="hero"><div class="container hero-grid"><div class="hero-copy"><div class="hero-overline">İzmir · İnce Çizgi · Masalsı Dövmeler</div><h1><span>Biraz düş,</span><span class="outline">biraz çizgi,</span><span>biraz sanat.</span></h1><p class="hero-sub">İnce çizgiler, küçük düşler ve tenin üzerinde yaşayan hikâyeler. Zarif, özgün ve masalsı bir dövme dünyasına açılan dijital sanat günlüğü.</p><div class="hero-buttons"><a class="button-primary" href="#works">Galeriyi keşfet <svg class="icon" aria-hidden="true"><use href="#ic-arrow"/></svg></a><a class="button-outline" href="#flash">Hazır tasarımlar <svg class="icon" aria-hidden="true"><use href="#ic-arrow"/></svg></a></div><div class="hero-footnote">Biraz gerçek, biraz hayal · Portföy konsepti</div></div><div class="hero-media" id="hero-media" aria-label="Kaydırma ile kanat çırpan ve imleci takip eden üç boyutlu kelebek deneyimi"><div class="butterfly-presence" aria-hidden="true"></div><svg class="orbit-star a" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 1v38M1 20h38M6 6l28 28M34 6 6 34" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><svg class="orbit-star b" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 1v38M1 20h38M6 6l28 28M34 6 6 34" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><div class="orbit-caption">KAYDIRDIKÇA KANAT ÇIRPAR<br>ÜÇ BOYUTLU KELEBEK DENEYİ</div><span class="orbit-vertical">DREAMSCAPE / KELEBEK · 01</span></div></div><div class="hero-scroll">KELEBEĞİ UÇURMAK İÇİN KAYDIR</div></section>
+<section class="hero"><div class="container hero-grid"><div class="hero-copy"><div class="hero-overline">İzmir · İnce Çizgi · Masalsı Dövmeler</div><h1><span>Biraz düş,</span><span class="outline">biraz çizgi,</span><span>biraz sanat.</span></h1><p class="hero-sub">İnce çizgiler, küçük düşler ve tenin üzerinde yaşayan hikâyeler. Zarif, özgün ve masalsı bir dövme dünyasına açılan dijital sanat günlüğü.</p><div class="hero-buttons"><a class="button-primary" href="#works">Galeriyi keşfet <svg class="icon" aria-hidden="true"><use href="#ic-arrow"/></svg></a><a class="button-outline" href="#flash">Hazır tasarımlar <svg class="icon" aria-hidden="true"><use href="#ic-arrow"/></svg></a></div><div class="hero-footnote">Biraz gerçek, biraz hayal · Portföy konsepti</div></div><div class="hero-media" id="hero-media" aria-label="Sayfayı kaydırdıkça bölümler arasında uçan etkileşimli üç boyutlu kelebek deneyimi"><div class="butterfly-presence" aria-hidden="true"></div><svg class="orbit-star a" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 1v38M1 20h38M6 6l28 28M34 6 6 34" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><svg class="orbit-star b" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 1v38M1 20h38M6 6l28 28M34 6 6 34" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><div class="orbit-caption">SAYFA BOYUNCA SENİNLE UÇAR<br>ÜÇ BOYUTLU KELEBEK DENEYİ</div><span class="orbit-vertical">DREAMSCAPE / UÇUŞ ROTASI · 01</span></div></div><div class="hero-scroll">KELEBEĞİ UÇURMAK İÇİN KAYDIR</div></section>
 <div class="ribbon" aria-hidden="true"><div class="ribbon-track"><span>NARİN ÇİZGİLER</span><i></i><span>PASTEL HAYALLER</span><i></i><span>ÖZGÜN HİKÂYELER</span><i></i><span>KİŞİSEL SANAT</span><i></i><span>HİSSEDEREK TASARLANDI</span><i></i><span>NARİN ÇİZGİLER</span><i></i><span>PASTEL HAYALLER</span><i></i><span>ÖZGÜN HİKÂYELER</span><i></i><span>KİŞİSEL SANAT</span><i></i><span>HİSSEDEREK TASARLANDI</span><i></i></div></div>
 <section class="section" id="works"><div class="container"><div class="section-head reveal"><div><div class="eyebrow">01 / Hayalî bir arşiv</div><h2 class="section-title">Küçük bir <i>evren.</i></h2></div><p class="section-intro">Masalsı detaylar, narin konturlar ve pembeyle mavinin arasında dolaşan çizimler. Her tasarımın ayrı bir hikâyesi var.</p></div><div class="filters" role="group" aria-label="Çalışmaları filtrele" id="work-filters"><button class="filter" data-filter="all" aria-pressed="true">Tüm çalışmalar</button><button class="filter" data-filter="fantasy" aria-pressed="false">Periler ve Fantastik</button><button class="filter" data-filter="floral" aria-pressed="false">Çiçekler</button><button class="filter" data-filter="ornamental" aria-pressed="false">Süslemeler</button><button class="filter" data-filter="mini" aria-pressed="false">Minik Detaylar</button></div><div class="gallery" id="gallery" aria-live="polite"></div><p class="gallery-note">* Buradaki çizimler bu konsept için üretilmiş bağımsız örnek illüstrasyonlardır. Gamze Sey'in gerçek dövmeleri veya onaylanmış tasarımları değildir.</p></div></section>
 <section class="split" id="about"><div class="split-art" aria-label="Özgün örnek çiçek çizimi"><div class="parchment"></div><svg class="design" viewBox="0 0 440 540" role="img" aria-label="Lily, özgün örnek tasarım"><use href="#art-lily" /></svg><span class="split-mark">her zaman biraz sihir.</span></div><div class="split-copy reveal"><div class="eyebrow">02 / Tasarımın ruhu</div><h2>Seni<br>anlatan <i>sanat.</i></h2><p>Bir dövme bazen hatırlamak istediğin bir duygu, bazen de sadece seni gülümseten minik bir detaydır. Bu konsept, Gamze’nin profilindeki ince çizgili, pastel dokunuşlu görsel dünyadan ilham alıyor.</p><div class="mini-facts"><span>İNCE ÇİZGİ</span><span>MASALSI DOKUNUŞ</span><span>ÖZGÜN RUH</span></div><a class="button-outline" href="#contact" style="margin-top:34px">Bir fikir paylaş <svg class="icon" aria-hidden="true"><use href="#ic-arrow"/></svg></a></div></section>
@@ -135,20 +145,92 @@ const pointerEvent=e=>{if(e.pointerType==='touch')return;flight.mouseKnown=true;
 window.addEventListener('pointermove',pointerEvent,{passive:true});
 const scrollEvent=()=>{const y=window.scrollY,delta=y-flight.lastScroll;flight.lastScroll=y;flight.energy=clamp(flight.energy+Math.abs(delta)*.021,0,3.2)};
 window.addEventListener('scroll',scrollEvent,{passive:true});
-function coordinates(){const h=dreamHero.getBoundingClientRect();const vw=window.innerWidth,vh=window.innerHeight;
- const heroX=h.left+h.width*.50,heroY=h.top+h.height*.48;
- // The object departs its hero stage smoothly, then stays alongside the reader.
- const travel=ease((window.scrollY-35)/Math.max(350,Math.min(850,window.innerHeight*.95)));
- const px=flight.mouseKnown?(flight.cursorX/vw-.5):0;
- const py=flight.mouseKnown?(flight.cursorY/vh-.5):0;
- const desktop=vw>760;
- const followX=desktop?clamp(vw*.78+px*Math.min(450,vw*.38),vw*.50,vw-75):vw-72+px*16;
- const followY=clamp(vh*.36+py*(desktop?120:55)+Math.sin(window.scrollY*.0025)*26,110,vh-128);
- flight.tx=heroX+(followX-heroX)*travel;flight.ty=heroY+(followY-heroY)*travel;
- flight.ts=(desktop?1.0:.78)*(1-travel)+(desktop?.36:.30)*travel;
- flight.progress=travel;
+// V2.1: the scroll position is a timeline. Each landmark moves the butterfly
+// through a curve that passes near (but not underneath) interactive content.
+// No fixed-right-corner companion: x and y both change across the page.
+const flightRoute={points:[],maxScroll:1,dirty:true,lastBuild:0};
+const flightWaypoints=()=>{
+ const vw=window.innerWidth,vh=window.innerHeight;
+ const mobile=vw<=760;
+ const max=Math.max(1,document.documentElement.scrollHeight-vh);
+ const geom=(sel)=>{const el=document.querySelector(sel);if(!el)return {top:0,height:1};const r=el.getBoundingClientRect();return {top:r.top+window.scrollY,height:Math.max(1,r.height)}};
+ const hero=geom('#hero-media'),works=geom('#works'),about=geom('#about'),flash=geom('#flash'),process=geom('#process'),contact=geom('#contact');
+ const hRect=dreamHero.getBoundingClientRect();
+ const heroX=clamp((hRect.left+hRect.width*.50)/vw,.20,.83);
+ const heroY=clamp((hero.top+hero.height*.48)/vh,.24,.90);
+ const w=(at,x,y,size,alpha=1)=>({at:clamp(at,0,max),x,y,size,alpha});
+ const plans=mobile?[
+   w(0,heroX,heroY,.78),
+   w(vh*.30,.72,.56,.65),
+   w(works.top-vh*.40,.77,.26,.39),
+   w(works.top+works.height*.31,.25,.38,.31),
+   w(works.top+works.height*.73,.77,.65,.30),
+   w(about.top+about.height*.26,.22,.28,.29),
+   w(flash.top-vh*.28,.77,.20,.28),
+   w(flash.top+flash.height*.35,.23,.61,.33),
+   w(flash.top+flash.height*.74,.75,.34,.29),
+   w(process.top+process.height*.23,.23,.28,.27),
+   w(contact.top-vh*.32,.77,.41,.26),
+   w(contact.top+contact.height*.24,.25,.24,.25),
+   w(max,.82,.08,.11,0)
+ ]:[
+   w(0,heroX,heroY,1.00),
+   w(vh*.30,.72,.47,.83),
+   w(works.top-vh*.40,.83,.28,.43),
+   w(works.top+works.height*.31,.20,.34,.34),
+   w(works.top+works.height*.73,.78,.59,.32),
+   w(about.top+about.height*.26,.22,.27,.33),
+   w(flash.top-vh*.28,.75,.23,.31),
+   w(flash.top+flash.height*.35,.25,.60,.35),
+   w(flash.top+flash.height*.74,.79,.37,.30),
+   w(process.top+process.height*.23,.25,.28,.30),
+   w(contact.top-vh*.32,.76,.39,.28),
+   w(contact.top+contact.height*.24,.27,.37,.25),
+   w(max,.88,.08,.10,0)
+ ];
+ // Distinct times ensure a stable spline even on exceptionally short pages.
+ plans.sort((a,b)=>a.at-b.at);
+ const unique=[];for(const item of plans){if(unique.length && item.at-unique[unique.length-1].at<.5){unique[unique.length-1]=item}else unique.push(item)}
+ flightRoute.points=unique;flightRoute.maxScroll=max;flightRoute.dirty=false;flightRoute.lastBuild=performance.now();
+};
+// Continuous cubic Hermite interpolation yields smooth fly-through at each waypoint.
+function flightAtScroll(y){
+ const pts=flightRoute.points;if(pts.length<2)return {x:.72,y:.40,size:.32,alpha:1};
+ if(y<=pts[0].at)return pts[0];if(y>=pts[pts.length-1].at)return pts[pts.length-1];
+ let i=0;while(i<pts.length-2&&y>pts[i+1].at)i++;
+ const a=pts[i],b=pts[i+1],prior=pts[Math.max(0,i-1)],after=pts[Math.min(pts.length-1,i+2)];
+ const span=Math.max(1,b.at-a.at),t=clamp((y-a.at)/span,0,1),t2=t*t,t3=t2*t;
+ const h00=2*t3-3*t2+1,h10=t3-2*t2+t,h01=-2*t3+3*t2,h11=t3-t2;
+ const value=k=>{const m0=(b[k]-prior[k])/Math.max(1,b.at-prior.at)*span;const m1=(after[k]-a[k])/Math.max(1,after.at-a.at)*span;return h00*a[k]+h10*m0+h01*b[k]+h11*m1};
+ return {x:clamp(value('x'),.12,.89),y:clamp(value('y'),.08,.90),size:clamp(value('size'),.10,1.02),alpha:clamp(value('alpha'),0,1)};
 }
-function setFallback(){dreamStage.style.setProperty('--dream-x',flight.x.toFixed(2)+'px');dreamStage.style.setProperty('--dream-y',flight.y.toFixed(2)+'px');dreamStage.style.setProperty('--dream-scale',flight.scale.toFixed(3));dreamStage.style.setProperty('--dream-flap',flight.flap.toFixed(3));dreamStage.style.setProperty('--dream-angle',flight.ang.toFixed(2)+'deg');}
+const routeRefresh=()=>{flightRoute.dirty=true};
+window.addEventListener('resize',routeRefresh,{passive:true});
+window.addEventListener('load',routeRefresh,{once:true});
+if(document.fonts?.ready)document.fonts.ready.then(routeRefresh).catch(()=>{});
+const trails=Array.from({length:5},()=>{const el=document.createElement('span');el.className='dreamscape-trail';el.setAttribute('aria-hidden','true');dreamStage.appendChild(el);return el});
+const trailPoints=[];
+function coordinates(){
+ if(flightRoute.dirty)flightWaypoints();
+ const vw=window.innerWidth,vh=window.innerHeight;
+ if(reducedMotion.matches){
+   // No scroll-linked motion: butterfly stays in its hero and leaves with it.
+   const r=dreamHero.getBoundingClientRect();
+   flight.tx=r.left+r.width*.50;flight.ty=r.top+r.height*.48;
+   flight.ts=vw>760?1:.78;flight.alpha=clamp((r.bottom-25)/160,0,1);flight.progress=0;return;
+ }
+ const destination=flightAtScroll(window.scrollY);
+ const pointerFine=window.matchMedia('(pointer:fine)').matches;
+ const px=flight.mouseKnown&&pointerFine?(flight.cursorX/vw-.5):0;
+ const py=flight.mouseKnown&&pointerFine?(flight.cursorY/vh-.5):0;
+ flight.tx=clamp(destination.x*vw+px*Math.min(56,vw*.06),28,vw-28);
+ flight.ty=clamp(destination.y*vh+py*34,34,vh-36);
+ flight.ts=destination.size;
+ flight.alpha=destination.alpha;
+ flight.progress=clamp(window.scrollY/flightRoute.maxScroll,0,1);
+ if(document.body.classList.contains('dialog-open'))flight.alpha=0;
+}
+function setFallback(){dreamStage.style.setProperty('--dream-x',flight.x.toFixed(2)+'px');dreamStage.style.setProperty('--dream-y',flight.y.toFixed(2)+'px');dreamStage.style.setProperty('--dream-scale',flight.scale.toFixed(3));dreamStage.style.setProperty('--dream-flap',flight.flap.toFixed(3));dreamStage.style.setProperty('--dream-angle',flight.ang.toFixed(2)+'deg');dreamStage.style.setProperty('--dream-opacity',(flight.alpha??1).toFixed(3));}
 const start=performance.now();coordinates();flight.x=flight.tx;flight.y=flight.ty;flight.scale=flight.ts;setFallback();
 let live3D=null,flightFrame=0;
 function animateFlight(ms){flightFrame=requestAnimationFrame(animateFlight);if(document.hidden)return;
@@ -163,10 +245,16 @@ function animateFlight(ms){flightFrame=requestAnimationFrame(animateFlight);if(d
    flight.x+=(flight.tx-flight.x)*Math.min(1,dt*5.6);
    flight.y+=(flight.ty-flight.y)*Math.min(1,dt*5.6);
    flight.scale+=(flight.ts-flight.scale)*Math.min(1,dt*5.5);
-   flight.ang=(Math.sin(flight.phase*.28)*4)+(flight.mouseKnown?(flight.cursorX/window.innerWidth-.5)*7:0);
+   flight.ang=clamp((flight.tx-flight.x)*.038,-11,11)+Math.sin(flight.phase*.28)*2.2+(flight.mouseKnown?(flight.cursorX/window.innerWidth-.5)*3:0);
  }
  // Keeping the fallback in sync means its wing movement works even without CDN/WebGL.
- setFallback();if(live3D)live3D.render(flight,ms);
+ setFallback();
+ // Pastel dust follows the actual path rather than sticking to a fixed screen corner.
+ if(!reducedMotion.matches && flight.alpha>.06){
+  trailPoints.unshift({x:flight.x,y:flight.y,alpha:flight.alpha});if(trailPoints.length>55)trailPoints.length=55;
+ }else trailPoints.length=0;
+ trails.forEach((el,i)=>{const p=trailPoints[(i+1)*8];if(!p){el.style.opacity='0';return}el.style.transform=`translate3d(${(p.x-5).toFixed(1)}px,${(p.y-5).toFixed(1)}px,0) scale(${(1-i*.13).toFixed(2)})`;el.style.opacity=(p.alpha*(.38-i*.06)).toFixed(2)});
+ if(live3D)live3D.render(flight,ms);
 }
 flightFrame=requestAnimationFrame(animateFlight);
 // Only import Three.js when animation is permitted and the browser can support it.
