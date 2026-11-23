@@ -156,7 +156,7 @@
     <div class="v5-magnetic-stage" id="v5-magnetic-stage"><div class="v5-caption" data-v5="magHint"></div><h3 id="v5-magnetic-words"><span data-v5="magMain"></span><span data-v5="magSub"></span></h3><button type="button" class="v5-spark-btn" id="v5-spark" data-v5="magButton"></button></div></div>`;
 
   const about=$('#about');const main=$('#main');if(!about||!main)return;
-  main.insertBefore(device,about);main.insertBefore(compare,about);main.insertBefore(magnetic,about);
+  const anchor=$('#expertise')||$('#contact');main.insertBefore(device,anchor);main.insertBefore(compare,anchor);main.insertBefore(magnetic,anchor);
   const workSubtitle=$('#work .section-sub');if(workSubtitle){const jump=document.createElement('a');jump.href='#v5-device-showcase';jump.className='v5-link';jump.style.marginTop='18px';jump.dataset.v5='jump';workSubtitle.after(jump)}
 
   const bar = document.createElement('aside');bar.className='v5-toolbar';bar.id='v5-toolbar';bar.setAttribute('aria-label','Performance settings');
