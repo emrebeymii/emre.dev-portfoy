@@ -7,7 +7,7 @@
 <meta name="description" content="Gamze Sey'in sanat estetiğinden ilham alan bağımsız tattoo artist web tasarım konsepti. WEB STUDIO 01 tarafından hazırlanmış örnek çalışmadır; resmi sanatçı sitesi değildir." />
 <meta property="og:title" content="Gamze Sey · Dövme Atölyesi / Bağımsız Konsept" />
 <meta property="og:description" content="İnce çizgilerin, hayallerin ve zarif detayların buluştuğu bağımsız web tasarım konsepti. WEB STUDIO 01." />
-<title>Gamze Sey | DREAMSCAPE V3.0 · THE LIVING CANVAS · Bağımsız Konsept | WEB STUDIO 01</title>
+<title>Gamze Sey | DREAMSCAPE V3.1 · THE LIVING CANVAS · Bağımsız Konsept | WEB STUDIO 01</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -47,21 +47,55 @@
 @media(prefers-reduced-motion:reduce){#dreamscape-stage .dreamscape-static{will-change:auto;transition:none}#dreamscape-stage .dreamscape-canvas{transition:none}.dreamscape-spark{display:none}}
 
 
-/* DREAMSCAPE V3.0 — THE LIVING CANVAS */
-main.living-canvas-ready{position:relative;isolation:isolate;background:transparent}
-#living-canvas{position:fixed;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:0}
-.living-canvas-ready>section,.living-canvas-ready>.ribbon{position:relative;z-index:1}
-.living-canvas-ready>.hero,.living-canvas-ready>#works,.living-canvas-ready>#about,.living-canvas-ready>#flash,.living-canvas-ready>#process,.living-canvas-ready>#contact{background:transparent}
+
+/* DREAMSCAPE V3.1 — LIGHTWEIGHT LIVING CANVAS. Native scrolling, no background canvas. */
+main.living-canvas-ready{position:relative;background:#f8f2f4}
+main.living-canvas-ready>section{position:relative;isolation:isolate}
+main.living-canvas-ready>section>.container,main.living-canvas-ready>#about>.split-art,main.living-canvas-ready>#about>.split-copy{position:relative;z-index:1}
+main.living-canvas-ready>.hero{background:radial-gradient(ellipse at 83% 24%,#f3c8de99,transparent 57%),radial-gradient(ellipse at 12% 84%,#d5dff2b0,transparent 62%),linear-gradient(#faf4f6,#f7eef3)}
+main.living-canvas-ready>#works{background:radial-gradient(ellipse at 98% 21%,#efd2e4b0,transparent 50%),radial-gradient(ellipse at 0% 72%,#d8e7f4c4,transparent 48%),linear-gradient(#f7eef3,#f4e9ef)}
+main.living-canvas-ready>#about{background:radial-gradient(ellipse at 100% 80%,#e4d3ef,transparent 60%),linear-gradient(#f4e9ef,#e6d6e4)}
+main.living-canvas-ready>#flash{background:radial-gradient(ellipse at 85% 10%,#77517f99,transparent 58%),radial-gradient(ellipse at 0% 82%,#5c4a8a9c,transparent 60%),linear-gradient(#352a40,#282334 55%,#3a2b43)}
+main.living-canvas-ready>#process{background:radial-gradient(ellipse at 4% 15%,#e0c7e1,transparent 55%),linear-gradient(#e7d8e7,#f7eef2)}
+main.living-canvas-ready>#contact{background:radial-gradient(ellipse at 15% 65%,#ebc9df99,transparent 60%),radial-gradient(ellipse at 99% 20%,#d4e1f2aa,transparent 50%),linear-gradient(#f7eef2,#f8f4f5)}
 .living-canvas-ready>.hero:before{opacity:.18}
 .living-canvas-ready .split-art{background:radial-gradient(ellipse at 52% 41%,#f9e0e9a8,transparent 70%),linear-gradient(140deg,#efdef08c,#e1eaf277)}
+.living-tile{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;color:#ad759a;opacity:.54}
+#flash .living-tile{color:#efb9e5;opacity:.71}
+.living-tile svg{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;display:block}
+.living-tile .vine,.living-tile .botanical{fill:none;stroke:currentColor;stroke-width:1.05;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.living-tile .vine{opacity:.72}
+.living-tile .botanical{opacity:.87}
+.living-tile .bloom-group{opacity:1}
+.living-tile .stars{fill:currentColor;opacity:.78}
+.living-tile .constellation{fill:none;stroke:currentColor;stroke-width:.7;vector-effect:non-scaling-stroke;opacity:.6}
 .living-finale{position:relative;margin:25px 0 0;width:min(100%,280px);height:168px;display:flex;align-items:center;justify-content:center;color:#a76b92;pointer-events:none}
 .living-finale svg{width:100%;height:100%;overflow:visible}
-.living-finale .final-trace{fill:none;stroke:currentColor;stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:var(--final-dash,0);vector-effect:non-scaling-stroke}
+.living-finale .final-trace{fill:none;stroke:currentColor;stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0;vector-effect:non-scaling-stroke}
 .living-finale .final-halo{fill:none;stroke:#cb9cc1;stroke-width:.6;stroke-dasharray:2 7;opacity:.7}
 .living-finale .perch-point{position:absolute;left:50%;top:25%;width:1px;height:1px}
 .living-finale-label{font-size:8px;font-weight:800;letter-spacing:.23em;text-transform:uppercase;color:#8b7585;margin-top:9px}
-@media(max-width:760px){.living-finale{width:220px;height:132px;margin-top:20px}.living-finale-label{font-size:8px}}
-@media(prefers-reduced-motion:reduce){.living-finale .final-trace{stroke-dashoffset:0!important}}
+.living-tile.is-reveal-pending .bloom-group{opacity:.15}
+.living-tile.is-reveal-pending .vine{stroke-dasharray:1;stroke-dashoffset:1}
+.living-tile.is-revealed .bloom-group{transition:opacity .8s ease;opacity:1}
+.living-tile.is-revealed .vine{stroke-dasharray:1;stroke-dashoffset:0;transition:stroke-dashoffset 1.2s ease}
+.living-finale.is-reveal-pending .final-trace{stroke-dashoffset:1}
+.living-finale.is-revealed .final-trace{stroke-dashoffset:0;transition:stroke-dashoffset 1.3s ease}
+#dreamscape-stage .dreamscape-canvas{inset:auto;top:0;left:0;right:auto;bottom:auto;width:var(--flight-box,420px);height:var(--flight-box,420px);transform-origin:center;will-change:transform;transition:none}
+#dreamscape-stage.is-webgl-ready .dreamscape-canvas{opacity:1}
+@media(max-width:760px),(pointer:coarse){
+ .site-header{background:#f8f6f5f5;backdrop-filter:none;-webkit-backdrop-filter:none}
+ .living-finale{width:220px;height:132px;margin-top:20px}
+ .living-tile{opacity:.43}#flash .living-tile{opacity:.63}
+ .living-tile .vine,.living-tile .botanical{stroke-width:.8}
+ .living-tile.is-reveal-pending .vine,.living-tile.is-revealed .vine{stroke-dasharray:none;stroke-dashoffset:0;transition:none}
+ .living-tile.is-reveal-pending .bloom-group,.living-tile.is-revealed .bloom-group{opacity:1;transition:none}
+ #dreamscape-stage .dreamscape-static{filter:none}
+ #dreamscape-stage .dreamscape-trail,#dreamscape-stage .dreamscape-spark{display:none}
+ .reveal{transition:opacity .35s ease,transform .35s ease;transform:translateY(12px)}
+ .reveal.show{transform:none}
+}
+@media(prefers-reduced-motion:reduce){.living-tile .vine,.living-tile .bloom-group,.living-finale .final-trace{transition:none!important;stroke-dashoffset:0!important;opacity:1!important}}
 </style>
 </head>
 <body>
@@ -155,6 +189,10 @@ const dreamStage=document.getElementById('dreamscape-stage');
 const dreamHero=document.getElementById('hero-media');
 const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
 const lowData=Boolean(navigator.connection?.saveData);
+const compactFlight=matchMedia('(max-width:760px),(pointer:coarse)').matches;
+let flightViewportW=window.innerWidth,flightViewportH=window.innerHeight;
+const flightBox=compactFlight?320:440;
+dreamStage.style.setProperty('--flight-box',flightBox+'px');
 const flight={x:0,y:0,scale:1,tx:0,ty:0,ts:1,clock:0,energy:0,lastScroll:window.scrollY,lastTime:0,cursorX:0,cursorY:0,mouseKnown:false,phase:0,flap:0.45,ang:0,progress:0};
 const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
 const ease=v=>{v=clamp(v,0,1);return v*v*(3-2*v)};
@@ -232,8 +270,9 @@ function flightAtScroll(y){
  const value=k=>{const m0=(b[k]-prior[k])/Math.max(1,b.at-prior.at)*span;const m1=(after[k]-a[k])/Math.max(1,after.at-a.at)*span;return h00*a[k]+h10*m0+h01*b[k]+h11*m1};
  return {x:clamp(value('x'),.12,.89),y:clamp(value('y'),.08,.90),size:clamp(value('size'),.10,1.02),alpha:clamp(value('alpha'),0,1)};
 }
-const routeRefresh=()=>{flightRoute.dirty=true};
-window.addEventListener('resize',routeRefresh,{passive:true});
+const routeRefresh=()=>{flightRoute.dirty=true;flightViewportW=window.innerWidth;flightViewportH=window.innerHeight};
+window.addEventListener('resize',()=>{if(Math.abs(window.innerWidth-flightViewportW)>2||Math.abs(window.innerHeight-flightViewportH)>110)routeRefresh()},{passive:true});
+if('ResizeObserver'in window){const routeObserver=new ResizeObserver(()=>{flightRoute.dirty=true});document.querySelectorAll('main > section').forEach(el=>routeObserver.observe(el));}
 window.addEventListener('load',routeRefresh,{once:true});
 if(document.fonts?.ready)document.fonts.ready.then(routeRefresh).catch(()=>{});
 const trails=Array.from({length:5},()=>{const el=document.createElement('span');el.className='dreamscape-trail';el.setAttribute('aria-hidden','true');dreamStage.appendChild(el);return el});
@@ -260,7 +299,7 @@ function coordinates(){
 }
 function setFallback(){dreamStage.style.setProperty('--dream-x',flight.x.toFixed(2)+'px');dreamStage.style.setProperty('--dream-y',flight.y.toFixed(2)+'px');dreamStage.style.setProperty('--dream-scale',flight.scale.toFixed(3));dreamStage.style.setProperty('--dream-flap',flight.flap.toFixed(3));dreamStage.style.setProperty('--dream-angle',flight.ang.toFixed(2)+'deg');dreamStage.style.setProperty('--dream-opacity',(flight.alpha??1).toFixed(3));}
 const start=performance.now();coordinates();flight.x=flight.tx;flight.y=flight.ty;flight.scale=flight.ts;setFallback();
-let live3D=null,flightFrame=0;
+let live3D=null,flightFrame=0,lastWingRender=-1000;
 function animateFlight(ms){flightFrame=requestAnimationFrame(animateFlight);if(document.hidden)return;
  const dt=clamp((ms-(flight.lastTime||ms))/1000,0,.07);flight.lastTime=ms;
  coordinates();
@@ -276,13 +315,13 @@ function animateFlight(ms){flightFrame=requestAnimationFrame(animateFlight);if(d
    flight.ang=clamp((flight.tx-flight.x)*.038,-11,11)+Math.sin(flight.phase*.28)*2.2+(flight.mouseKnown?(flight.cursorX/window.innerWidth-.5)*3:0);
  }
  // Keeping the fallback in sync means its wing movement works even without CDN/WebGL.
- setFallback();
+ if(!live3D)setFallback();
  // Pastel dust follows the actual path rather than sticking to a fixed screen corner.
- if(!reducedMotion.matches && flight.alpha>.06){
+ if(!compactFlight&&!reducedMotion.matches && flight.alpha>.06){
   trailPoints.unshift({x:flight.x,y:flight.y,alpha:flight.alpha});if(trailPoints.length>55)trailPoints.length=55;
  }else trailPoints.length=0;
- trails.forEach((el,i)=>{const p=trailPoints[(i+1)*8];if(!p){el.style.opacity='0';return}el.style.transform=`translate3d(${(p.x-5).toFixed(1)}px,${(p.y-5).toFixed(1)}px,0) scale(${(1-i*.13).toFixed(2)})`;el.style.opacity=(p.alpha*(.38-i*.06)).toFixed(2)});
- if(live3D)live3D.render(flight,ms);
+ if(!compactFlight)trails.forEach((el,i)=>{const p=trailPoints[(i+1)*8];if(!p){el.style.opacity='0';return}el.style.transform=`translate3d(${(p.x-5).toFixed(1)}px,${(p.y-5).toFixed(1)}px,0) scale(${(1-i*.13).toFixed(2)})`;el.style.opacity=(p.alpha*(.38-i*.06)).toFixed(2)});
+ if(live3D){live3D.position(flight);if(flight.alpha>.02&&ms-lastWingRender>=(compactFlight?32:15)){lastWingRender=ms;live3D.render(flight,ms)}}
 }
 flightFrame=requestAnimationFrame(animateFlight);
 // Only import Three.js when animation is permitted and the browser can support it.
@@ -290,8 +329,8 @@ async function initDream3D(){if(lowData||reducedMotion.matches)return;
  let THREE;try{THREE=await import('https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js')}catch(_){return}
  if(!dreamStage.isConnected)return;
  const canvas=dreamStage.querySelector('canvas');let renderer;
- try{renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:'low-power'});}catch(_){return}
- renderer.setClearColor(0x000000,0);renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,window.innerWidth<760?1.25:1.6));
+ try{renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:!compactFlight,powerPreference:'low-power'});}catch(_){return}
+ renderer.setClearColor(0x000000,0);renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,compactFlight?1.15:1.5));
  const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(35,1,.1,40);camera.position.z=9;
  scene.add(new THREE.AmbientLight(0xffffff,2.3));const key=new THREE.DirectionalLight(0xffffff,3.4);key.position.set(-3,5,5);scene.add(key);
  const rim=new THREE.DirectionalLight(0x92cbee,2.6);rim.position.set(4,-1,2);scene.add(rim);
@@ -317,18 +356,20 @@ async function initDream3D(){if(lowData||reducedMotion.matches)return;
  const abdomenGeo=new THREE.CapsuleGeometry(.14,1.10,5,12);const abdomen=new THREE.Mesh(abdomenGeo,bodyMat);abdomen.position.set(0,-.28,.16);butterfly.add(abdomen);created.push(abdomenGeo);
  const headGeo=new THREE.SphereGeometry(.18,16,12),head=new THREE.Mesh(headGeo,bodyMat);head.position.set(0,.69,.18);butterfly.add(head);created.push(headGeo);
  for(let side of [-1,1]){const antCurve=new THREE.CatmullRomCurve3([new THREE.Vector3(side*.08,.77,.15),new THREE.Vector3(side*.22,1.09,.17),new THREE.Vector3(side*.41,1.26,.20)]);const antGeo=new THREE.TubeGeometry(antCurve,20,.018,6,false);butterfly.add(new THREE.Mesh(antGeo,bodyMat));created.push(antGeo)}
- const resize=()=>{const w=window.innerWidth,h=window.innerHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()};resize();window.addEventListener('resize',resize,{passive:true});
+ const resize=()=>{renderer.setSize(flightBox,flightBox,false);camera.aspect=1;camera.updateProjectionMatrix()};resize();
  const rendered=(state,ms)=>{const ww=window.innerWidth,hh=window.innerHeight;const fov=THREE.MathUtils.degToRad(camera.fov);const worldH=2*Math.tan(fov/2)*camera.position.z;
-   butterfly.position.set((state.x/ww-.5)*worldH*camera.aspect,(.5-state.y/hh)*worldH,0);
+   butterfly.position.set(0,0,0);
    // World scale depends on screen height; the hero butterfly is large and the companion smaller.
-   const heroPixels=ww>760?Math.min(470,ww*.35):Math.min(285,ww*.74);const intendedPixels=heroPixels*(state.scale/(ww>760?1:.78));butterfly.scale.setScalar(intendedPixels*worldH/(5.4*hh));
+   const heroPixels=ww>760?Math.min(470,ww*.35):Math.min(285,ww*.74);butterfly.scale.setScalar(heroPixels*worldH/(5.4*flightBox));
    const wingAngle=.22+(.92-state.flap)*1.25;left.rotation.y=-wingAngle;right.rotation.y=wingAngle;
    butterfly.rotation.y=(state.mouseKnown?(state.cursorX/ww-.5)*.48:0)+Math.sin(ms*.00015)*.10;
    butterfly.rotation.x=(state.mouseKnown?(state.cursorY/hh-.5)*.25:0)+Math.sin(ms*.00033)*.05;
    butterfly.rotation.z=THREE.MathUtils.degToRad(state.ang);
    renderer.render(scene,camera);
  };
- live3D={render:rendered};dreamStage.classList.add('is-webgl-ready');
+ const position=state=>{const scale=state.scale/(compactFlight?.78:1);canvas.style.transform='translate3d('+(state.x-flightBox*.5).toFixed(1)+'px,'+(state.y-flightBox*.5).toFixed(1)+'px,0) scale('+scale.toFixed(3)+')';canvas.style.opacity=(state.alpha??1).toFixed(3)};
+ live3D={render:rendered,position};position(flight);rendered(flight,performance.now());dreamStage.classList.add('is-webgl-ready');
+ canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();live3D=null;dreamStage.classList.remove('is-webgl-ready');setFallback()},{once:true});
  const dispose=()=>{live3D=null;window.removeEventListener('resize',resize);created.forEach(o=>o.dispose?.());renderer.dispose()};
  window.addEventListener('pagehide',dispose,{once:true});
 }
@@ -340,198 +381,62 @@ window.addEventListener('pagehide',()=>{cancelAnimationFrame(flightFrame);window
 
 
 
+
+
+
 <script>
-/* THE LIVING CANVAS: one document-space illustration, six chapters, no new network calls. */
+/* V3.1: one continuous path split into small document-flow SVG tiles. No frame loop. */
 (()=>{
- 'use strict';
- const main=document.querySelector('main');
- const sections=[...main.querySelectorAll(':scope > section')];
- const finale=main.querySelector('.living-finale');
- const reduced=matchMedia('(prefers-reduced-motion: reduce)');
- const constrained=Boolean(navigator.connection?.saveData);
+ const main=document.querySelector('main'),sections=[...main.querySelectorAll(':scope > section')];
+ const finale=main.querySelector('.living-finale'),reduce=matchMedia('(prefers-reduced-motion: reduce)');
  if(sections.length!==6)return;
- const canvas=document.createElement('canvas');canvas.id='living-canvas';canvas.setAttribute('aria-hidden','true');
- const ctx=canvas.getContext('2d',{alpha:true});if(!ctx)return;
- main.prepend(canvas);
- const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
- const mix=(a,b,t)=>a+(b-a)*t;
- const smooth=v=>{v=clamp(v);return v*v*(3-2*v)};
- const random=seed=>{let n=seed>>>0;return ()=>{n=(Math.imul(n,1664525)+1013904223)>>>0;return n/4294967296}};
- const rand=random(3019);
- const palette=[
-  ['#f8f2f2','#f5d4e3','#e7d9ef','#c7e1f1'],
-  ['#f8f5f4','#f0d1e4','#d7d6f3','#d6eaf2'],
-  ['#f3e8ed','#e8bcd3','#dfd3ee','#d8e5ef'],
-  ['#2b2435','#9c589c','#655696','#c28bb7'],
-  ['#f5eef2','#efd2df','#ded9f1','#c9e3ef'],
-  ['#f8f3f4','#f2d7e3','#dfd2ec','#dceaf3']
- ];
- let W=1,H=1,dpr=1,geom=[],top=0,bottom=0,stars=[],flowers=[],nodes=[],dirty=true,raf=0,last=0,paused=false,phase=0,target=0,settled=false;
- // Cached translucent pigment stamps: irregular soft lobes and filaments create ink-in-water, not hard circles.
- function stamp(color,seed){
-  const c=document.createElement('canvas');c.width=c.height=384;
-  const g=c.getContext('2d'),r=random(seed);
-  for(let i=0;i<38;i++){
-   const a=r()*Math.PI*2,rr=Math.pow(r(),.65)*118,x=192+Math.cos(a)*rr,y=192+Math.sin(a)*rr*.72,rad=25+r()*77;
-   const grad=g.createRadialGradient(x,y,0,x,y,rad);
-   grad.addColorStop(0,color+'32');grad.addColorStop(.38,color+'20');grad.addColorStop(.72,color+'0c');grad.addColorStop(1,color+'00');
-   g.fillStyle=grad;g.fillRect(x-rad,y-rad,rad*2,rad*2);
+ const NS='http://www.w3.org/2000/svg';
+ const nodes=sections.map(section=>{const layer=document.createElement('div');layer.className='living-tile';layer.setAttribute('aria-hidden','true');section.prepend(layer);return {section,layer,w:0,h:0}});
+ const edges=[.82,.82,.18,.83,.17,.83,.18];
+ const mobile=()=>matchMedia('(max-width:760px),(pointer:coarse)').matches;
+ const num=n=>Number(n.toFixed(1));
+ function shape(tag,attrs){const el=document.createElementNS(NS,tag);for(const [key,value] of Object.entries(attrs))el.setAttribute(key,String(value));return el}
+ function build(item,i){
+  const w=item.section.clientWidth,h=item.section.clientHeight;if(!w||!h||item.w===w&&item.h===h)return;
+  item.w=w;item.h=h;
+  const small=mobile(),edge=edges.map(e=>small?(e>.5?.92:.08):e);
+  const a=edge[i]*w,b=edge[i+1]*w;
+  // Exact normalized endpoints match adjoining chapters, including after filter/layout changes.
+  const p=(t)=>{const q=t*t*(3-2*t);return a+(b-a)*q+Math.sin(t*Math.PI*2)*Math.sin(t*Math.PI)*w*.017};
+  const svg=shape('svg',{viewBox:'0 0 '+w+' '+h,preserveAspectRatio:'none',focusable:'false'});
+  const d='M '+num(a)+' 0 C '+num(a)+' '+num(h*.38)+' '+num(b)+' '+num(h*.62)+' '+num(b)+' '+h;
+  svg.append(shape('path',{class:'vine',pathLength:1,d}));
+  const count=Math.min(small?7:10,Math.max(3,Math.round(h/(small?235:220))));
+  for(let k=0;k<count;k++){
+   const t=(k+.6)/(count+.3),y=h*t;
+   // Exact x along the cubic whose control points share the endpoints' x coordinates.
+   const u=t;const x=a*(1-u)*(1-u)*(1-u)+3*a*(1-u)*(1-u)*u+3*b*(1-u)*u*u+b*u*u*u;
+   const sign=(k+i)%2===0?1:-1,size=(small?31:54)+(k%3)*(small?8:11);
+   const branch=shape('g',{class:'bloom-group',transform:'translate('+num(x)+' '+num(y)+') scale('+sign+' 1)'});
+   branch.append(shape('path',{class:'botanical',d:'M0 0 Q'+size*.70+' '+(-size*.12)+' '+size+' '+(-size)+' M'+size*.36+' '+(-size*.23)+' Q'+size*.25+' '+(-size*.70)+' '+size*.06+' '+(-size*.76)+' Q'+size*.06+' '+(-size*.40)+' '+size*.36+' '+(-size*.23)+' M'+size*.78+' '+(-size*.54)+' Q'+size*1.22+' '+(-size*.42)+' '+size*1.38+' '+(-size*.71)+' Q'+size+' '+(-size*.72)+' '+size*.78+' '+(-size*.54)}));
+   if(i===3){branch.append(shape('path',{class:'botanical',d:'M'+size+' '+(-size-11)+' l3 11 -3 11 -3 -11 Z'}))}
+   else{const flower=shape('g',{transform:'translate('+size+' '+(-size)+')'}),r=size*.29;let petals='';for(let j=0;j<6;j++){flower.append(shape('path',{class:'botanical',transform:'rotate('+(j*60)+')',d:'M0 0 C'+(-r*.65)+' '+(-r*.45)+' '+(-r*.42)+' '+(-r)+' 0 '+(-r)+' C'+r*.42+' '+(-r)+' '+r*.65+' '+(-r*.45)+' 0 0'}))}branch.append(flower)}
+   svg.append(branch);
   }
-  g.lineCap='round';
-  for(let i=0;i<19;i++){
-   const a=r()*6.283,rr=25+r()*85,x=192+Math.cos(a)*rr,y=192+Math.sin(a)*rr*.7;
-   g.strokeStyle=color+'13';g.lineWidth=.7+r()*2.6;g.beginPath();g.moveTo(x,y);g.bezierCurveTo(x+Math.cos(a+.9)*42,y+Math.sin(a+.9)*36,x+Math.cos(a-.7)*72,y+Math.sin(a-.7)*55,x+Math.cos(a)*94,y+Math.sin(a)*72);g.stroke();
+  if(i===3){
+   const group=shape('g',{class:'stars'});let seed=731;const rand=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296};
+   for(let j=0;j<(small?48:86);j++)group.append(shape('circle',{cx:num(rand()*w),cy:num(rand()*h),r:num(.45+rand()*1.3),opacity:num(.3+rand()*.6)}));
+   svg.append(group);
+   for(let j=0;j<3;j++){const x=w*(j%2?.84:.16),y=h*(.19+j*.31),r=small?35:80;svg.append(shape('path',{class:'constellation',d:'M'+num(x)+' '+num(y-r)+' l'+r*.6+' '+r*.8+' '+(-r*.25)+' '+r*.65+' '+(-r*.85)+' '+(-r*.1)+' '+(-r*.15)+' '+(-r*.85)+' Z'}))}
   }
-  return c;
+  item.layer.replaceChildren(svg);
  }
- const pigments=palette.map((p,i)=>p.slice(1).map((color,j)=>stamp(color,100+i*31+j*13)));
- const seedStars=Array.from({length:96},()=>({x:rand(),y:rand(),r:.5+rand()*1.7,a:.25+rand()*.65,t:rand()*6.283}));
- function reflow(){
-  W=window.innerWidth;H=window.innerHeight;
-  if(!W||!H)return;
-  dpr=Math.min(window.devicePixelRatio||1,W<760?1:1.35);
-  canvas.width=Math.ceil(W*dpr);canvas.height=Math.ceil(H*dpr);
-  ctx.setTransform(dpr,0,0,dpr,0,0);
-  const y=window.scrollY;
-  geom=sections.map(el=>{const q=el.getBoundingClientRect();return{top:q.top+y,bottom:q.bottom+y,h:q.height}});
-  top=geom[0].top;bottom=geom[5].bottom;
-  const sides=[.81,.14,.87,.15,.86,.19,.50];
-  if(W<760){sides[0]=.89;sides[1]=.08;sides[2]=.91;sides[3]=.08;sides[4]=.92;sides[5]=.10;sides[6]=.50;}
-  nodes=geom.map((g,i)=>({x:sides[i],y:g.top+Math.min(g.h*.21,H*.3)}));
-  nodes.unshift({x:W<760?.90:.86,y:top-20});
-  const pr=finale?.getBoundingClientRect();nodes.push({x:pr?clamp((pr.left+pr.width*.5)/W,.06,.94):.5,y:pr?pr.top+y+pr.height*.25:bottom-30});
-  nodes.sort((a,b)=>a.y-b.y);
-  const r=random(722);
-  flowers=[];
-  geom.forEach((g,i)=>{
-   const count=W<760?3:5;
-   for(let j=0;j<count;j++){
-    const fy=g.top+g.h*(.12+j*.75/Math.max(1,count-1));
-    flowers.push({y:fy,side:(i+j)%2===0?1:-1,size:(W<760?28:50)+r()*(W<760?34:66),rot:(r()-.5)*.9,type:i===3?'star':i===0?'bud':'flower'});
-   }
-  });
-  stars=seedStars.map(v=>({...v,y:geom[3].top+v.y*geom[3].h}));
-  dirty=true;
+ let queued=0;
+ function rebuild(){queued=0;nodes.forEach(build);main.classList.add('living-canvas-ready')}
+ function request(){if(!queued)queued=requestAnimationFrame(rebuild)}
+ rebuild();
+ if('ResizeObserver'in window){const observer=new ResizeObserver(request);nodes.forEach(n=>observer.observe(n.section))}
+ else window.addEventListener('resize',request,{passive:true});
+ if(!reduce.matches&&'IntersectionObserver'in window){
+  const io=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.remove('is-reveal-pending');e.target.classList.add('is-revealed');io.unobserve(e.target)}},{rootMargin:'0px 0px -5% 0px'});
+  if(!mobile())nodes.forEach(({layer})=>{layer.classList.add('is-reveal-pending');io.observe(layer)});
+  if(finale){finale.classList.add('is-reveal-pending');io.observe(finale)}
  }
- function xAt(y){
-  let i=0;while(i<nodes.length-2&&y>nodes[i+1].y)i++;
-  const a=nodes[i],b=nodes[i+1],t=smooth((y-a.y)/Math.max(1,b.y-a.y));
-  return W*(mix(a.x,b.x,t)+Math.sin((y-top)/210)*.018*Math.sin(t*Math.PI));
- }
- function stage(y){let i=geom.findIndex(g=>y>=g.top&&y<g.bottom);if(i>=0)return i;return y<geom[0].top?0:geom.findIndex(g=>g.top>y)-1<0?5:geom.findIndex(g=>g.top>y)-1}
- function ink(y,t){
-  for(let i=0;i<geom.length;i++){
-   const g=geom[i];
-   if(g.bottom<y-H||g.top>y+H*2)continue;
-   const center=g.top+g.h*.40,local=clamp((y+H*.5-center)/Math.max(H,g.h),-1,1);
-   const dark=i===3;
-   ctx.save();
-   const a=Math.max(0,g.top-y),b=Math.min(H,g.bottom-y);
-   if(dark){ctx.beginPath();ctx.rect(0,a,W,Math.max(0,b-a));ctx.clip()}
-   else{ // Avoid light pigment wash crossing into the dark chapter.
-    ctx.beginPath();ctx.rect(0,Math.max(0,i>3?geom[3].bottom-y:0),W,Math.max(0,(i<3?Math.min(H,geom[3].top-y):H)-Math.max(0,i>3?geom[3].bottom-y:0)));ctx.clip();
-   }
-   for(let j=0;j<3;j++){
-    const side=(j+i)%2===0?1:-1;
-    const dim=Math.min(W*(W<760?1.14:.74),H*1.36)*(1+j*.13);
-    const px=W*(side===1?.76:.18)+Math.sin(t*.30+i+j)*W*.025+local*side*W*.14;
-    const py=center-y+(j-1)*Math.min(g.h*.26,H*.34)+local*H*.22;
-    ctx.save();ctx.translate(px,py);ctx.rotate(local*.45+Math.sin(t*.24+j)*.10);ctx.globalAlpha=dark?.89:.92;
-    ctx.drawImage(pigments[i][j],-dim*.5,-dim*.5,dim,dim);ctx.restore();
-   }
-   ctx.restore();
-  }
- }
- function base(y){
-  const f=geom[3],g=ctx.createLinearGradient(0,0,0,H);
-  const stops=[[top,'#f8f1f3'],[geom[1].top,'#faf6f5'],[geom[2].top,'#f3e7ee'],[f.top-150,'#e6d6e4'],[f.top-1,'#cdb7d0'],[f.top,'#302739'],[f.top+f.h*.52,'#272134'],[f.bottom-1,'#372b42'],[f.bottom,'#e7d8e7'],[f.bottom+180,'#f7f0f3'],[geom[5].top,'#f3e7ed'],[bottom,'#f8f4f5']];
-  // Interpolate document gradient precisely within the viewport, even while jumping via anchors.
-  function rgb(h){return [parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)]}
-  stops.sort((a,b)=>a[0]-b[0]);
-  const at=py=>{if(py<=stops[0][0])return stops[0][1];for(let i=1;i<stops.length;i++)if(py<=stops[i][0]){const a=stops[i-1],b=stops[i],u=clamp((py-a[0])/Math.max(.001,b[0]-a[0]));return 'rgb('+rgb(a[1]).map((v,j)=>Math.round(mix(v,rgb(b[1])[j],u))).join(',')+')'}return stops.at(-1)[1]};
-  g.addColorStop(0,at(y));for(const [p,c] of stops)if(p>y&&p<y+H)g.addColorStop((p-y)/H,c);g.addColorStop(1,at(y+H));ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
- }
- function strokeVine(y,reveal){
-  // The same continuous document-space line is revealed from the top, not restarted per section.
-  const a=Math.max(top,y-90),b=Math.min(bottom,y+H+90,reveal,nodes.at(-1).y);
-  if(b<=a)return;
-  const step=W<760?12:9;
-  const cuts=[a,...[geom[3].top,geom[3].bottom].filter(p=>p>a&&p<b),b];
-  ctx.lineCap='round';ctx.lineJoin='round';
-  for(let k=0;k<cuts.length-1;k++){
-   const first=cuts[k],last=cuts[k+1],dark=(first+last)*.5>=geom[3].top&&(first+last)*.5<geom[3].bottom;
-   ctx.strokeStyle=dark?'rgba(248,190,230,.59)':'rgba(153,92,132,.42)';ctx.lineWidth=W<760?.8:1.15;ctx.beginPath();ctx.moveTo(xAt(first),first-y);
-   for(let p=first+step;p<last;p+=step)ctx.lineTo(xAt(p),p-y);ctx.lineTo(xAt(last),last-y);ctx.stroke();
-  }
- }
- function leaf(x,y,size,angle){
-  ctx.save();ctx.translate(x,y);ctx.rotate(angle);ctx.beginPath();ctx.moveTo(0,0);ctx.quadraticCurveTo(size*.28,-size*.65,size,-size*.70);ctx.quadraticCurveTo(size*.89,-size*.03,0,0);ctx.moveTo(0,0);ctx.quadraticCurveTo(size*.5,-size*.32,size,-size*.70);ctx.stroke();ctx.restore();
- }
- function bloom(x,y,r,open){
-  ctx.save();ctx.translate(x,y);ctx.rotate(-.15);ctx.beginPath();
-  for(let k=0;k<7;k++){const angle=k*Math.PI*2/7;ctx.save();ctx.rotate(angle);ctx.moveTo(0,0);ctx.bezierCurveTo(-r*.56,-r*.29,-r*.48,-r*open,0,-r*open);ctx.bezierCurveTo(r*.48,-r*open,r*.56,-r*.29,0,0);ctx.restore()}
-  ctx.stroke();ctx.beginPath();ctx.arc(0,0,Math.max(1,r*.10),0,Math.PI*2);ctx.stroke();ctx.restore();
- }
- function botanical(y,reveal){
-  for(const f of flowers){
-   if(f.y<y-170||f.y>y+H+170||f.y>reveal)continue;
-   const grow=reduced.matches?1:smooth((reveal-f.y)/Math.max(80,H*.25));if(grow<.01)continue;
-   const x=xAt(f.y),yy=f.y-y,dir=f.side,r=f.size*grow,dx=dir*r*.9;
-   ctx.save();ctx.globalAlpha=grow*(W<760?.72:.95);ctx.lineWidth=W<760?.8:1.05;
-   ctx.strokeStyle=f.type==='star'?'#e1abd5a8':'#a87599a6';ctx.beginPath();ctx.moveTo(x,yy);ctx.bezierCurveTo(x+dx*.75,yy-r*.08,x+dx,yy-r*.6,x+dx,yy-r);ctx.stroke();
-   if(f.type==='star'){ctx.beginPath();ctx.moveTo(x+dx,yy-r-9);ctx.lineTo(x+dx+3,yy-r);ctx.lineTo(x+dx,yy-r+9);ctx.lineTo(x+dx-3,yy-r);ctx.closePath();ctx.stroke()}
-   else{leaf(x+dx*.52,yy-r*.30,r*.35,dir===1?-.48:Math.PI+.48);leaf(x+dx*.91,yy-r*.63,r*.29,dir===1?Math.PI+.28:-.28);bloom(x+dx,yy-r,r*(f.type==='bud'?.20:.29),.28+.72*grow)}
-   ctx.restore();
-  }
- }
- function celestial(y,t,reveal){
-  const f=geom[3];if(f.bottom<y||f.top>y+H)return;
-  ctx.save();ctx.beginPath();ctx.rect(0,Math.max(0,f.top-y),W,Math.max(0,Math.min(H,f.bottom-y)-Math.max(0,f.top-y)));ctx.clip();
-  const count=W<760?48:96;
-  for(let i=0;i<count;i++){const p=stars[i],py=p.y-y;if(py<0||py>H||p.y>reveal)continue;const x=p.x*W;ctx.globalAlpha=p.a*(.65+.35*Math.sin(t*1.2+p.t));ctx.fillStyle='#fce5fa';ctx.beginPath();ctx.arc(x,py,p.r,0,Math.PI*2);ctx.fill()}
-  ctx.globalAlpha=.36;ctx.strokeStyle='#edc1e4';ctx.lineWidth=.8;
-  for(let i=0;i<3;i++){
-   const cx=W*(i%2?.82:.16),cy=f.top+f.h*(.22+i*.30)-y;if(cy<-150||cy>H+150)continue;
-   const rr=Math.min(W*.13,100),pts=[[0,-.8],[.65,-.12],[.3,.55],[-.48,.7],[-.75,-.08],[0,-.8]];
-   ctx.beginPath();pts.forEach(([x,z],j)=>j?ctx.lineTo(cx+x*rr,cy+z*rr):ctx.moveTo(cx+x*rr,cy+z*rr));ctx.stroke();
-   pts.forEach(([x,z])=>{ctx.beginPath();ctx.arc(cx+x*rr,cy+z*rr,2,0,Math.PI*2);ctx.fill()});
-  }
-  ctx.restore();
- }
- function render(t){
-  const y=window.scrollY,visTop=Math.max(0,top-y),visBottom=Math.min(H,bottom-y);
-  ctx.clearRect(0,0,W,H);if(visBottom<=visTop)return;
-  ctx.save();ctx.beginPath();ctx.rect(0,visTop,W,visBottom-visTop);ctx.clip();
-  base(y);ink(y,t);const reveal=reduced.matches||constrained?bottom:Math.min(bottom,phase+H*.97);
-  strokeVine(y,reveal);botanical(y,reveal);celestial(y,t,reveal);
-  ctx.restore();
-  if(finale){const rect=finale.getBoundingClientRect();const v=reduced.matches||constrained?1:smooth((H*.91-rect.top)/Math.max(100,H*.49));finale.style.setProperty('--final-dash',(1-v).toFixed(3))}
- }
- function frame(ms){
-  raf=0;if(paused||document.hidden)return;
-  target=window.scrollY;
-  if(reduced.matches||constrained)phase=target;
-  else{phase+= (target-phase)*.22;if(Math.abs(target-phase)<.65)phase=target}
-  const visible=bottom>target&&top<target+H;
-  const moving=Math.abs(target-phase)>.65;
-  const animate=visible&&!reduced.matches&&!constrained;
-  if(dirty||moving||!settled||(animate&&ms-last>46)){render(reduced.matches||constrained?0:ms/1000);dirty=false;last=ms;settled=!moving}
-  if(animate||moving)schedule();
- }
- function schedule(){if(!raf&&!paused&&!document.hidden)raf=requestAnimationFrame(frame)}
- function invalidate(){dirty=true;settled=false;schedule()}
- let resizeFrame=0;
- function resize(){if(resizeFrame)return;resizeFrame=requestAnimationFrame(()=>{resizeFrame=0;reflow();invalidate()})}
- reflow();phase=target=window.scrollY;render(0);main.classList.add('living-canvas-ready');schedule();
- window.addEventListener('scroll',invalidate,{passive:true});
- window.addEventListener('resize',resize,{passive:true});
- window.addEventListener('load',resize,{once:true});
- document.fonts?.ready.then(resize).catch(()=>{});
- if('ResizeObserver'in window){const observer=new ResizeObserver(resize);sections.forEach(el=>observer.observe(el))}
- reduced.addEventListener?.('change',invalidate);
- document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(raf);raf=0}else invalidate()});
- window.addEventListener('pagehide',()=>{paused=true;cancelAnimationFrame(raf);raf=0});
- window.addEventListener('pageshow',()=>{paused=false;resize();invalidate()});
 })();
 </script>
 
