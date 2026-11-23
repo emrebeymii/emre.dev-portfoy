@@ -7,7 +7,7 @@
 <meta name="description" content="Gamze Sey'in sanat estetiğinden ilham alan bağımsız tattoo artist web tasarım konsepti. WEB STUDIO 01 tarafından hazırlanmış örnek çalışmadır; resmi sanatçı sitesi değildir." />
 <meta property="og:title" content="Gamze Sey · Dövme Atölyesi / Bağımsız Konsept" />
 <meta property="og:description" content="İnce çizgilerin, hayallerin ve zarif detayların buluştuğu bağımsız web tasarım konsepti. WEB STUDIO 01." />
-<title>Gamze Sey | DREAMSCAPE V2.1 · Bağımsız Konsept | WEB STUDIO 01</title>
+<title>Gamze Sey | DREAMSCAPE V2.2 · Bağımsız Konsept | WEB STUDIO 01</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -45,6 +45,34 @@
 .hero-media .orbit-caption{z-index:2}
 @media(max-width:760px){#dreamscape-stage .dreamscape-static{width:320px;height:296px;transform:translate3d(calc(var(--dream-x) - 160px),calc(var(--dream-y) - 148px),0) scale(var(--dream-scale)) rotate(var(--dream-angle))}#dreamscape-stage{z-index:22}.dreamscape-spark{opacity:.38}.hero-media{min-height:330px}}
 @media(prefers-reduced-motion:reduce){#dreamscape-stage .dreamscape-static{will-change:auto;transition:none}#dreamscape-stage .dreamscape-canvas{transition:none}.dreamscape-spark{display:none}}
+
+/* DREAMSCAPE V2.2 / Scroll Atmosphere System */
+main > section.atmosphere-scene{position:relative;isolation:isolate}
+.atmosphere-scene > .container,.atmosphere-scene > .split-copy,.atmosphere-scene > .split-art{position:relative;z-index:1}
+.scroll-atmosphere{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;contain:layout paint;--atm-x:0px;--atm-y:0px;--atm-r:0deg;--atm-dust:0px;--atm-opacity:.7;--atm-a:rgba(234,156,194,.30);--atm-b:rgba(157,187,231,.26);--atm-c:rgba(191,166,226,.23);--atm-line:#a97e9e;color:var(--atm-line)}
+.atm-mist{position:absolute;inset:-28%;background:radial-gradient(ellipse at 22% 26%,var(--atm-a),transparent 38%),radial-gradient(ellipse at 79% 65%,var(--atm-b),transparent 40%),radial-gradient(ellipse at 53% 12%,var(--atm-c),transparent 37%);transform:translate3d(var(--atm-x),var(--atm-y),0) rotate(var(--atm-r));opacity:var(--atm-opacity)}
+.atm-veils{position:absolute;inset:-9%;background:radial-gradient(ellipse at 75% 29%,rgba(255,255,255,.53),transparent 34%),radial-gradient(ellipse at 8% 84%,var(--atm-c),transparent 35%);transform:translate3d(calc(var(--atm-x) * -.52),calc(var(--atm-y) * -.6),0);opacity:.68}
+.atm-ink{position:absolute;inset:-12% -7%;width:114%;height:124%;opacity:.24;transform:translate3d(calc(var(--atm-x) * -.72),calc(var(--atm-y) * .68),0) rotate(calc(var(--atm-r) * -.5))}
+.atm-ink path,.atm-ink ellipse{fill:none;stroke:currentColor;stroke-width:.8;vector-effect:non-scaling-stroke}
+.atm-dust{position:absolute;inset:0;transform:translate3d(0,var(--atm-dust),0);opacity:.62}
+.atm-dust i{position:absolute;width:var(--dot);height:var(--dot);left:var(--left);top:var(--top);border-radius:50%;background:var(--spark,#fff);box-shadow:0 0 8px 2px var(--spark,#fff);opacity:var(--alpha);transform:rotate(45deg)}
+.atm-dust i:nth-child(5n){border-radius:0;width:2px;height:9px}
+.atmosphere-scene.is-atmosphere-visible .atm-dust i:nth-child(3n){animation:atm-twinkle 4.8s ease-in-out infinite alternate;animation-delay:var(--delay)}
+@keyframes atm-twinkle{from{opacity:calc(var(--alpha) * .28)}to{opacity:var(--alpha)}}
+.hero .scroll-atmosphere{--atm-a:rgba(241,139,191,.37);--atm-b:rgba(165,202,248,.31);--atm-c:rgba(195,164,235,.31);--atm-line:#b78daa}
+.hero.is-atmosphere-visible .atm-veils{animation:atm-breathe 9s ease-in-out infinite alternate}
+@keyframes atm-breathe{from{opacity:.4}to{opacity:.82}}
+#works .scroll-atmosphere{--atm-a:rgba(237,174,205,.28);--atm-b:rgba(174,209,242,.27);--atm-c:rgba(202,183,236,.25)}
+#about .scroll-atmosphere{--atm-a:rgba(221,157,188,.32);--atm-b:rgba(184,206,240,.25)}
+#flash .scroll-atmosphere{--atm-a:rgba(179,91,151,.36);--atm-b:rgba(96,112,182,.3);--atm-c:rgba(160,103,197,.23);--atm-line:#ebc0e5;--spark:#f9d1ef}
+#flash .atm-veils{background:radial-gradient(ellipse at 80% 18%,rgba(173,100,167,.24),transparent 42%),radial-gradient(ellipse at 9% 74%,rgba(96,119,185,.19),transparent 39%)}
+#flash .atm-ink{opacity:.38}#flash .atm-dust{opacity:.88}
+#process .scroll-atmosphere{--atm-a:rgba(234,183,202,.22);--atm-b:rgba(176,210,237,.27)}
+#contact .scroll-atmosphere{--atm-a:rgba(237,172,205,.24);--atm-b:rgba(192,209,236,.24);--atm-c:rgba(199,184,227,.21)}
+#contact .atm-ink{opacity:.15}#contact .atm-dust{opacity:.4}
+@media(max-width:760px){.atm-ink{opacity:.18}.atm-dust i:nth-child(n+13){display:none}.atm-mist{inset:-40%}.atm-veils{opacity:.5}}
+@media(prefers-reduced-motion:reduce){.scroll-atmosphere *{animation:none!important;transform:none!important}.atm-dust{display:none}}
+
 </style>
 </head>
 <body>
@@ -308,5 +336,44 @@ initDream3D();
 window.addEventListener('pagehide',()=>{cancelAnimationFrame(flightFrame);window.removeEventListener('scroll',scrollEvent);window.removeEventListener('pointermove',pointerEvent)},{once:true});
 })();
 </script>
+
+<script>
+/* V2.2: independent atmosphere; no changes to butterfly, navigation or booking. */
+(()=>{
+ const scenes=[...document.querySelectorAll('main > section')], reduce=matchMedia('(prefers-reduced-motion: reduce)');
+ const mobile=matchMedia('(max-width:760px)');
+ const tuning=[[112,85,8,55],[-155,105,-7,75],[84,68,5,48],[185,125,11,120],[-100,75,-6,55],[60,35,3,25]];
+ const layers=scenes.map((scene,index)=>{
+  scene.classList.add('atmosphere-scene');
+  const layer=document.createElement('div');layer.className='scroll-atmosphere';layer.setAttribute('aria-hidden','true');
+  layer.innerHTML='<div class="atm-mist"></div><div class="atm-veils"></div><svg class="atm-ink" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M-160 665 C140 280 300 720 575 420 S1000 80 1370 300"/><path d="M-160 700 C140 315 330 755 605 455 S1015 115 1370 335"/><path d="M-110 95 C225 290 460 -135 750 140 S1100 520 1370 390"/><ellipse cx="1050" cy="154" rx="145" ry="82" transform="rotate(-28 1050 154)"/><ellipse cx="1050" cy="154" rx="166" ry="96" transform="rotate(-28 1050 154)"/></svg><div class="atm-dust"></div>';
+  const dust=layer.lastElementChild;
+  for(let i=0;i<26;i++){const dot=document.createElement('i');dot.style.setProperty('--left',((i*37+index*19)%97+1)+'%');dot.style.setProperty('--top',((i*53+index*11)%94+3)+'%');dot.style.setProperty('--dot',(1+i%3)+'px');dot.style.setProperty('--alpha',(.26+(i%5)*.12).toFixed(2));dot.style.setProperty('--delay',(-i*.39)+'s');dust.append(dot)}
+  scene.prepend(layer);return {scene,layer,tune:tuning[index]||tuning[0],current:0,target:0,visible:false};
+ });
+ let raf=0,dirty=true,stopped=false;
+ const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
+ function schedule(){if(!raf&&!stopped)raf=requestAnimationFrame(frame)}
+ function invalidate(){dirty=true;schedule()}
+ function frame(){
+  raf=0;if(stopped)return;
+  let moving=false;const vh=window.innerHeight||1,scale=mobile.matches?.52:1;
+  if(dirty){dirty=false;for(const item of layers){const rect=item.scene.getBoundingClientRect();item.visible=rect.bottom>0&&rect.top<vh;item.scene.classList.toggle('is-atmosphere-visible',item.visible);if(item.visible)item.target=clamp((vh*.5-rect.top-rect.height*.5)/(vh*.5+rect.height*.5),-1,1);}}
+  for(const item of layers){if(!item.visible)continue;const p=reduce.matches?0:item.target;item.current+= (p-item.current)*.14;if(Math.abs(p-item.current)<.001)item.current=p;else moving=true;
+   const v=item.current*scale,[x,y,r,d]=item.tune;
+   item.layer.style.setProperty('--atm-x',(v*x).toFixed(2)+'px');
+   item.layer.style.setProperty('--atm-y',(v*y).toFixed(2)+'px');
+   item.layer.style.setProperty('--atm-r',(v*r).toFixed(2)+'deg');
+   item.layer.style.setProperty('--atm-dust',(v*d).toFixed(2)+'px');
+   item.layer.style.setProperty('--atm-opacity',(.76+Math.abs(v)*.17).toFixed(2));
+  }
+  if(moving&&!reduce.matches)schedule();
+ }
+ window.addEventListener('scroll',invalidate,{passive:true});window.addEventListener('resize',invalidate,{passive:true});reduce.addEventListener?.('change',invalidate);mobile.addEventListener?.('change',invalidate);
+ window.addEventListener('pagehide',()=>{stopped=true;cancelAnimationFrame(raf)},{once:true});
+ invalidate();
+})();
+</script>
+
 </body>
 </html>
