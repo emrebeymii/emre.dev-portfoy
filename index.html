@@ -425,6 +425,14 @@ html[data-theme=light] .arch-stage:not(.is-exploring) .arch-explore-top{color:#4
 @media(max-width:760px){.arch-explore-top{right:25px;top:13px;gap:8px}.arch-explore-top>span{display:none}.arch-explore-top button{min-height:32px;padding:7px 10px;font-size:9px}.arch-content{top:9%}.arch-navigation{left:25px;bottom:26%;padding:8px;gap:10px}.arch-map{width:58px;height:90px}.arch-nav-copy>span{display:none}.arch-stage.is-exploring .arch-hud{left:25px;right:25px;bottom:16%;padding:8px 10px}.arch-stage.is-exploring .arch-hud p{display:none}.arch-stage.is-exploring .arch-navigation{bottom:32%}.arch-stage.is-exploring .arch-explore-top{top:max(16px,env(safe-area-inset-top))}.arch-dpad button{width:42px;height:39px}html[data-theme=light] .arch-stage:not(.is-exploring) .arch-shade{background:linear-gradient(180deg,#f8f5f4ed,#f1ecf2a0 30%,transparent 58%,#eee8ef77 72%,#eee8ef 100%)}}
 @media(max-height:520px) and (orientation:landscape){.arch-stage.is-exploring .arch-navigation{bottom:30%;left:25px}.arch-map{height:80px;width:60px}.arch-stage.is-exploring .arch-hud{left:auto;right:25px;bottom:23%;width:220px}}
 
+
+/* Prevent accidental double-tap zoom without disabling accessible page zoom. */
+.arch-stage button,.arch-stage a{touch-action:manipulation}
+.arch-stage:not(.is-exploring) .arch-world{touch-action:pan-y pinch-zoom}
+.arch-stage.is-exploring{touch-action:pan-x}
+.arch-stage.is-exploring .arch-world,.arch-stage.is-exploring .arch-dpad,.arch-stage.is-exploring .arch-dpad button{touch-action:none!important}
+.arch-stage.is-exploring .arch-rail{touch-action:pan-x}
+
 /* iOS Safari: game controls must not initiate text selection or touch callouts. */
 .arch-stage.is-exploring,.arch-stage.is-exploring *,.arch-navigation,.arch-navigation *,.arch-dpad,.arch-dpad *{-webkit-user-select:none!important;user-select:none!important;-webkit-touch-callout:none!important;-webkit-tap-highlight-color:transparent}
 .arch-dpad button{touch-action:none!important;-webkit-appearance:none;appearance:none;-webkit-user-drag:none;position:relative}
@@ -1352,6 +1360,13 @@ function moveFree(dt){if(!exploring||!held.size)return;detachRoom();let f=(held.
 const keyMap={arrowup:'w',arrowdown:'s',arrowleft:'a',arrowright:'d',w:'w',a:'a',s:'s',d:'d'};document.addEventListener('keydown',e=>{if(!exploring)return;if(e.key==='Escape'){e.preventDefault();setExplore(false);return}if(e.key==='Tab'){const list=[...stage.querySelectorAll('button:not([hidden]),a[href]:not([hidden]),[tabindex="0"]')].filter(el=>el.getClientRects().length&&!el.closest('[hidden]'));if(list.length){const i=list.indexOf(document.activeElement);if(e.shiftKey&&i<=0){e.preventDefault();list[list.length-1].focus()}else if(!e.shiftKey&&(i===list.length-1||i<0)){e.preventDefault();list[0].focus()}}return}if(e.target.closest('input,textarea,select')||e.ctrlKey||e.metaKey||e.altKey)return;const k=keyMap[e.key.toLowerCase()];if(k){e.preventDefault();held.add(k);invalidate()}});document.addEventListener('keyup',e=>{const k=keyMap[e.key.toLowerCase()];if(k)held.delete(k)});window.addEventListener('blur',()=>held.clear());
 const moveButtons=[...nav.querySelectorAll('[data-arch-move]')],activeMovePointers=new Map();function clearMove(){held.clear();activeMovePointers.clear();moveButtons.forEach(b=>b.classList.remove('is-held'))}
 function blockNative(e){if(e.cancelable)e.preventDefault()}
+let lastTap=null,tapStart=null;
+stage.addEventListener('touchstart',e=>{if(e.touches.length!==1){tapStart=null;lastTap=null;return}const t=e.touches[0];tapStart={x:t.clientX,y:t.clientY,time:performance.now()};},{passive:true});
+stage.addEventListener('touchend',e=>{const t=e.changedTouches[0],start=tapStart;tapStart=null;if(!t||!start||e.touches.length)return;const now=performance.now();if(now-start.time>350||Math.hypot(t.clientX-start.x,t.clientY-start.y)>12){lastTap=null;return}if(lastTap&&now-lastTap.time<350&&Math.hypot(t.clientX-lastTap.x,t.clientY-lastTap.y)<30){blockNative(e);lastTap=null;return}lastTap={x:t.clientX,y:t.clientY,time:now};},{passive:false});
+stage.addEventListener('touchcancel',()=>{tapStart=null;lastTap=null},{passive:true});
+stage.addEventListener('dblclick',blockNative);
+for(const event of ['gesturestart','gesturechange','gestureend'])stage.addEventListener(event,e=>{if(exploring)blockNative(e)},{passive:false});
+
 for(const event of ['contextmenu','selectstart','dragstart'])stage.addEventListener(event,e=>{if(exploring)blockNative(e)});
 function finishMove(id){const b=activeMovePointers.get(id);if(!b)return;activeMovePointers.delete(id);if(![...activeMovePointers.values()].includes(b)){held.delete(b.dataset.archMove);b.classList.remove('is-held')}}
 moveButtons.forEach(b=>{const k=b.dataset.archMove;for(const event of ['contextmenu','selectstart','dragstart','touchstart','touchmove'])b.addEventListener(event,blockNative,{passive:false});b.addEventListener('pointerdown',e=>{if(!exploring||e.button>0)return;blockNative(e);e.stopPropagation();activeMovePointers.set(e.pointerId,b);held.add(k);b.classList.add('is-held');try{b.setPointerCapture(e.pointerId)}catch(_){}invalidate()});for(const event of ['pointerup','pointercancel','lostpointercapture'])b.addEventListener(event,e=>finishMove(e.pointerId));b.addEventListener('click',e=>{if(e.detail!==0||!exploring||b.classList.contains('is-held'))return;held.add(k);moveFree(.15);held.delete(k);invalidate()})});
