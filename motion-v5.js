@@ -1,4 +1,4 @@
-/* Motion Studio v5 | Device showcase, magnetic text lab, concept comparisons & performance controls.
+/* Motion Studio | Curated device showcase and navigation performance controls.
  * Dependency-free progressive enhancement. Separate from the existing V4 engine for safe rollback.
  */
 (() => {
@@ -107,7 +107,7 @@
   #nav-links .v5-toolbar-button svg{width:17px;height:17px;flex:none}
   #nav-links .v5-perf-button-label,#nav-links #v5-performance-status{display:none}
   #nav-links .v5-performance{position:absolute;top:calc(100% + 14px);right:0;z-index:100;width:min(310px,calc(100vw - 32px))}
-  @media(max-width:1000px){#nav-links .v5-toolbar-button{width:auto;padding:9px 13px;height:auto;min-height:36px;justify-content:flex-start;gap:9px}#nav-links .v5-perf-button-label,#nav-links #v5-performance-status{display:inline}#nav-links #v5-performance-status{opacity:.65;font-size:10px}#nav-links .v5-performance{position:relative;top:auto;right:auto;margin:0 0 10px;width:min(310px,calc(100vw - 54px));padding:16px;box-shadow:none}#nav-links .v5-toolbar{width:100%;display:flex;flex-direction:column-reverse;align-items:flex-start}#nav-links.open{max-height:calc(100dvh - 80px);overflow-y:auto}}
+  @media(max-width:1100px){#nav-links .v5-toolbar-button{width:auto;padding:9px 13px;height:auto;min-height:36px;justify-content:flex-start;gap:9px}#nav-links .v5-perf-button-label,#nav-links #v5-performance-status{display:inline}#nav-links #v5-performance-status{opacity:.65;font-size:10px}#nav-links .v5-performance{position:relative;top:auto;right:auto;margin:0 0 10px;width:min(310px,calc(100vw - 54px));padding:16px;box-shadow:none}#nav-links .v5-toolbar{width:100%;display:flex;flex-direction:column-reverse;align-items:flex-start}#nav-links.open{max-height:calc(100dvh - 80px);overflow-y:auto}}
   `;
   document.head.append(style);
 
@@ -125,7 +125,7 @@
   const workSubtitle=$('#work .section-sub');if(workSubtitle){const jump=document.createElement('a');jump.href='#v5-device-showcase';jump.className='v5-link';jump.style.marginTop='18px';jump.dataset.v5='jump';workSubtitle.after(jump)}
 
   const bar = document.createElement('div');bar.className='v5-toolbar';bar.id='v5-toolbar';bar.setAttribute('aria-label','Performance settings');
-  bar.innerHTML = `<div id="v5-performance" class="v5-performance" hidden><div class="v5-perf-title"><span data-v5="perfTitle"></span><span aria-hidden="true">◈</span></div><p class="v5-perf-desc" data-v5="perfDesc"></p>${['cinematic','balanced','minimal'].map(mode=>`<button class="v5-mode-option" type="button" data-v5-mode="${mode}" aria-pressed="false"><b data-v5="perf${(mode==='cinematic'?'Cinema':(mode==='cinematic'?'Cinema':mode[0].toUpperCase()+mode.slice(1)))}"></b><small data-v5="perf${mode[0].toUpperCase()+mode.slice(1)}Sub"></small></button>`).join('')}<p class="v5-perf-note" data-v5="perfSaved"></p></div><button type="button" class="v5-toolbar-button" id="v5-toolbar-toggle" aria-expanded="false" aria-controls="v5-performance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2" fill="currentColor"/><circle cx="15" cy="12" r="2" fill="currentColor"/><circle cx="8" cy="18" r="2" fill="currentColor"/></svg><span class="v5-perf-button-label" data-v5="perfButton"></span><span id="v5-performance-status"></span></button>`;
+  bar.innerHTML = `<div id="v5-performance" class="v5-performance" hidden><div class="v5-perf-title"><span data-v5="perfTitle"></span><span aria-hidden="true">◈</span></div><p class="v5-perf-desc" data-v5="perfDesc"></p>${['cinematic','balanced','minimal'].map(mode=>`<button class="v5-mode-option" type="button" data-v5-mode="${mode}" aria-pressed="false"><b data-v5="perf${(mode==='cinematic'?'Cinema':mode[0].toUpperCase()+mode.slice(1))}"></b><small data-v5="perf${mode==='cinematic'?'Cinema':mode[0].toUpperCase()+mode.slice(1)}Sub"></small></button>`).join('')}<p class="v5-perf-note" data-v5="perfSaved"></p></div><button type="button" class="v5-toolbar-button" id="v5-toolbar-toggle" aria-expanded="false" aria-controls="v5-performance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2" fill="currentColor"/><circle cx="15" cy="12" r="2" fill="currentColor"/><circle cx="8" cy="18" r="2" fill="currentColor"/></svg><span class="v5-perf-button-label" data-v5="perfButton"></span><span id="v5-performance-status"></span></button>`;
   const menu=$('#nav-links');(menu||document.body).append(bar);
   const panel=$('#v5-performance'),toggle=$('#v5-toolbar-toggle');
   const closePanel=()=>{panel.hidden=true;toggle.setAttribute('aria-expanded','false')};
