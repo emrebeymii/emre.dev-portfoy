@@ -7,7 +7,7 @@
 <meta name="description" content="Gamze Sey'in sanat estetiğinden ilham alan bağımsız tattoo artist web tasarım konsepti. WEB STUDIO 01 tarafından hazırlanmış örnek çalışmadır; resmi sanatçı sitesi değildir." />
 <meta property="og:title" content="Gamze Sey · Dövme Atölyesi / Bağımsız Konsept" />
 <meta property="og:description" content="İnce çizgilerin, hayallerin ve zarif detayların buluştuğu bağımsız web tasarım konsepti. WEB STUDIO 01." />
-<title>Gamze Sey | DREAMSCAPE V2.2 · Bağımsız Konsept | WEB STUDIO 01</title>
+<title>Gamze Sey | DREAMSCAPE V3.0 · THE LIVING CANVAS · Bağımsız Konsept | WEB STUDIO 01</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -46,33 +46,22 @@
 @media(max-width:760px){#dreamscape-stage .dreamscape-static{width:320px;height:296px;transform:translate3d(calc(var(--dream-x) - 160px),calc(var(--dream-y) - 148px),0) scale(var(--dream-scale)) rotate(var(--dream-angle))}#dreamscape-stage{z-index:22}.dreamscape-spark{opacity:.38}.hero-media{min-height:330px}}
 @media(prefers-reduced-motion:reduce){#dreamscape-stage .dreamscape-static{will-change:auto;transition:none}#dreamscape-stage .dreamscape-canvas{transition:none}.dreamscape-spark{display:none}}
 
-/* DREAMSCAPE V2.2 / Scroll Atmosphere System */
-main > section.atmosphere-scene{position:relative;isolation:isolate}
-.atmosphere-scene > .container,.atmosphere-scene > .split-copy,.atmosphere-scene > .split-art{position:relative;z-index:1}
-.scroll-atmosphere{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;contain:layout paint;--atm-x:0px;--atm-y:0px;--atm-r:0deg;--atm-dust:0px;--atm-opacity:.7;--atm-a:rgba(234,156,194,.30);--atm-b:rgba(157,187,231,.26);--atm-c:rgba(191,166,226,.23);--atm-line:#a97e9e;color:var(--atm-line)}
-.atm-mist{position:absolute;inset:-28%;background:radial-gradient(ellipse at 22% 26%,var(--atm-a),transparent 38%),radial-gradient(ellipse at 79% 65%,var(--atm-b),transparent 40%),radial-gradient(ellipse at 53% 12%,var(--atm-c),transparent 37%);transform:translate3d(var(--atm-x),var(--atm-y),0) rotate(var(--atm-r));opacity:var(--atm-opacity)}
-.atm-veils{position:absolute;inset:-9%;background:radial-gradient(ellipse at 75% 29%,rgba(255,255,255,.53),transparent 34%),radial-gradient(ellipse at 8% 84%,var(--atm-c),transparent 35%);transform:translate3d(calc(var(--atm-x) * -.52),calc(var(--atm-y) * -.6),0);opacity:.68}
-.atm-ink{position:absolute;inset:-12% -7%;width:114%;height:124%;opacity:.24;transform:translate3d(calc(var(--atm-x) * -.72),calc(var(--atm-y) * .68),0) rotate(calc(var(--atm-r) * -.5))}
-.atm-ink path,.atm-ink ellipse{fill:none;stroke:currentColor;stroke-width:.8;vector-effect:non-scaling-stroke}
-.atm-dust{position:absolute;inset:0;transform:translate3d(0,var(--atm-dust),0);opacity:.62}
-.atm-dust i{position:absolute;width:var(--dot);height:var(--dot);left:var(--left);top:var(--top);border-radius:50%;background:var(--spark,#fff);box-shadow:0 0 8px 2px var(--spark,#fff);opacity:var(--alpha);transform:rotate(45deg)}
-.atm-dust i:nth-child(5n){border-radius:0;width:2px;height:9px}
-.atmosphere-scene.is-atmosphere-visible .atm-dust i:nth-child(3n){animation:atm-twinkle 4.8s ease-in-out infinite alternate;animation-delay:var(--delay)}
-@keyframes atm-twinkle{from{opacity:calc(var(--alpha) * .28)}to{opacity:var(--alpha)}}
-.hero .scroll-atmosphere{--atm-a:rgba(241,139,191,.37);--atm-b:rgba(165,202,248,.31);--atm-c:rgba(195,164,235,.31);--atm-line:#b78daa}
-.hero.is-atmosphere-visible .atm-veils{animation:atm-breathe 9s ease-in-out infinite alternate}
-@keyframes atm-breathe{from{opacity:.4}to{opacity:.82}}
-#works .scroll-atmosphere{--atm-a:rgba(237,174,205,.28);--atm-b:rgba(174,209,242,.27);--atm-c:rgba(202,183,236,.25)}
-#about .scroll-atmosphere{--atm-a:rgba(221,157,188,.32);--atm-b:rgba(184,206,240,.25)}
-#flash .scroll-atmosphere{--atm-a:rgba(179,91,151,.36);--atm-b:rgba(96,112,182,.3);--atm-c:rgba(160,103,197,.23);--atm-line:#ebc0e5;--spark:#f9d1ef}
-#flash .atm-veils{background:radial-gradient(ellipse at 80% 18%,rgba(173,100,167,.24),transparent 42%),radial-gradient(ellipse at 9% 74%,rgba(96,119,185,.19),transparent 39%)}
-#flash .atm-ink{opacity:.38}#flash .atm-dust{opacity:.88}
-#process .scroll-atmosphere{--atm-a:rgba(234,183,202,.22);--atm-b:rgba(176,210,237,.27)}
-#contact .scroll-atmosphere{--atm-a:rgba(237,172,205,.24);--atm-b:rgba(192,209,236,.24);--atm-c:rgba(199,184,227,.21)}
-#contact .atm-ink{opacity:.15}#contact .atm-dust{opacity:.4}
-@media(max-width:760px){.atm-ink{opacity:.18}.atm-dust i:nth-child(n+13){display:none}.atm-mist{inset:-40%}.atm-veils{opacity:.5}}
-@media(prefers-reduced-motion:reduce){.scroll-atmosphere *{animation:none!important;transform:none!important}.atm-dust{display:none}}
 
+/* DREAMSCAPE V3.0 — THE LIVING CANVAS */
+main.living-canvas-ready{position:relative;isolation:isolate;background:transparent}
+#living-canvas{position:fixed;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:0}
+.living-canvas-ready>section,.living-canvas-ready>.ribbon{position:relative;z-index:1}
+.living-canvas-ready>.hero,.living-canvas-ready>#works,.living-canvas-ready>#about,.living-canvas-ready>#flash,.living-canvas-ready>#process,.living-canvas-ready>#contact{background:transparent}
+.living-canvas-ready>.hero:before{opacity:.18}
+.living-canvas-ready .split-art{background:radial-gradient(ellipse at 52% 41%,#f9e0e9a8,transparent 70%),linear-gradient(140deg,#efdef08c,#e1eaf277)}
+.living-finale{position:relative;margin:25px 0 0;width:min(100%,280px);height:168px;display:flex;align-items:center;justify-content:center;color:#a76b92;pointer-events:none}
+.living-finale svg{width:100%;height:100%;overflow:visible}
+.living-finale .final-trace{fill:none;stroke:currentColor;stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:var(--final-dash,0);vector-effect:non-scaling-stroke}
+.living-finale .final-halo{fill:none;stroke:#cb9cc1;stroke-width:.6;stroke-dasharray:2 7;opacity:.7}
+.living-finale .perch-point{position:absolute;left:50%;top:25%;width:1px;height:1px}
+.living-finale-label{font-size:8px;font-weight:800;letter-spacing:.23em;text-transform:uppercase;color:#8b7585;margin-top:9px}
+@media(max-width:760px){.living-finale{width:220px;height:132px;margin-top:20px}.living-finale-label{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.living-finale .final-trace{stroke-dashoffset:0!important}}
 </style>
 </head>
 <body>
@@ -111,13 +100,13 @@ main > section.atmosphere-scene{position:relative;isolation:isolate}
   <span class="dreamscape-spark dreamscape-spark-a"></span><span class="dreamscape-spark dreamscape-spark-b"></span>
 </div>
 <main>
-<section class="hero"><div class="container hero-grid"><div class="hero-copy"><div class="hero-overline">İzmir · İnce Çizgi · Masalsı Dövmeler</div><h1><span>Biraz düş,</span><span class="outline">biraz çizgi,</span><span>biraz sanat.</span></h1><p class="hero-sub">İnce çizgiler, küçük düşler ve tenin üzerinde yaşayan hikâyeler. Zarif, özgün ve masalsı bir dövme dünyasına açılan dijital sanat günlüğü.</p><div class="hero-buttons"><a class="button-primary" href="#works">Galeriyi keşfet <svg class="icon" aria-hidden="true"><use href="#ic-arrow"/></svg></a><a class="button-outline" href="#flash">Hazır tasarımlar <svg class="icon" aria-hidden="true"><use href="#ic-arrow"/></svg></a></div><div class="hero-footnote">Biraz gerçek, biraz hayal · Portföy konsepti</div></div><div class="hero-media" id="hero-media" aria-label="Sayfayı kaydırdıkça bölümler arasında uçan etkileşimli üç boyutlu kelebek deneyimi"><div class="butterfly-presence" aria-hidden="true"></div><svg class="orbit-star a" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 1v38M1 20h38M6 6l28 28M34 6 6 34" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><svg class="orbit-star b" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 1v38M1 20h38M6 6l28 28M34 6 6 34" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><div class="orbit-caption">SAYFA BOYUNCA SENİNLE UÇAR<br>ÜÇ BOYUTLU KELEBEK DENEYİ</div><span class="orbit-vertical">DREAMSCAPE / UÇUŞ ROTASI · 01</span></div></div><div class="hero-scroll">KELEBEĞİ UÇURMAK İÇİN KAYDIR</div></section>
+<section class="hero"><div class="container hero-grid"><div class="hero-copy"><div class="hero-overline">İzmir · İnce Çizgi · Masalsı Dövmeler</div><h1><span>Biraz düş,</span><span class="outline">biraz çizgi,</span><span>biraz sanat.</span></h1><p class="hero-sub">İnce çizgiler, küçük düşler ve tenin üzerinde yaşayan hikâyeler. Zarif, özgün ve masalsı bir dövme dünyasına açılan dijital sanat günlüğü.</p><div class="hero-buttons"><a class="button-primary" href="#works">Galeriyi keşfet <svg class="icon" aria-hidden="true"><use href="#ic-arrow"/></svg></a><a class="button-outline" href="#flash">Hazır tasarımlar <svg class="icon" aria-hidden="true"><use href="#ic-arrow"/></svg></a></div><div class="hero-footnote">Biraz gerçek, biraz hayal · Portföy konsepti</div></div><div class="hero-media" id="hero-media" aria-label="Sayfayı kaydırdıkça bölümler arasında uçan etkileşimli üç boyutlu kelebek deneyimi"><div class="butterfly-presence" aria-hidden="true"></div><svg class="orbit-star a" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 1v38M1 20h38M6 6l28 28M34 6 6 34" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><svg class="orbit-star b" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 1v38M1 20h38M6 6l28 28M34 6 6 34" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><div class="orbit-caption">SAYFA BOYUNCA SENİNLE UÇAR<br>ÜÇ BOYUTLU KELEBEK DENEYİ</div><span class="orbit-vertical">DREAMSCAPE / YAŞAYAN TUVAL · 01</span></div></div><div class="hero-scroll">KELEBEĞİ UÇURMAK İÇİN KAYDIR</div></section>
 <div class="ribbon" aria-hidden="true"><div class="ribbon-track"><span>NARİN ÇİZGİLER</span><i></i><span>PASTEL HAYALLER</span><i></i><span>ÖZGÜN HİKÂYELER</span><i></i><span>KİŞİSEL SANAT</span><i></i><span>HİSSEDEREK TASARLANDI</span><i></i><span>NARİN ÇİZGİLER</span><i></i><span>PASTEL HAYALLER</span><i></i><span>ÖZGÜN HİKÂYELER</span><i></i><span>KİŞİSEL SANAT</span><i></i><span>HİSSEDEREK TASARLANDI</span><i></i></div></div>
 <section class="section" id="works"><div class="container"><div class="section-head reveal"><div><div class="eyebrow">01 / Hayalî bir arşiv</div><h2 class="section-title">Küçük bir <i>evren.</i></h2></div><p class="section-intro">Masalsı detaylar, narin konturlar ve pembeyle mavinin arasında dolaşan çizimler. Her tasarımın ayrı bir hikâyesi var.</p></div><div class="filters" role="group" aria-label="Çalışmaları filtrele" id="work-filters"><button class="filter" data-filter="all" aria-pressed="true">Tüm çalışmalar</button><button class="filter" data-filter="fantasy" aria-pressed="false">Periler ve Fantastik</button><button class="filter" data-filter="floral" aria-pressed="false">Çiçekler</button><button class="filter" data-filter="ornamental" aria-pressed="false">Süslemeler</button><button class="filter" data-filter="mini" aria-pressed="false">Minik Detaylar</button></div><div class="gallery" id="gallery" aria-live="polite"></div><p class="gallery-note">* Buradaki çizimler bu konsept için üretilmiş bağımsız örnek illüstrasyonlardır. Gamze Sey'in gerçek dövmeleri veya onaylanmış tasarımları değildir.</p></div></section>
 <section class="split" id="about"><div class="split-art" aria-label="Özgün örnek çiçek çizimi"><div class="parchment"></div><svg class="design" viewBox="0 0 440 540" role="img" aria-label="Lily, özgün örnek tasarım"><use href="#art-lily" /></svg><span class="split-mark">her zaman biraz sihir.</span></div><div class="split-copy reveal"><div class="eyebrow">02 / Tasarımın ruhu</div><h2>Seni<br>anlatan <i>sanat.</i></h2><p>Bir dövme bazen hatırlamak istediğin bir duygu, bazen de sadece seni gülümseten minik bir detaydır. Bu konsept, Gamze’nin profilindeki ince çizgili, pastel dokunuşlu görsel dünyadan ilham alıyor.</p><div class="mini-facts"><span>İNCE ÇİZGİ</span><span>MASALSI DOKUNUŞ</span><span>ÖZGÜN RUH</span></div><a class="button-outline" href="#contact" style="margin-top:34px">Bir fikir paylaş <svg class="icon" aria-hidden="true"><use href="#ic-arrow"/></svg></a></div></section>
 <section class="section flash-section" id="flash"><div class="container"><div class="flash-layout"><div class="flash-head reveal"><div><div class="eyebrow">03 / Küçük çizimler, büyük hisler</div><h2>Çizim<br><i>günlüğü.</i></h2><p>Hazır çizimlerden ilham al. Bir tasarım hoşuna gittiyse formda örnek talep metnini hazırla ve sanatçıya Instagram üzerinden ilet.</p></div><span class="flash-note">ÖRNEK TASARIMLAR · REZERVASYON YAPILMAZ</span></div><article class="flash-card reveal" style="--tint:#f3dfeb"><div class="flash-art"><small>ÖRNEK TASARIM / NO. 001</small><svg class="design" viewBox="0 0 440 540" role="img" aria-label="Özgün güve örnek tasarımı"><use href="#art-moth"/></svg></div><div class="flash-bottom"><div><h3>Ay Güvesi</h3><p>FANTASTİK · ÖRNEK ÇİZİM</p></div><button type="button" aria-label="Ay Güvesi tasarımı için talep oluştur" data-flash="Ay Güvesi"><svg class="icon" aria-hidden="true"><use href="#ic-arrow"/></svg></button></div></article><article class="flash-card reveal" style="--tint:#e8e8f3"><div class="flash-art"><small>ÖRNEK TASARIM / NO. 002</small><svg class="design" viewBox="0 0 440 540" role="img" aria-label="Original Göksel Hilal Sword flash tasarımı"><use href="#art-sword"/></svg></div><div class="flash-bottom"><div><h3>Göksel Kılıç</h3><p>SÜSLEMELİ · ÖRNEK ÇİZİM</p></div><button type="button" aria-label="Göksel Kılıç tasarımı için talep oluştur" data-flash="Göksel Kılıç"><svg class="icon" aria-hidden="true"><use href="#ic-arrow"/></svg></button></div></article></div></div></section>
 <section class="section process" id="process"><div class="container"><div class="section-head reveal"><div><div class="eyebrow">04 / Her fikrin bir hikâyesi var</div><h2 class="section-title">Hayalden<br><i>dövmeye.</i></h2></div><p class="section-intro">Sitede sunulabilecek örnek bir talep akışı. Gerçek randevu, tasarım onayı ve fiyatlandırma sanatçıyla doğrudan belirlenir.</p></div><div class="process-grid"><article class="process-card reveal"><span class="n">01.</span><h3>Senin fikrin</h3><p>Fikrini, sevdiğin detayları ve dövmenin yapılmasını düşündüğün bölgeyi paylaş.</p></article><article class="process-card reveal"><span class="n">02.</span><h3>Çizim ve sohbet</h3><p>Sanatçıyla tasarımın stili, ölçüsü, uygunluğu ve yaklaşık seans detayları konuşulur.</p></article><article class="process-card reveal"><span class="n">03.</span><h3>Senden bir iz</h3><p>Karşılıklı anlaşma ve uygunluk doğrultusunda randevu süreci netleştirilir.</p></article></div></div></section>
-<section class="booking" id="contact"><div class="container booking-grid"><div class="booking-copy reveal"><div class="eyebrow">05 / Birlikte güzel bir şey tasarlayalım</div><h2>Birlikte<br><i>üretelim.</i></h2><p>Bir fikrin var mı? Bu demo formu Instagram'da gönderebileceğin düzenli bir talep metnine dönüştürür. Bilgilerin herhangi bir sunucuya gönderilmez.</p><a href="https://www.instagram.com/gamzesey.tatt/" class="pill" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#ic-instagram"/></svg> @gamzesey.tatt / Instagram</a></div><div class="booking-card reveal"><div class="form-intro"><h3>Fikrini anlat</h3><span>ÖRNEK FORM / SUNUCU YOK</span></div><form id="booking-form"><div class="fields"><div class="field"><label for="customer-name">Adın</label><input required maxlength="70" id="customer-name" name="name" placeholder="Adın" autocomplete="given-name"/></div><div class="field"><label for="customer-handle">Instagram kullanıcı adın</label><input required maxlength="45" id="customer-handle" name="handle" placeholder="@kullaniciadi"/></div><div class="field"><label for="tattoo-style">İlgilendiğin stil</label><select id="tattoo-style" name="style"><option>İnce Çizgi</option><option>Peri / Fantastik</option><option>Çiçekler</option><option>Süslemeler</option><option>Hazır Tasarım</option><option>Diğer</option></select></div><div class="field"><label for="tattoo-placement">Vücut bölgesi</label><input maxlength="80" id="tattoo-placement" name="placement" placeholder="Örn. ön kol"/></div><div class="field"><label for="tattoo-size">Yaklaşık boyut</label><select id="tattoo-size" name="size"><option>Henüz karar vermedim</option><option>Küçük · 2–5 cm</option><option>Orta · 6–12 cm</option><option>Büyük · 13 cm+</option></select></div><div class="field"><label for="tattoo-time">Tercih ettiğin zaman</label><input maxlength="70" id="tattoo-time" name="time" placeholder="Örn. Aralık ortası"/></div><div class="field full"><label for="tattoo-idea">Tasarım fikrin</label><textarea required maxlength="1200" id="tattoo-idea" name="idea" placeholder="Neler hayal ediyorsun? İlham veren detayları yazabilirsin."></textarea></div></div><p class="form-hint">Bu form örnek bir arayüzdür. Gönderim butonu talep metnini kopyalar; Instagram mesajını sen gönderirsin. Gerçek rezervasyon veya fiyat teklifi oluşturmaz.</p><button type="submit" class="button-primary form-submit">Talep metni oluştur ve Instagram'ı aç <svg class="icon" aria-hidden="true"><use href="#ic-arrow"/></svg></button><div id="form-state" class="form-state" role="status" aria-live="polite"></div><textarea id="copy-fallback" class="form-copybox" hidden readonly aria-label="Elle kopyalanabilir talep metni"></textarea></form></div></div></section>
+<section class="booking" id="contact"><div class="container booking-grid"><div class="booking-copy reveal"><div class="eyebrow">05 / Birlikte güzel bir şey tasarlayalım</div><h2>Birlikte<br><i>üretelim.</i></h2><p>Bir fikrin var mı? Bu demo formu Instagram'da gönderebileceğin düzenli bir talep metnine dönüştürür. Bilgilerin herhangi bir sunucuya gönderilmez.</p><a href="https://www.instagram.com/gamzesey.tatt/" class="pill" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#ic-instagram"/></svg> @gamzesey.tatt / Instagram</a><div class="living-finale" aria-hidden="true"><svg viewBox="0 0 280 168"><ellipse class="final-halo" cx="140" cy="83" rx="87" ry="71"/><path class="final-trace" pathLength="1" d="M140 157 C103 134 111 102 140 43 C167 101 176 135 140 157 C139 123 140 87 140 43 M140 114 C105 91 76 99 67 64 C96 59 124 84 140 114 M140 114 C175 91 204 99 213 64 C184 59 156 84 140 114 M140 138 C110 124 84 137 71 111 C103 108 122 118 140 138 M140 138 C170 124 196 137 209 111 C177 108 158 118 140 138 M140 43 C123 18 104 16 91 30 C101 51 122 54 140 43 C158 54 179 51 189 30 C176 16 157 18 140 43 M140 43 C128 28 131 13 140 5 C149 13 152 28 140 43 M34 83 L41 69 48 83 41 97 Z M232 83 L239 69 246 83 239 97 Z M140 164 L140 159"/></svg><span class="perch-point"></span></div><div class="living-finale-label" aria-hidden="true">Bir çizginin sonu, yeni bir hikâyenin başlangıcı.</div></div><div class="booking-card reveal"><div class="form-intro"><h3>Fikrini anlat</h3><span>ÖRNEK FORM / SUNUCU YOK</span></div><form id="booking-form"><div class="fields"><div class="field"><label for="customer-name">Adın</label><input required maxlength="70" id="customer-name" name="name" placeholder="Adın" autocomplete="given-name"/></div><div class="field"><label for="customer-handle">Instagram kullanıcı adın</label><input required maxlength="45" id="customer-handle" name="handle" placeholder="@kullaniciadi"/></div><div class="field"><label for="tattoo-style">İlgilendiğin stil</label><select id="tattoo-style" name="style"><option>İnce Çizgi</option><option>Peri / Fantastik</option><option>Çiçekler</option><option>Süslemeler</option><option>Hazır Tasarım</option><option>Diğer</option></select></div><div class="field"><label for="tattoo-placement">Vücut bölgesi</label><input maxlength="80" id="tattoo-placement" name="placement" placeholder="Örn. ön kol"/></div><div class="field"><label for="tattoo-size">Yaklaşık boyut</label><select id="tattoo-size" name="size"><option>Henüz karar vermedim</option><option>Küçük · 2–5 cm</option><option>Orta · 6–12 cm</option><option>Büyük · 13 cm+</option></select></div><div class="field"><label for="tattoo-time">Tercih ettiğin zaman</label><input maxlength="70" id="tattoo-time" name="time" placeholder="Örn. Aralık ortası"/></div><div class="field full"><label for="tattoo-idea">Tasarım fikrin</label><textarea required maxlength="1200" id="tattoo-idea" name="idea" placeholder="Neler hayal ediyorsun? İlham veren detayları yazabilirsin."></textarea></div></div><p class="form-hint">Bu form örnek bir arayüzdür. Gönderim butonu talep metnini kopyalar; Instagram mesajını sen gönderirsin. Gerçek rezervasyon veya fiyat teklifi oluşturmaz.</p><button type="submit" class="button-primary form-submit">Talep metni oluştur ve Instagram'ı aç <svg class="icon" aria-hidden="true"><use href="#ic-arrow"/></svg></button><div id="form-state" class="form-state" role="status" aria-live="polite"></div><textarea id="copy-fallback" class="form-copybox" hidden readonly aria-label="Elle kopyalanabilir talep metni"></textarea></form></div></div></section>
 </main>
 <footer class="footer"><div class="container"><div class="footer-main"><div><span class="eyebrow">Bağımsız bir web deneyimi</span><div class="footer-title">gamze.sey</div><p class="footer-desc">Bir çizim defterinden çıkmış gibi hissettiren, dövme sanatçısı portföyü için tasarlanmış dijital konsept.</p></div><div class="footer-links"><a href="#works">Galeri</a><a href="#flash">Hazır Tasarımlar</a><a href="https://www.instagram.com/gamzesey.tatt/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="#top">Başa dön</a></div></div><div class="footer-bottom"><div><strong>WEB STUDIO 01</strong> · Bağımsız konsept çalışma. Gamze Sey veya Mona Ink Studio ile resmî bağlantı, sponsorluk veya onay ilişkisi yoktur. Eserler özgün demo çizimleridir.</div><div>2026 · TASARIM VE GELİŞTİRME / THREE.JS</div></div></div></footer>
 <div class="modal" id="art-modal" role="dialog" aria-modal="true" aria-labelledby="art-dialog-title"><div class="modal-card" id="art-modal-card"><button class="close-modal" id="close-modal" aria-label="Galeriyi kapat"><svg class="icon" aria-hidden="true"><use href="#ic-close"/></svg></button><div class="modal-visual" id="art-modal-visual"></div><div class="modal-copy"><div class="eyebrow">ÖZGÜN ÖRNEK ÇİZİM / GAMZE KONSEPTİ</div><h2 id="art-dialog-title"></h2><p id="art-dialog-desc"></p><div class="modal-tags" id="art-dialog-tags"></div><button class="button-primary" id="art-interest">Benzer bir fikir için talep hazırla <svg class="icon" aria-hidden="true"><use href="#ic-arrow"/></svg></button></div></div></div>
@@ -217,6 +206,17 @@ const flightWaypoints=()=>{
    w(max,.88,.08,.10,0)
  ];
  // Distinct times ensure a stable spline even on exceptionally short pages.
+ const perch=document.querySelector('.perch-point');
+ if(perch){
+   const p=perch.getBoundingClientRect(),docY=p.top+window.scrollY;
+   const at=clamp(docY-vh*.42,0,max),x=clamp(p.left/vw,.12,.89);
+   if(at>vh*.5&&at<max-25){
+     for(let i=plans.length-2;i>0;i--)if(Math.abs(plans[i].at-at)<vh*.30)plans.splice(i,1);
+     plans.push(w(at,x,(docY-at)/vh,mobile?.22:.23,1));
+     const hold=Math.min(max-12,at+vh*.15);
+     if(hold>at+4)plans.push(w(hold,x,clamp((docY-hold)/vh,.08,.90),mobile?.22:.23,1));
+   }
+ }
  plans.sort((a,b)=>a.at-b.at);
  const unique=[];for(const item of plans){if(unique.length && item.at-unique[unique.length-1].at<.5){unique[unique.length-1]=item}else unique.push(item)}
  flightRoute.points=unique;flightRoute.maxScroll=max;flightRoute.dirty=false;flightRoute.lastBuild=performance.now();
@@ -337,41 +337,201 @@ window.addEventListener('pagehide',()=>{cancelAnimationFrame(flightFrame);window
 })();
 </script>
 
+
+
+
 <script>
-/* V2.2: independent atmosphere; no changes to butterfly, navigation or booking. */
+/* THE LIVING CANVAS: one document-space illustration, six chapters, no new network calls. */
 (()=>{
- const scenes=[...document.querySelectorAll('main > section')], reduce=matchMedia('(prefers-reduced-motion: reduce)');
- const mobile=matchMedia('(max-width:760px)');
- const tuning=[[112,85,8,55],[-155,105,-7,75],[84,68,5,48],[185,125,11,120],[-100,75,-6,55],[60,35,3,25]];
- const layers=scenes.map((scene,index)=>{
-  scene.classList.add('atmosphere-scene');
-  const layer=document.createElement('div');layer.className='scroll-atmosphere';layer.setAttribute('aria-hidden','true');
-  layer.innerHTML='<div class="atm-mist"></div><div class="atm-veils"></div><svg class="atm-ink" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M-160 665 C140 280 300 720 575 420 S1000 80 1370 300"/><path d="M-160 700 C140 315 330 755 605 455 S1015 115 1370 335"/><path d="M-110 95 C225 290 460 -135 750 140 S1100 520 1370 390"/><ellipse cx="1050" cy="154" rx="145" ry="82" transform="rotate(-28 1050 154)"/><ellipse cx="1050" cy="154" rx="166" ry="96" transform="rotate(-28 1050 154)"/></svg><div class="atm-dust"></div>';
-  const dust=layer.lastElementChild;
-  for(let i=0;i<26;i++){const dot=document.createElement('i');dot.style.setProperty('--left',((i*37+index*19)%97+1)+'%');dot.style.setProperty('--top',((i*53+index*11)%94+3)+'%');dot.style.setProperty('--dot',(1+i%3)+'px');dot.style.setProperty('--alpha',(.26+(i%5)*.12).toFixed(2));dot.style.setProperty('--delay',(-i*.39)+'s');dust.append(dot)}
-  scene.prepend(layer);return {scene,layer,tune:tuning[index]||tuning[0],current:0,target:0,visible:false};
- });
- let raf=0,dirty=true,stopped=false;
- const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
- function schedule(){if(!raf&&!stopped)raf=requestAnimationFrame(frame)}
- function invalidate(){dirty=true;schedule()}
- function frame(){
-  raf=0;if(stopped)return;
-  let moving=false;const vh=window.innerHeight||1,scale=mobile.matches?.52:1;
-  if(dirty){dirty=false;for(const item of layers){const rect=item.scene.getBoundingClientRect();item.visible=rect.bottom>0&&rect.top<vh;item.scene.classList.toggle('is-atmosphere-visible',item.visible);if(item.visible)item.target=clamp((vh*.5-rect.top-rect.height*.5)/(vh*.5+rect.height*.5),-1,1);}}
-  for(const item of layers){if(!item.visible)continue;const p=reduce.matches?0:item.target;item.current+= (p-item.current)*.14;if(Math.abs(p-item.current)<.001)item.current=p;else moving=true;
-   const v=item.current*scale,[x,y,r,d]=item.tune;
-   item.layer.style.setProperty('--atm-x',(v*x).toFixed(2)+'px');
-   item.layer.style.setProperty('--atm-y',(v*y).toFixed(2)+'px');
-   item.layer.style.setProperty('--atm-r',(v*r).toFixed(2)+'deg');
-   item.layer.style.setProperty('--atm-dust',(v*d).toFixed(2)+'px');
-   item.layer.style.setProperty('--atm-opacity',(.76+Math.abs(v)*.17).toFixed(2));
+ 'use strict';
+ const main=document.querySelector('main');
+ const sections=[...main.querySelectorAll(':scope > section')];
+ const finale=main.querySelector('.living-finale');
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ const constrained=Boolean(navigator.connection?.saveData);
+ if(sections.length!==6)return;
+ const canvas=document.createElement('canvas');canvas.id='living-canvas';canvas.setAttribute('aria-hidden','true');
+ const ctx=canvas.getContext('2d',{alpha:true});if(!ctx)return;
+ main.prepend(canvas);
+ const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+ const mix=(a,b,t)=>a+(b-a)*t;
+ const smooth=v=>{v=clamp(v);return v*v*(3-2*v)};
+ const random=seed=>{let n=seed>>>0;return ()=>{n=(Math.imul(n,1664525)+1013904223)>>>0;return n/4294967296}};
+ const rand=random(3019);
+ const palette=[
+  ['#f8f2f2','#f5d4e3','#e7d9ef','#c7e1f1'],
+  ['#f8f5f4','#f0d1e4','#d7d6f3','#d6eaf2'],
+  ['#f3e8ed','#e8bcd3','#dfd3ee','#d8e5ef'],
+  ['#2b2435','#9c589c','#655696','#c28bb7'],
+  ['#f5eef2','#efd2df','#ded9f1','#c9e3ef'],
+  ['#f8f3f4','#f2d7e3','#dfd2ec','#dceaf3']
+ ];
+ let W=1,H=1,dpr=1,geom=[],top=0,bottom=0,stars=[],flowers=[],nodes=[],dirty=true,raf=0,last=0,paused=false,phase=0,target=0,settled=false;
+ // Cached translucent pigment stamps: irregular soft lobes and filaments create ink-in-water, not hard circles.
+ function stamp(color,seed){
+  const c=document.createElement('canvas');c.width=c.height=384;
+  const g=c.getContext('2d'),r=random(seed);
+  for(let i=0;i<38;i++){
+   const a=r()*Math.PI*2,rr=Math.pow(r(),.65)*118,x=192+Math.cos(a)*rr,y=192+Math.sin(a)*rr*.72,rad=25+r()*77;
+   const grad=g.createRadialGradient(x,y,0,x,y,rad);
+   grad.addColorStop(0,color+'32');grad.addColorStop(.38,color+'20');grad.addColorStop(.72,color+'0c');grad.addColorStop(1,color+'00');
+   g.fillStyle=grad;g.fillRect(x-rad,y-rad,rad*2,rad*2);
   }
-  if(moving&&!reduce.matches)schedule();
+  g.lineCap='round';
+  for(let i=0;i<19;i++){
+   const a=r()*6.283,rr=25+r()*85,x=192+Math.cos(a)*rr,y=192+Math.sin(a)*rr*.7;
+   g.strokeStyle=color+'13';g.lineWidth=.7+r()*2.6;g.beginPath();g.moveTo(x,y);g.bezierCurveTo(x+Math.cos(a+.9)*42,y+Math.sin(a+.9)*36,x+Math.cos(a-.7)*72,y+Math.sin(a-.7)*55,x+Math.cos(a)*94,y+Math.sin(a)*72);g.stroke();
+  }
+  return c;
  }
- window.addEventListener('scroll',invalidate,{passive:true});window.addEventListener('resize',invalidate,{passive:true});reduce.addEventListener?.('change',invalidate);mobile.addEventListener?.('change',invalidate);
- window.addEventListener('pagehide',()=>{stopped=true;cancelAnimationFrame(raf)},{once:true});
- invalidate();
+ const pigments=palette.map((p,i)=>p.slice(1).map((color,j)=>stamp(color,100+i*31+j*13)));
+ const seedStars=Array.from({length:96},()=>({x:rand(),y:rand(),r:.5+rand()*1.7,a:.25+rand()*.65,t:rand()*6.283}));
+ function reflow(){
+  W=window.innerWidth;H=window.innerHeight;
+  if(!W||!H)return;
+  dpr=Math.min(window.devicePixelRatio||1,W<760?1:1.35);
+  canvas.width=Math.ceil(W*dpr);canvas.height=Math.ceil(H*dpr);
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  const y=window.scrollY;
+  geom=sections.map(el=>{const q=el.getBoundingClientRect();return{top:q.top+y,bottom:q.bottom+y,h:q.height}});
+  top=geom[0].top;bottom=geom[5].bottom;
+  const sides=[.81,.14,.87,.15,.86,.19,.50];
+  if(W<760){sides[0]=.89;sides[1]=.08;sides[2]=.91;sides[3]=.08;sides[4]=.92;sides[5]=.10;sides[6]=.50;}
+  nodes=geom.map((g,i)=>({x:sides[i],y:g.top+Math.min(g.h*.21,H*.3)}));
+  nodes.unshift({x:W<760?.90:.86,y:top-20});
+  const pr=finale?.getBoundingClientRect();nodes.push({x:pr?clamp((pr.left+pr.width*.5)/W,.06,.94):.5,y:pr?pr.top+y+pr.height*.25:bottom-30});
+  nodes.sort((a,b)=>a.y-b.y);
+  const r=random(722);
+  flowers=[];
+  geom.forEach((g,i)=>{
+   const count=W<760?3:5;
+   for(let j=0;j<count;j++){
+    const fy=g.top+g.h*(.12+j*.75/Math.max(1,count-1));
+    flowers.push({y:fy,side:(i+j)%2===0?1:-1,size:(W<760?28:50)+r()*(W<760?34:66),rot:(r()-.5)*.9,type:i===3?'star':i===0?'bud':'flower'});
+   }
+  });
+  stars=seedStars.map(v=>({...v,y:geom[3].top+v.y*geom[3].h}));
+  dirty=true;
+ }
+ function xAt(y){
+  let i=0;while(i<nodes.length-2&&y>nodes[i+1].y)i++;
+  const a=nodes[i],b=nodes[i+1],t=smooth((y-a.y)/Math.max(1,b.y-a.y));
+  return W*(mix(a.x,b.x,t)+Math.sin((y-top)/210)*.018*Math.sin(t*Math.PI));
+ }
+ function stage(y){let i=geom.findIndex(g=>y>=g.top&&y<g.bottom);if(i>=0)return i;return y<geom[0].top?0:geom.findIndex(g=>g.top>y)-1<0?5:geom.findIndex(g=>g.top>y)-1}
+ function ink(y,t){
+  for(let i=0;i<geom.length;i++){
+   const g=geom[i];
+   if(g.bottom<y-H||g.top>y+H*2)continue;
+   const center=g.top+g.h*.40,local=clamp((y+H*.5-center)/Math.max(H,g.h),-1,1);
+   const dark=i===3;
+   ctx.save();
+   const a=Math.max(0,g.top-y),b=Math.min(H,g.bottom-y);
+   if(dark){ctx.beginPath();ctx.rect(0,a,W,Math.max(0,b-a));ctx.clip()}
+   else{ // Avoid light pigment wash crossing into the dark chapter.
+    ctx.beginPath();ctx.rect(0,Math.max(0,i>3?geom[3].bottom-y:0),W,Math.max(0,(i<3?Math.min(H,geom[3].top-y):H)-Math.max(0,i>3?geom[3].bottom-y:0)));ctx.clip();
+   }
+   for(let j=0;j<3;j++){
+    const side=(j+i)%2===0?1:-1;
+    const dim=Math.min(W*(W<760?1.14:.74),H*1.36)*(1+j*.13);
+    const px=W*(side===1?.76:.18)+Math.sin(t*.30+i+j)*W*.025+local*side*W*.14;
+    const py=center-y+(j-1)*Math.min(g.h*.26,H*.34)+local*H*.22;
+    ctx.save();ctx.translate(px,py);ctx.rotate(local*.45+Math.sin(t*.24+j)*.10);ctx.globalAlpha=dark?.89:.92;
+    ctx.drawImage(pigments[i][j],-dim*.5,-dim*.5,dim,dim);ctx.restore();
+   }
+   ctx.restore();
+  }
+ }
+ function base(y){
+  const f=geom[3],g=ctx.createLinearGradient(0,0,0,H);
+  const stops=[[top,'#f8f1f3'],[geom[1].top,'#faf6f5'],[geom[2].top,'#f3e7ee'],[f.top-150,'#e6d6e4'],[f.top-1,'#cdb7d0'],[f.top,'#302739'],[f.top+f.h*.52,'#272134'],[f.bottom-1,'#372b42'],[f.bottom,'#e7d8e7'],[f.bottom+180,'#f7f0f3'],[geom[5].top,'#f3e7ed'],[bottom,'#f8f4f5']];
+  // Interpolate document gradient precisely within the viewport, even while jumping via anchors.
+  function rgb(h){return [parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)]}
+  stops.sort((a,b)=>a[0]-b[0]);
+  const at=py=>{if(py<=stops[0][0])return stops[0][1];for(let i=1;i<stops.length;i++)if(py<=stops[i][0]){const a=stops[i-1],b=stops[i],u=clamp((py-a[0])/Math.max(.001,b[0]-a[0]));return 'rgb('+rgb(a[1]).map((v,j)=>Math.round(mix(v,rgb(b[1])[j],u))).join(',')+')'}return stops.at(-1)[1]};
+  g.addColorStop(0,at(y));for(const [p,c] of stops)if(p>y&&p<y+H)g.addColorStop((p-y)/H,c);g.addColorStop(1,at(y+H));ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+ }
+ function strokeVine(y,reveal){
+  // The same continuous document-space line is revealed from the top, not restarted per section.
+  const a=Math.max(top,y-90),b=Math.min(bottom,y+H+90,reveal,nodes.at(-1).y);
+  if(b<=a)return;
+  const step=W<760?12:9;
+  const cuts=[a,...[geom[3].top,geom[3].bottom].filter(p=>p>a&&p<b),b];
+  ctx.lineCap='round';ctx.lineJoin='round';
+  for(let k=0;k<cuts.length-1;k++){
+   const first=cuts[k],last=cuts[k+1],dark=(first+last)*.5>=geom[3].top&&(first+last)*.5<geom[3].bottom;
+   ctx.strokeStyle=dark?'rgba(248,190,230,.59)':'rgba(153,92,132,.42)';ctx.lineWidth=W<760?.8:1.15;ctx.beginPath();ctx.moveTo(xAt(first),first-y);
+   for(let p=first+step;p<last;p+=step)ctx.lineTo(xAt(p),p-y);ctx.lineTo(xAt(last),last-y);ctx.stroke();
+  }
+ }
+ function leaf(x,y,size,angle){
+  ctx.save();ctx.translate(x,y);ctx.rotate(angle);ctx.beginPath();ctx.moveTo(0,0);ctx.quadraticCurveTo(size*.28,-size*.65,size,-size*.70);ctx.quadraticCurveTo(size*.89,-size*.03,0,0);ctx.moveTo(0,0);ctx.quadraticCurveTo(size*.5,-size*.32,size,-size*.70);ctx.stroke();ctx.restore();
+ }
+ function bloom(x,y,r,open){
+  ctx.save();ctx.translate(x,y);ctx.rotate(-.15);ctx.beginPath();
+  for(let k=0;k<7;k++){const angle=k*Math.PI*2/7;ctx.save();ctx.rotate(angle);ctx.moveTo(0,0);ctx.bezierCurveTo(-r*.56,-r*.29,-r*.48,-r*open,0,-r*open);ctx.bezierCurveTo(r*.48,-r*open,r*.56,-r*.29,0,0);ctx.restore()}
+  ctx.stroke();ctx.beginPath();ctx.arc(0,0,Math.max(1,r*.10),0,Math.PI*2);ctx.stroke();ctx.restore();
+ }
+ function botanical(y,reveal){
+  for(const f of flowers){
+   if(f.y<y-170||f.y>y+H+170||f.y>reveal)continue;
+   const grow=reduced.matches?1:smooth((reveal-f.y)/Math.max(80,H*.25));if(grow<.01)continue;
+   const x=xAt(f.y),yy=f.y-y,dir=f.side,r=f.size*grow,dx=dir*r*.9;
+   ctx.save();ctx.globalAlpha=grow*(W<760?.72:.95);ctx.lineWidth=W<760?.8:1.05;
+   ctx.strokeStyle=f.type==='star'?'#e1abd5a8':'#a87599a6';ctx.beginPath();ctx.moveTo(x,yy);ctx.bezierCurveTo(x+dx*.75,yy-r*.08,x+dx,yy-r*.6,x+dx,yy-r);ctx.stroke();
+   if(f.type==='star'){ctx.beginPath();ctx.moveTo(x+dx,yy-r-9);ctx.lineTo(x+dx+3,yy-r);ctx.lineTo(x+dx,yy-r+9);ctx.lineTo(x+dx-3,yy-r);ctx.closePath();ctx.stroke()}
+   else{leaf(x+dx*.52,yy-r*.30,r*.35,dir===1?-.48:Math.PI+.48);leaf(x+dx*.91,yy-r*.63,r*.29,dir===1?Math.PI+.28:-.28);bloom(x+dx,yy-r,r*(f.type==='bud'?.20:.29),.28+.72*grow)}
+   ctx.restore();
+  }
+ }
+ function celestial(y,t,reveal){
+  const f=geom[3];if(f.bottom<y||f.top>y+H)return;
+  ctx.save();ctx.beginPath();ctx.rect(0,Math.max(0,f.top-y),W,Math.max(0,Math.min(H,f.bottom-y)-Math.max(0,f.top-y)));ctx.clip();
+  const count=W<760?48:96;
+  for(let i=0;i<count;i++){const p=stars[i],py=p.y-y;if(py<0||py>H||p.y>reveal)continue;const x=p.x*W;ctx.globalAlpha=p.a*(.65+.35*Math.sin(t*1.2+p.t));ctx.fillStyle='#fce5fa';ctx.beginPath();ctx.arc(x,py,p.r,0,Math.PI*2);ctx.fill()}
+  ctx.globalAlpha=.36;ctx.strokeStyle='#edc1e4';ctx.lineWidth=.8;
+  for(let i=0;i<3;i++){
+   const cx=W*(i%2?.82:.16),cy=f.top+f.h*(.22+i*.30)-y;if(cy<-150||cy>H+150)continue;
+   const rr=Math.min(W*.13,100),pts=[[0,-.8],[.65,-.12],[.3,.55],[-.48,.7],[-.75,-.08],[0,-.8]];
+   ctx.beginPath();pts.forEach(([x,z],j)=>j?ctx.lineTo(cx+x*rr,cy+z*rr):ctx.moveTo(cx+x*rr,cy+z*rr));ctx.stroke();
+   pts.forEach(([x,z])=>{ctx.beginPath();ctx.arc(cx+x*rr,cy+z*rr,2,0,Math.PI*2);ctx.fill()});
+  }
+  ctx.restore();
+ }
+ function render(t){
+  const y=window.scrollY,visTop=Math.max(0,top-y),visBottom=Math.min(H,bottom-y);
+  ctx.clearRect(0,0,W,H);if(visBottom<=visTop)return;
+  ctx.save();ctx.beginPath();ctx.rect(0,visTop,W,visBottom-visTop);ctx.clip();
+  base(y);ink(y,t);const reveal=reduced.matches||constrained?bottom:Math.min(bottom,phase+H*.97);
+  strokeVine(y,reveal);botanical(y,reveal);celestial(y,t,reveal);
+  ctx.restore();
+  if(finale){const rect=finale.getBoundingClientRect();const v=reduced.matches||constrained?1:smooth((H*.91-rect.top)/Math.max(100,H*.49));finale.style.setProperty('--final-dash',(1-v).toFixed(3))}
+ }
+ function frame(ms){
+  raf=0;if(paused||document.hidden)return;
+  target=window.scrollY;
+  if(reduced.matches||constrained)phase=target;
+  else{phase+= (target-phase)*.22;if(Math.abs(target-phase)<.65)phase=target}
+  const visible=bottom>target&&top<target+H;
+  const moving=Math.abs(target-phase)>.65;
+  const animate=visible&&!reduced.matches&&!constrained;
+  if(dirty||moving||!settled||(animate&&ms-last>46)){render(reduced.matches||constrained?0:ms/1000);dirty=false;last=ms;settled=!moving}
+  if(animate||moving)schedule();
+ }
+ function schedule(){if(!raf&&!paused&&!document.hidden)raf=requestAnimationFrame(frame)}
+ function invalidate(){dirty=true;settled=false;schedule()}
+ let resizeFrame=0;
+ function resize(){if(resizeFrame)return;resizeFrame=requestAnimationFrame(()=>{resizeFrame=0;reflow();invalidate()})}
+ reflow();phase=target=window.scrollY;render(0);main.classList.add('living-canvas-ready');schedule();
+ window.addEventListener('scroll',invalidate,{passive:true});
+ window.addEventListener('resize',resize,{passive:true});
+ window.addEventListener('load',resize,{once:true});
+ document.fonts?.ready.then(resize).catch(()=>{});
+ if('ResizeObserver'in window){const observer=new ResizeObserver(resize);sections.forEach(el=>observer.observe(el))}
+ reduced.addEventListener?.('change',invalidate);
+ document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(raf);raf=0}else invalidate()});
+ window.addEventListener('pagehide',()=>{paused=true;cancelAnimationFrame(raf);raf=0});
+ window.addEventListener('pageshow',()=>{paused=false;resize();invalidate()});
 })();
 </script>
 
