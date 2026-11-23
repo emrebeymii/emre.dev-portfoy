@@ -33,7 +33,7 @@
     }
   };
   const t = (key) => copy[english() ? 'en' : 'tr'][key] || key;
-  const sources = [
+  const allSources = [
     {key:'noctis', name:'NOCTIS', id:'N', kind:'live', url:'https://emrebeymii.github.io/NOCTIS/', hue:'#a9a5ff', short:'NOCTIS · FOCUS'},
     {key:'florist', name:'Çiçekçi Konsepti', kind:'study', url:'./demos/cicekci-konsepti.html', hue:'#e3a1a8', short:'FLORAL · CONCEPT'},
     {key:'record', name:'Plak Dükkânı Konsepti', kind:'study', url:'./demos/plak-konsepti.html', hue:'#fa9c57', short:'VINYL · CONCEPT'},
@@ -42,7 +42,9 @@
     {key:'ceramic', name:'Seramik Atölyesi Konsepti', kind:'study', url:'./demos/seramik-konsepti.html', hue:'#d6ad89', short:'CLAY · CONCEPT'},
     {key:'velora', name:'VELORA INK', kind:'study', url:'https://velora-ink-concept.emredev.workers.dev/', hue:'#d7a7c4', short:'DREAMSCAPE · CONCEPT'}
   ];
-  const studies = sources.filter(item => item.kind === 'study');
+  const studies = allSources.filter(item => item.kind === 'study');
+  // Curated device showcase; comparison studies remain independent.
+  const sources = ['noctis','velora','florist','bike'].map(key => allSources.find(item => item.key === key));
   const nameFor = (item) => t(item.key) === item.key ? item.name : t(item.key);
   let motionMode = 'balanced';
   const getStored = () => { try { return localStorage.getItem('emre-motion-v5'); } catch { return null; } };
@@ -52,7 +54,7 @@
     motionMode = mode; root.dataset.motionMode = mode;
     if (save) setStored(mode);
     $$('[data-v5-mode]').forEach(el => { const on=el.dataset.v5Mode===mode; el.setAttribute('aria-pressed',String(on)); el.classList.toggle('is-current',on); });
-    const status = $('#v5-performance-status');if (status) status.textContent = t('perf'+mode[0].toUpperCase()+mode.slice(1));
+    const status = $('#v5-performance-status');if (status) status.textContent = t(mode==='cinematic'?'perfCinema':mode==='balanced'?'perfBalanced':'perfMinimal');
   }
   const stored = getStored();
   const defaultMode = reduce.matches || navigator.connection?.saveData ? 'minimal' : coarse.matches || matchMedia('(max-width:800px)').matches ? 'balanced' : 'cinematic';
@@ -139,9 +141,9 @@
   function i18nAttr(key, tag='span') {return `<${tag} data-v5="${key}">${copy.tr[key]}</${tag}>`;}
   const previewMarkup = () => `<iframe id="v5-preview-frame" loading="lazy" title="${t('accessible')}" referrerpolicy="no-referrer" tabindex="-1"></iframe>`;
   const device = document.createElement('section');device.id='v5-device-showcase';device.className='v5';device.setAttribute('aria-label','Live device showcase');
-  device.innerHTML = `<div class="container"><div class="v5-head"><div><span class="v5-kicker" data-v5="cap"></span><h2 class="v5-title" data-v5="deviceTitle"></h2><p class="v5-lead" data-v5="deviceLead"></p></div><span class="v5-small-label">01 PRODUCT / 05 CONCEPTS</span></div>
+  device.innerHTML = `<div class="container"><div class="v5-head"><div><span class="v5-kicker" data-v5="cap"></span><h2 class="v5-title" data-v5="deviceTitle"></h2><p class="v5-lead" data-v5="deviceLead"></p></div><span class="v5-small-label">${String(sources.filter(s=>s.kind==='live').length).padStart(2,'0')} PRODUCT / ${String(sources.filter(s=>s.kind==='study').length).padStart(2,'0')} CONCEPTS</span></div>
     <div class="v5-console"><div class="v5-console-head"><span class="v5-small-label" data-v5="deviceStatus"></span><div class="v5-switches" role="group" aria-label="Device format"><button type="button" data-device="laptop" aria-pressed="true" data-v5="deviceDesk"></button><button type="button" data-device="phone" aria-pressed="false" data-v5="devicePhone"></button></div></div>
-    <div class="v5-picks" role="group" aria-label="Select project">${sources.map((s,i)=>`<button type="button" data-project="${i}" aria-pressed="${i===1}">${s.name}</button>`).join('')}</div>
+    <div class="v5-picks" role="group" aria-label="Select project">${sources.map((s,i)=>`<button type="button" data-project="${i}" aria-pressed="${i===0}">${s.name}</button>`).join('')}</div>
     <div class="v5-device-zone" id="v5-device-zone"><div class="v5-device-shell" id="v5-device-shell"><div class="v5-device is-laptop" id="v5-device"><div class="v5-screen" id="v5-device-screen" aria-busy="true">${previewMarkup()}</div></div></div></div>
     <div class="v5-device-meta"><div><strong id="v5-selected-name">Çiçekçi Konsepti</strong><p><span id="v5-project-kind"></span> · <span data-v5="deviceHint"></span></p></div><a id="v5-project-link" class="v5-link" href="./demos/cicekci-konsepti.html" target="_blank" rel="noopener noreferrer" data-v5="deviceOpen"></a></div></div><p class="v5-note" data-v5="deviceNotice"></p></div>`;
 
@@ -181,7 +183,7 @@
   const languageWatcher=new MutationObserver(mutations=>{if(mutations.some(x=>x.attributeName==='lang'))syncLanguage()});
   languageWatcher.observe(root,{attributes:true,attributeFilter:['lang']});
 
-  let activeProject=1,deviceType='laptop',deviceLoaded=false;
+  let activeProject=0,deviceType='laptop',deviceLoaded=false;
   const preview=$('#v5-preview-frame'),screen=$('#v5-device-screen'),deviceEl=$('#v5-device'),zone=$('#v5-device-zone');
   let currentPreviewUrl='';
   const scaleDevice=()=>{
@@ -203,7 +205,7 @@
   preview.addEventListener('load',()=>screen.setAttribute('aria-busy','false'));
   function setDevice(type){if(type!=='laptop'&&type!=='phone')return;deviceType=type;deviceEl.classList.toggle('is-laptop',type==='laptop');deviceEl.classList.toggle('is-phone',type==='phone');$$('[data-device]').forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.device===type)));scaleDevice()}
   $$('[data-device]').forEach(btn=>btn.addEventListener('click',()=>setDevice(btn.dataset.device)));
-  if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){if(!deviceLoaded)selectProject(1);observer.disconnect()}},{rootMargin:'100px 0px'});observer.observe(zone)}else selectProject(1);
+  if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){if(!deviceLoaded)selectProject(0);observer.disconnect()}},{rootMargin:'100px 0px'});observer.observe(zone)}else selectProject(0);
   // GPU-friendly, desktop-only tilt. No continuous repaint on touch devices or in Balanced/Minimal modes.
   if(!coarse.matches){let pending=0;zone.addEventListener('pointermove',e=>{if(motionMode!=='cinematic')return;if(pending)return;const rect=zone.getBoundingClientRect();const x=(e.clientX-rect.left)/rect.width-.5,y=(e.clientY-rect.top)/rect.height-.5;pending=requestAnimationFrame(()=>{pending=0;$('#v5-device-shell').style.setProperty('--v5-tilt-y',(x*7).toFixed(2)+'deg');$('#v5-device-shell').style.setProperty('--v5-tilt-x',(-y*5).toFixed(2)+'deg')})},{passive:true});zone.addEventListener('pointerleave',()=>{$('#v5-device-shell').style.setProperty('--v5-tilt-y','0deg');$('#v5-device-shell').style.setProperty('--v5-tilt-x','0deg')})}
 
@@ -247,6 +249,6 @@
   spark.addEventListener('click',()=>{const r=mag.getBoundingClientRect();burst(r.left+r.width*.5,r.top+r.height*.50)});
 
   reduce.addEventListener?.('change',e=>{if(e.matches)setMode('minimal',false)});
-  syncLanguage();setSplit(50);selectProject(2,false);selectCompare(0,false);scaleDevice();
+  syncLanguage();setSplit(50);selectProject(0,false);selectCompare(0,false);scaleDevice();
   console.info('[Motion Studio V5] Devices, compare, magnetic lab, performance modes ready.');
 })();
