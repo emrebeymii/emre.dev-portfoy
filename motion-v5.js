@@ -39,7 +39,8 @@
     {key:'record', name:'Plak Dükkânı Konsepti', kind:'study', url:'./demos/plak-konsepti.html', hue:'#fa9c57', short:'VINYL · CONCEPT'},
     {key:'bakery', name:'Mahalle Fırını Konsepti', kind:'study', url:'./demos/firin-konsepti.html', hue:'#d2b582', short:'BAKERY · CONCEPT'},
     {key:'bike', name:'Bisiklet Servisi Konsepti', kind:'study', url:'./demos/bisiklet-konsepti.html', hue:'#b7d878', short:'CYCLE · CONCEPT'},
-    {key:'ceramic', name:'Seramik Atölyesi Konsepti', kind:'study', url:'./demos/seramik-konsepti.html', hue:'#d6ad89', short:'CLAY · CONCEPT'}
+    {key:'ceramic', name:'Seramik Atölyesi Konsepti', kind:'study', url:'./demos/seramik-konsepti.html', hue:'#d6ad89', short:'CLAY · CONCEPT'},
+    {key:'velora', name:'VELORA INK', kind:'study', url:'https://velora-ink-concept.emredev.workers.dev/', hue:'#d7a7c4', short:'DREAMSCAPE · CONCEPT'}
   ];
   const studies = sources.filter(item => item.kind === 'study');
   const nameFor = (item) => t(item.key) === item.key ? item.name : t(item.key);
