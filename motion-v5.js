@@ -108,6 +108,11 @@
   #nav-links .v5-perf-button-label,#nav-links #v5-performance-status{display:none}
   #nav-links .v5-performance{position:absolute;top:calc(100% + 14px);right:0;z-index:100;width:min(310px,calc(100vw - 32px))}
   @media(max-width:1100px){#nav-links .v5-toolbar-button{width:auto;padding:9px 13px;height:auto;min-height:36px;justify-content:flex-start;gap:9px}#nav-links .v5-perf-button-label,#nav-links #v5-performance-status{display:inline}#nav-links #v5-performance-status{opacity:.65;font-size:10px}#nav-links .v5-performance{position:relative;top:auto;right:auto;margin:0 0 10px;width:min(310px,calc(100vw - 54px));padding:16px;box-shadow:none}#nav-links .v5-toolbar{width:100%;display:flex;flex-direction:column-reverse;align-items:flex-start}#nav-links.open{max-height:calc(100dvh - 80px);overflow-y:auto}}
+  #apex-motion-slot .v5-toolbar{position:static;display:block;width:auto;inset:auto}
+  #apex-motion-slot .v5-toolbar-button{width:40px;height:35px;padding:0;justify-content:center;gap:0;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:7px}
+  #apex-motion-slot .v5-toolbar-button svg{width:18px;height:18px}
+  #apex-motion-slot .v5-perf-button-label,#apex-motion-slot #v5-performance-status{display:none}
+  #apex-motion-slot .v5-performance{position:fixed;top:auto;bottom:16px;left:50%;right:auto;transform:translateX(-50%);z-index:120;width:min(310px,calc(100% - 26px));max-height:80%;overflow-y:auto;margin:0;padding:17px;box-shadow:0 16px 60px #0006}
   `;
   document.head.append(style);
 
@@ -126,7 +131,7 @@
 
   const bar = document.createElement('div');bar.className='v5-toolbar';bar.id='v5-toolbar';bar.setAttribute('aria-label','Performance settings');
   bar.innerHTML = `<div id="v5-performance" class="v5-performance" hidden><div class="v5-perf-title"><span data-v5="perfTitle"></span><span aria-hidden="true">◈</span></div><p class="v5-perf-desc" data-v5="perfDesc"></p>${['cinematic','balanced','minimal'].map(mode=>`<button class="v5-mode-option" type="button" data-v5-mode="${mode}" aria-pressed="false"><b data-v5="perf${(mode==='cinematic'?'Cinema':mode[0].toUpperCase()+mode.slice(1))}"></b><small data-v5="perf${mode==='cinematic'?'Cinema':mode[0].toUpperCase()+mode.slice(1)}Sub"></small></button>`).join('')}<p class="v5-perf-note" data-v5="perfSaved"></p></div><button type="button" class="v5-toolbar-button" id="v5-toolbar-toggle" aria-expanded="false" aria-controls="v5-performance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2" fill="currentColor"/><circle cx="15" cy="12" r="2" fill="currentColor"/><circle cx="8" cy="18" r="2" fill="currentColor"/></svg><span class="v5-perf-button-label" data-v5="perfButton"></span><span id="v5-performance-status"></span></button>`;
-  const menu=$('#nav-links');(menu||document.body).append(bar);
+  const menu=$('#apex-motion-slot')||$('#nav-links');(menu||document.body).append(bar);
   const panel=$('#v5-performance'),toggle=$('#v5-toolbar-toggle');
   const closePanel=()=>{panel.hidden=true;toggle.setAttribute('aria-expanded','false')};
   toggle.addEventListener('click',()=>{panel.hidden=!panel.hidden;toggle.setAttribute('aria-expanded',String(!panel.hidden))});
