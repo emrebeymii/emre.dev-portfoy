@@ -1,0 +1,20 @@
+
+/* MAISON 5.2 | Motion Experience: no emoji; GSAP progressive enhancement */
+#v52ReadingProgress{position:fixed;left:0;top:0;right:0;height:3px;z-index:151;background:linear-gradient(90deg,#ad886c,#d7c29d,#586d50);transform:scaleX(0);transform-origin:left center;pointer-events:none}
+#v52CarouselTrack{height:2px;background:#e6e0d5;overflow:hidden;border-radius:6px;margin:19px 0 0}
+#v52CarouselTrack span{display:block;height:100%;width:100%;background:#526a4a;transform:scaleX(.12);transform-origin:left center;transition:transform .35s ease}
+.v52-motion-hint{display:flex;align-items:center;gap:9px;font:600 9px 'DM Sans',sans-serif;letter-spacing:1.4px;text-transform:uppercase;color:#827c6f;margin:13px 0 0}
+.v52-motion-hint:before{content:'';width:25px;height:1px;background:#b6a994}
+.v52-fly{position:fixed;top:0;left:0;width:35px;height:35px;display:grid;place-items:center;color:#fff;background:#34472f;border-radius:50%;z-index:300;pointer-events:none;box-shadow:0 8px 24px #172a1e44}
+.v52-fly svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.65;fill:none;stroke-linecap:round;stroke-linejoin:round}
+@media(hover:hover) and (pointer:fine){
+ .v5-collection-card{transition:box-shadow .35s ease,filter .35s ease}
+ .v5-collection-card:hover{box-shadow:0 18px 46px #26332920;filter:saturate(1.03)}
+ #products .product{transition:box-shadow .3s ease}
+ #products .product:hover{box-shadow:0 18px 35px #26332912}
+ #products .product .quick:hover{transform:translateY(-3px) scale(1.045)}
+ .v5-hero-bottom a svg{transition:transform .3s ease}
+ .v5-hero-bottom a:hover svg{transform:translateY(5px)}
+}
+@media(max-width:700px){#v52ReadingProgress{height:2px}#v52CarouselTrack{margin-top:14px}.v52-motion-hint{font-size:8px}.v5-collection-card:active{filter:brightness(.96)}.quick:active,.fullbtn:active{transform:scale(.98)}}
+@media(prefers-reduced-motion:reduce){#v52CarouselTrack span,.v5-collection-card,#products .product,.v5-hero-bottom a svg{transition:none!important;animation:none!important}.v5-collection-card:hover img,.product:hover .product-visual svg{transform:none!important}}
