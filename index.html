@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#090b11" />
-  <meta name="description" content="Emre Demir, creative frontend developer. Sinematik web deneyimleri, WTK Portal, NOCTIS, Hayal Karalayan dijital sanat müzesi ve beş bağımsız tasarım konsepti." />
+  <meta name="description" content="Emre Demir, creative frontend developer. Sinematik web deneyimleri, WTK Portal, NOCTIS, Hayal Karalayan dijital sanat müzesi, MAISON etkileşimli e-ticaret demosu ve beş bağımsız tasarım konsepti." />
   <meta name="author" content="Emre Demir" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Emre Demir | Web Developer & Digital Product Builder" />
@@ -327,6 +327,29 @@ html[data-theme="light"] .lab-code-box{background:#1b2131}
 @media(max-width:760px){.code-companion{display:none!important}}
 
 </style>
+<style id="maison-v6-portfolio-card">
+/* MAISON V6.0 portfolio card */
+.project-maison .project-stage{background:radial-gradient(ellipse at 70% 60%,rgba(171,171,132,.22),transparent 70%),#15261b;padding:36px 26px 0;isolation:isolate}
+.project-maison .project-stage:before{z-index:0;opacity:.15}
+.maison-preview-window{z-index:1;position:relative;width:min(100%,520px);height:263px;background:#f8f5ef;border:1px solid rgba(255,255,255,.26);border-radius:13px 13px 0 0;overflow:hidden;box-shadow:0 32px 70px rgba(0,0,0,.52);transform:rotate(-3deg) translateY(18px);transition:transform .55s cubic-bezier(.22,1,.36,1)}
+.project-maison:hover .maison-preview-window{transform:rotate(-1deg) translateY(6px)}
+.maison-preview-top{height:45px;background:#f9f6f0;display:flex;align-items:center;justify-content:space-between;padding:0 17px;gap:5px;color:#27352d}
+.maison-preview-top strong{font:500 22px Georgia,serif;letter-spacing:.23em}
+.maison-preview-top small{font:700 8px ui-monospace,monospace;letter-spacing:.12em;color:#708073}
+.maison-preview-photo{position:relative;height:calc(100% - 75px);background:linear-gradient(125deg,#c7b6a2,#827d6b);overflow:hidden}
+.maison-preview-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;display:block;filter:saturate(.75)}
+.maison-preview-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(21,37,29,.48),transparent 60%)}
+.maison-preview-photo span{position:absolute;bottom:16px;left:17px;z-index:1;color:#f7f6ef;font:700 9px ui-monospace,monospace;letter-spacing:.16em}
+.maison-preview-bottom{height:30px;background:#f9f6f0;display:flex;justify-content:space-between;align-items:center;padding:0 16px;color:#354735}
+.maison-preview-bottom em{font:italic 16px Georgia,serif}.maison-preview-bottom i{font:600 9px ui-monospace,monospace;letter-spacing:.1em}
+.maison-stage-mark{position:absolute;bottom:12px;right:13px;z-index:2;background:#203a2a;color:#edeae1;border-radius:5px;padding:8px 10px;font:700 9px ui-monospace,monospace;letter-spacing:.1em}
+.project-maison .project-head h3{letter-spacing:.16em}
+.maison-demo-note{margin:10px 0 16px;font-size:11px;color:var(--muted);line-height:1.7}
+.maison-project-links{flex-wrap:wrap;gap:15px 23px}
+@media(max-width:850px){.project-maison .project-stage{height:327px}.maison-preview-window{height:270px}}
+@media(max-width:440px){.project-maison .project-stage{height:285px;padding:35px 18px 0}.maison-preview-window{height:216px}.maison-preview-top strong{font-size:18px}.maison-preview-top small{font-size:7px}.maison-stage-mark{right:10px}}
+@media(prefers-reduced-motion:reduce){.maison-preview-window{transition:none;transform:none}.project-maison:hover .maison-preview-window{transform:none}}
+</style>
 </head>
 <body>
 <div class="page-ambient" aria-hidden="true"><div class="ambient-blob one"></div><div class="ambient-blob two"></div></div>
@@ -378,6 +401,21 @@ html[data-theme="light"] .lab-code-box{background:#1b2131}
     <div class="project-links"><a class="hayal-live-link" href="https://hayal-karalayan.pages.dev/" target="_blank" rel="noopener noreferrer"><span data-i18n="hayalVisit">Canlı sergiyi gez</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
   </div>
 </article>
+<article class="project project-maison reveal" aria-labelledby="maison-project-title">
+<div class="project-stage stage-maison"><span class="project-num">04 / INTERACTIVE COMMERCE</span>
+<div class="maison-preview-window" role="img" aria-label="MAISON için temsili e-ticaret arayüzü">
+<div class="maison-preview-top"><strong>MAISON</strong><small>HOME &amp; OBJECTS / V6.0</small></div>
+<div class="maison-preview-photo"><img src="https://images.pexels.com/photos/5849392/pexels-photo-5849392.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=960" alt="" loading="lazy" decoding="async" width="960" height="640"/><span>IMMERSIVE ROOM STUDIO</span></div>
+<div class="maison-preview-bottom"><em>Objects of living.</em><i>01 / 03</i></div></div>
+<span class="maison-stage-mark">V6.0 / EXPERIENCE</span></div>
+<div class="project-body"><div class="project-head"><h3 id="maison-project-title">MAISON</h3><span class="project-year">2026</span></div>
+<p class="project-desc" data-i18n="maisonDesc">Ev dekorasyonu için geliştirilmiş etkileşimli e-ticaret demosu. Ürün keşfi, 2D oda stüdyosu, önce/sonra karşılaştırması, kombinasyon paylaşımı ve yönetim panelini bir araya getiriyor.</p>
+<p class="maison-demo-note" data-i18n="maisonDemoNote">Bağımsız konsept. Sipariş ve ödeme işlemleri simülasyondur, gerçek satış yapılmaz.</p>
+<div class="tags"><span class="tag">HTML / CSS</span><span class="tag">JavaScript</span><span class="tag">Immersive 2D</span><span class="tag">Cloudflare Pages</span></div>
+<div class="project-links maison-project-links">
+<a href="https://maison-webstudio01.pages.dev/" target="_blank" rel="noopener noreferrer"><span data-i18n="maisonVisit">Canlı demoyu incele</span><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+<a href="https://maison-webstudio01.pages.dev/case-study.html" target="_blank" rel="noopener noreferrer"><span data-i18n="maisonCase">Proje incelemesi</span><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+</div></div></article>
 </div>
 </div></section>
 <!-- Independent design studies: no client affiliation or endorsement is implied. -->
@@ -820,6 +858,7 @@ customElements.define('tg-dotmatrix', DotMatrix);
 (()=>{'use strict';
 const en={navStudio:'Studio',labLabel:'INTERACTIVE STUDIO',labTitle:'Ideas in motion.',labSub:'Behind a great digital product are design, interaction and thoughtful engineering. Choose a mode and watch the experience change.',labCardTitle:'Small details. Big impact.',labCardDesc:'A product feels right because of more than large features. Motion, clear feedback and carefully considered details make a difference.',labTab1:'Interface',labTab2:'Motion',labTab3:'Security',labPreview:'LIVE PREVIEW / ACTIVE',labRun:'Replay animation ↻',navWork:'Projects',navAbout:'About',navExpertise:'Skills',navProcess:'Process',navContact:'Contact',navCta:"Let's collaborate",heroBadge:'Web developer · Digital product builder',heroA:'Turning ideas',heroB:'into digital',heroC:'experiences.',heroLead:'A great interface does more than look good. It should be fast, intuitive and enjoyable. I bring design and code together to make that happen.',seeWork:'Explore my work',githubProfile:'My GitHub profile',location:'Istanbul, Türkiye · Open to remote work',workLabel:'SELECTED WORK',workTitle:'Where ideas become working products.',workSub:'Products I built from concept to launch, alongside independent design explorations.',allRepos:'All repositories',wtkPrivate:'PRIVATE',wtkDesc:'An independent community platform for Web Design & Development students, with announcements, profiles and a Q&A experience.',noctisDesc:'A mobile-first productivity experience featuring a focus timer, ambient display and daily tools.',hayalDesc:'An interactive digital exhibition for artist Burcu Arısoy featuring 11 artworks, a cinematic entrance, a 3D museum, a guided tour, and a classic gallery.',hayalCredit:'Artworks: Burcu Arısoy · Web design and development: emre.dev',hayalVisit:'Explore the live exhibition',viewSource:'Source code',aboutLabel:'ABOUT ME',aboutTitle:'Driven by curiosity. Built through practice.',aboutText1:'I’m Emre, a creator based in Istanbul developing my skills in <strong>web development and digital product design</strong>.',aboutText2:'I combine a people-first background in hotel front office operations with software. While studying Web Design & Development at Ankara University, I build projects for real users.',aboutText3:'My aim is not just to ship a functioning website, but to create thoughtful, trustworthy products that people genuinely enjoy using.',fact1Label:'MY FOCUS',fact1Val:'Modern web interfaces',fact2Label:'EDUCATION',fact2Val:'Ankara University<br>Web Design & Development',fact3Label:'APPROACH',fact3Val:'Mobile-first design',fact4Label:'EXPERIENCE',fact4Val:'Independent projects',skillsLabel:'TOOLS & TECHNOLOGY',skillsTitle:'From design thinking to development.',skillsSub:'Tools and technologies I use and continue to grow with.',skill1:'Semantic, responsive interfaces',skill2:'Interactive web experiences',skill3:'Authentication, Firestore, app data',skill4:'Mobile, tablet and desktop',skill5:'Version control and deployment',skill6:'App-like web products',processLabel:'HOW I WORK',processTitle:'A clear process. A better outcome.',step1Title:'Understand the problem',step1Desc:'Define the goal, the audience and the problem that actually needs solving.',step2Title:'Design the experience',step2Desc:'Shape visual hierarchy, mobile interactions and the user journey together.',step3Title:'Build and refine',step3Desc:'Develop for speed, accessibility and maintainability, then test across screens.',contactLabel:'HAVE A PROJECT IN MIND?',contactTitle:"Have an idea? Let's bring it to life.",contactDesc:'A personal website, a business site or a custom digital product. Tell me what you have in mind and let’s explore the possibilities.',sendEmail:'Send an email',copyEmail:'Copy email',footerNote:'Made with care, from design to code.',backTop:'Back to top ↑'};
 Object.assign(en,{conceptEyebrow:'CONCEPT LAB / 2026',conceptTitleOne:'Five different worlds.',conceptTitleTwo:'One curiosity for design.',conceptLead:'Five independent website concepts for small businesses. Each has its own rhythm, identity and user journey.',conceptHint:'SWIPE, EXPLORE, FEEL',conceptFlower:'Florist studio',conceptFlowerDesc:'Editorial storefront · Bouquet experience',conceptVinyl:'Record store',conceptVinylDesc:'Collections · Interactive discovery',conceptBakery:'Neighborhood bakery',conceptBakeryDesc:'Product filters · Order flow',conceptBike:'Bicycle workshop',conceptBikeDesc:'Service showcase · Quick contact',conceptCeramic:'Ceramics studio',conceptCeramicDesc:'Workshop story · Event discovery',conceptDisclaimer:'These are unsolicited independent design studies. They do not imply official collaboration with, or endorsement by, any business.',conceptCta:'Let’s build something ↗'});
+Object.assign(en,{maisonDesc:'An interactive home decor e-commerce demo combining product discovery, an immersive 2D room studio, before/after comparison, shareable room designs and a demo management dashboard.',maisonDemoNote:'Independent concept. Orders and payments are simulations; no real transactions take place.',maisonVisit:'Explore live demo',maisonCase:'View case study'});
 const tr={};document.querySelectorAll('[data-i18n]').forEach(el=>tr[el.dataset.i18n]=el.innerHTML);
 const root=document.documentElement,langButton=document.getElementById('language-toggle'),themeButton=document.getElementById('theme-toggle'),nav=document.getElementById('nav-links'),menuButton=document.getElementById('menu-toggle'),header=document.getElementById('site-header');
 const stored = (key) => { try { return localStorage.getItem(key); } catch (_) { return null; } };
@@ -1043,7 +1082,7 @@ if(heroCopy){
  const strip=document.createElement('div');strip.className='kinetic-identity';strip.innerHTML='<span class="ki-label">CURRENT FREQUENCY</span><span class="ki-running" aria-label="Creative frontend">CREATIVE FRONTEND</span><span class="ki-small-square" aria-hidden="true"></span>';
  const lead=$('.hero-lead',heroCopy);if(lead)lead.after(strip);
  const actions=$('.hero-actions',heroCopy);
- if(actions){const stats=document.createElement('div');stats.className='kinetic-hero-stats';stats.innerHTML='<div><b>02</b><small data-kstat="0"></small></div><div><b>05</b><small data-kstat="1"></small></div><div><b>∞</b><small data-kstat="2"></small></div>';actions.after(stats)}
+ if(actions){const stats=document.createElement('div');stats.className='kinetic-hero-stats';stats.innerHTML='<div><b>04</b><small data-kstat="0"></small></div><div><b>05</b><small data-kstat="1"></small></div><div><b>∞</b><small data-kstat="2"></small></div>';actions.after(stats)}
 }
 let roleIndex=0,roleTimer=null;const roleText=$('.ki-running');
 function syncLanguage(){
