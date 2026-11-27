@@ -17,7 +17,7 @@
       deviceStatus:'ETKİLEŞİMLİ ÖNİZLEME', deviceHint:'Proje seç · Cihaz değiştir', deviceLive:'Çalışan proje', deviceStudy:'Bağımsız konsept',
       perfButton:'Hareket ayarları',perfTitle:'Performans modu',perfDesc:'Görsel hareket yoğunluğunu sen belirle.',perfCinema:'Cinematic',perfBalanced:'Balanced',perfMinimal:'Minimal',perfCinemaSub:'Tam görsel deneyim',perfBalancedSub:'Daha hafif animasyonlar',perfMinimalSub:'Minimum hareket',perfSaved:'Tercihin bu tarayıcıda saklanır.',
       florist:'Çiçekçi Konsepti', bakery:'Mahalle Fırını Konsepti',record:'Plak Dükkânı Konsepti',bike:'Bisiklet Servisi Konsepti',ceramic:'Seramik Atölyesi Konsepti',
-      accessible:'Ekran önizlemesi'
+      accessible:'Ekran önizlemesi', coffeeHint:'Önizleme içinde kaydır, menüyü ve içecekleri keşfet'
     },
     en: {
       jump: 'Live device showcase ↗',cap:'EXPERIENCE LAB / 01',deviceTitle:'Real projects. A different perspective.',deviceLead:'Explore projects on a laptop or phone. Live previews load only when selected.',
@@ -25,7 +25,7 @@
       deviceStatus:'INTERACTIVE PREVIEW',deviceHint:'Choose project · Switch device',deviceLive:'Working project',deviceStudy:'Independent concept',
       perfButton:'Motion settings',perfTitle:'Performance mode',perfDesc:'Choose how much movement your experience has.',perfCinema:'Cinematic',perfBalanced:'Balanced',perfMinimal:'Minimal',perfCinemaSub:'Full visual experience',perfBalancedSub:'Lighter animations',perfMinimalSub:'Minimal movement',perfSaved:'Your preference is saved in this browser.',
       florist:'Florist Concept',bakery:'Bakery Concept',record:'Record Shop Concept',bike:'Bicycle Workshop Concept',ceramic:'Ceramics Studio Concept',
-      accessible:'Website preview'
+      accessible:'Website preview', coffeeHint:'Scroll inside the preview and explore drinks and the menu'
     }
   };
   const t = (key) => copy[english() ? 'en' : 'tr'][key] || key;
@@ -33,9 +33,10 @@
     {key:'noctis', name:'NOCTIS', id:'N', kind:'live', url:'https://emrebeymii.github.io/NOCTIS/', hue:'#a9a5ff', short:'NOCTIS · FOCUS'},
     {key:'florist', name:'Çiçekçi Konsepti', kind:'study', url:'./demos/cicekci-konsepti.html', hue:'#e3a1a8', short:'FLORAL · CONCEPT'},
     {key:'bike', name:'Bisiklet Servisi Konsepti', kind:'study', url:'./demos/bisiklet-konsepti.html', hue:'#b7d878', short:'CYCLE · CONCEPT'},
-    {key:'velora', name:'VELORA INK', kind:'study', url:'https://velora-ink-concept.emredev.workers.dev/', hue:'#d7a7c4', short:'DREAMSCAPE · CONCEPT'}
+    {key:'velora', name:'VELORA INK', kind:'study', url:'https://velora-ink-concept.emredev.workers.dev/', hue:'#d7a7c4', short:'DREAMSCAPE · CONCEPT'},
+    {key:'coffee', name:'MATCHA / COFFEE LAB', kind:'study', url:'https://matcha-coffee-lab-concept.emredev.workers.dev/', hue:'#9cb77b', short:'BEVERAGE · CONCEPT', interactive:true}
   ];
-  const sources = ['noctis','velora','florist','bike'].map(key => allSources.find(item => item.key === key));
+  const sources = ['noctis','velora','coffee','florist','bike'].map(key => allSources.find(item => item.key === key));
   const nameFor = (item) => t(item.key) === item.key ? item.name : t(item.key);
   let motionMode = 'balanced';
   const getStored = () => { try { return localStorage.getItem('emre-motion-v5'); } catch { return null; } };
@@ -81,6 +82,8 @@
   .v5-device.is-phone .v5-screen::after{content:"";z-index:4;position:absolute;top:7px;left:50%;transform:translateX(-50%);width:70px;height:18px;border-radius:20px;background:#0a0c13;pointer-events:none}
   .v5-device.is-laptop::after{content:"";display:block;height:13px;border-radius:3px 3px 19px 19px;background:linear-gradient(#686c7f,#222634 70%,#858aa0);margin:0 -8%;box-shadow:0 11px 15px rgba(0,0,0,.15)}
   .v5-screen iframe{position:absolute;inset:0 auto auto 0;border:0;max-width:none;pointer-events:none;transform-origin:top left;width:1080px;height:670px;transform:scale(var(--v5-scale,.6));background:#0c0f17}
+  .v5-screen.is-interactive iframe{pointer-events:auto}
+  .v5-device-zone:has(.v5-screen.is-interactive) .v5-device-shell{transform:none!important}
   .v5-screen[aria-busy=true]::before{content:"";position:absolute;inset:0;z-index:2;background:radial-gradient(circle at 50% 45%,rgba(103,103,160,.17),#090b11 77%)}
   .v5-screen[aria-busy=true]::after{content:"...";position:absolute;z-index:3;top:48%;left:50%;transform:translate(-50%,-50%);color:#aaaee5;font:700 18px ui-monospace,monospace;letter-spacing:.3em}
   .v5-device-meta{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;padding:20px clamp(18px,3vw,34px) 26px}
@@ -143,7 +146,7 @@
   function syncLanguage(){
     $$('[data-v5]').forEach(el=>{el.textContent=t(el.dataset.v5)});
     $$('[data-project]').forEach(el=>{const s=sources[+el.dataset.project];el.textContent=nameFor(s)});
-    $('#v5-preview-frame')?.setAttribute('title',t('accessible'));
+    $('#v5-preview-frame')?.setAttribute('title',t('accessible')+' — '+nameFor(sources[activeProject]));
     refreshProjectLabels();setMode(motionMode,false);toggle.setAttribute("aria-label",t("perfButton"));toggle.title=t("perfButton");
   }
   const languageWatcher=new MutationObserver(mutations=>{if(mutations.some(x=>x.attributeName==='lang'))syncLanguage()});
@@ -159,12 +162,12 @@
     screen.style.setProperty('--v5-scale',Math.max(.1,width/virtualWidth).toFixed(4));
   };
   const deviceResize=new ResizeObserver(scaleDevice);deviceResize.observe(screen);
-  function refreshProjectLabels(){const s=sources[activeProject];$('#v5-selected-name').textContent=nameFor(s);$('#v5-project-kind').textContent=t(s.kind==='live'?'deviceLive':'deviceStudy');$('#v5-project-link').href=s.url}
+  function refreshProjectLabels(){const s=sources[activeProject];$('#v5-selected-name').textContent=nameFor(s);$('#v5-project-kind').textContent=t(s.kind==='live'?'deviceLive':'deviceStudy');$('#v5-project-link').href=s.url;const hint=$('[data-v5="deviceHint"]',device);if(hint)hint.textContent=t(s.interactive?'coffeeHint':'deviceHint');preview.title=t('accessible')+' — '+nameFor(s)}
   function selectProject(index,load=true){
     if(index<0||index>=sources.length)return;
     activeProject=index;const s=sources[index];
     $$('[data-project]').forEach(btn=>btn.setAttribute('aria-pressed',String(+btn.dataset.project===index)));
-    zone.style.setProperty('--v5-hue',s.hue);refreshProjectLabels();
+    zone.style.setProperty('--v5-hue',s.hue);screen.classList.toggle('is-interactive',!!s.interactive);preview.tabIndex=s.interactive?0:-1;refreshProjectLabels();
     if(load){if(currentPreviewUrl!==s.url){screen.setAttribute('aria-busy','true');currentPreviewUrl=s.url;preview.src=s.url;}deviceLoaded=true}
   }
   $$('[data-project]').forEach(btn=>btn.addEventListener('click',()=>selectProject(+btn.dataset.project)));
