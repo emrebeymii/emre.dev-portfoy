@@ -14,18 +14,18 @@
     tr: {
       jump: 'Canlı cihaz vitrini ↗', cap:'EXPERIENCE LAB / 01', deviceTitle:'Gerçek projeler. Yeni bir bakış.', deviceLead:'Projeleri masaüstünde veya telefonda incele. Canlı önizlemeler yalnızca seçtiğinde yüklenir.',
       deviceDesk:'MacBook görünümü', devicePhone:'Telefon görünümü', deviceOpen:'Projeyi ayrı sekmede aç ↗', deviceNotice:'Önizleme erişim ayarları nedeniyle görünmezse projeyi ayrı sekmede açabilirsin.',
-      deviceStatus:'ETKİLEŞİMLİ ÖNİZLEME', deviceHint:'Proje seç · Cihaz değiştir', deviceLive:'Çalışan proje', deviceStudy:'Bağımsız konsept',
+      deviceStatus:'ETKİLEŞİMLİ ÖNİZLEME', deviceHint:'Ekranın içinde kaydır, tıkla ve projeyi keşfet', deviceLive:'Çalışan proje', deviceStudy:'Bağımsız konsept',
       perfButton:'Hareket ayarları',perfTitle:'Performans modu',perfDesc:'Görsel hareket yoğunluğunu sen belirle.',perfCinema:'Cinematic',perfBalanced:'Balanced',perfMinimal:'Minimal',perfCinemaSub:'Tam görsel deneyim',perfBalancedSub:'Daha hafif animasyonlar',perfMinimalSub:'Minimum hareket',perfSaved:'Tercihin bu tarayıcıda saklanır.',
       florist:'Çiçekçi Konsepti', bakery:'Mahalle Fırını Konsepti',record:'Plak Dükkânı Konsepti',bike:'Bisiklet Servisi Konsepti',ceramic:'Seramik Atölyesi Konsepti',
-      accessible:'Ekran önizlemesi', coffeeHint:'Önizleme içinde kaydır, menüyü ve içecekleri keşfet'
+      accessible:'Ekran önizlemesi'
     },
     en: {
       jump: 'Live device showcase ↗',cap:'EXPERIENCE LAB / 01',deviceTitle:'Real projects. A different perspective.',deviceLead:'Explore projects on a laptop or phone. Live previews load only when selected.',
       deviceDesk:'Laptop view',devicePhone:'Phone view',deviceOpen:'Open project in new tab ↗',deviceNotice:'If embedding is blocked, open the original project in a new tab.',
-      deviceStatus:'INTERACTIVE PREVIEW',deviceHint:'Choose project · Switch device',deviceLive:'Working project',deviceStudy:'Independent concept',
+      deviceStatus:'INTERACTIVE PREVIEW',deviceHint:'Scroll, tap and explore inside the screen',deviceLive:'Working project',deviceStudy:'Independent concept',
       perfButton:'Motion settings',perfTitle:'Performance mode',perfDesc:'Choose how much movement your experience has.',perfCinema:'Cinematic',perfBalanced:'Balanced',perfMinimal:'Minimal',perfCinemaSub:'Full visual experience',perfBalancedSub:'Lighter animations',perfMinimalSub:'Minimal movement',perfSaved:'Your preference is saved in this browser.',
       florist:'Florist Concept',bakery:'Bakery Concept',record:'Record Shop Concept',bike:'Bicycle Workshop Concept',ceramic:'Ceramics Studio Concept',
-      accessible:'Website preview', coffeeHint:'Scroll inside the preview and explore drinks and the menu'
+      accessible:'Website preview'
     }
   };
   const t = (key) => copy[english() ? 'en' : 'tr'][key] || key;
@@ -34,7 +34,7 @@
     {key:'florist', name:'Çiçekçi Konsepti', kind:'study', url:'./demos/cicekci-konsepti.html', hue:'#e3a1a8', short:'FLORAL · CONCEPT'},
     {key:'bike', name:'Bisiklet Servisi Konsepti', kind:'study', url:'./demos/bisiklet-konsepti.html', hue:'#b7d878', short:'CYCLE · CONCEPT'},
     {key:'velora', name:'VELORA INK', kind:'study', url:'https://velora-ink-concept.emredev.workers.dev/', hue:'#d7a7c4', short:'DREAMSCAPE · CONCEPT'},
-    {key:'coffee', name:'MATCHA / COFFEE LAB', kind:'study', url:'https://matcha-coffee-lab-concept.emredev.workers.dev/', hue:'#9cb77b', short:'BEVERAGE · CONCEPT', interactive:true}
+    {key:'coffee', name:'MATCHA / COFFEE LAB', kind:'study', url:'https://matcha-coffee-lab-concept.emredev.workers.dev/', hue:'#9cb77b', short:'BEVERAGE · CONCEPT'}
   ];
   const sources = ['noctis','velora','coffee','florist','bike'].map(key => allSources.find(item => item.key === key));
   const nameFor = (item) => t(item.key) === item.key ? item.name : t(item.key);
@@ -81,9 +81,10 @@
   .v5-device.is-phone .v5-screen{aspect-ratio:390 / 844;border:9px solid #242637;border-radius:37px;box-shadow:0 35px 85px rgba(0,0,0,.42)}
   .v5-device.is-phone .v5-screen::after{content:"";z-index:4;position:absolute;top:7px;left:50%;transform:translateX(-50%);width:70px;height:18px;border-radius:20px;background:#0a0c13;pointer-events:none}
   .v5-device.is-laptop::after{content:"";display:block;height:13px;border-radius:3px 3px 19px 19px;background:linear-gradient(#686c7f,#222634 70%,#858aa0);margin:0 -8%;box-shadow:0 11px 15px rgba(0,0,0,.15)}
-  .v5-screen iframe{position:absolute;inset:0 auto auto 0;border:0;max-width:none;pointer-events:none;transform-origin:top left;width:1080px;height:670px;transform:scale(var(--v5-scale,.6));background:#0c0f17}
-  .v5-screen.is-interactive iframe{pointer-events:auto}
-  .v5-device-zone:has(.v5-screen.is-interactive) .v5-device-shell{transform:none!important}
+  .v5-screen iframe{position:absolute;inset:0 auto auto 0;border:0;max-width:none;pointer-events:auto;touch-action:auto;transform-origin:top left;width:1080px;height:670px;transform:scale(var(--v5-scale,.6));background:#0c0f17}
+  /* Keep the device still so native touch, wheel and keyboard interactions reach every project. */
+  .v5-device-zone .v5-device-shell{transform:none!important}
+  .v5-screen iframe:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
   .v5-screen[aria-busy=true]::before{content:"";position:absolute;inset:0;z-index:2;background:radial-gradient(circle at 50% 45%,rgba(103,103,160,.17),#090b11 77%)}
   .v5-screen[aria-busy=true]::after{content:"...";position:absolute;z-index:3;top:48%;left:50%;transform:translate(-50%,-50%);color:#aaaee5;font:700 18px ui-monospace,monospace;letter-spacing:.3em}
   .v5-device-meta{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;padding:20px clamp(18px,3vw,34px) 26px}
@@ -120,7 +121,7 @@
   document.head.append(style);
 
   function i18nAttr(key, tag='span') {return `<${tag} data-v5="${key}">${copy.tr[key]}</${tag}>`;}
-  const previewMarkup = () => `<iframe id="v5-preview-frame" loading="lazy" title="${t('accessible')}" referrerpolicy="no-referrer" tabindex="-1"></iframe>`;
+  const previewMarkup = () => `<iframe id="v5-preview-frame" loading="lazy" title="${t('accessible')}" referrerpolicy="no-referrer" tabindex="0"></iframe>`;
   const device = document.createElement('section');device.id='v5-device-showcase';device.className='v5';device.setAttribute('aria-label','Live device showcase');
   device.innerHTML = `<div class="container"><div class="v5-head"><div><span class="v5-kicker" data-v5="cap"></span><h2 class="v5-title" data-v5="deviceTitle"></h2><p class="v5-lead" data-v5="deviceLead"></p></div><span class="v5-small-label">${String(sources.filter(s=>s.kind==='live').length).padStart(2,'0')} PRODUCT / ${String(sources.filter(s=>s.kind==='study').length).padStart(2,'0')} CONCEPTS</span></div>
     <div class="v5-console"><div class="v5-console-head"><span class="v5-small-label" data-v5="deviceStatus"></span><div class="v5-switches" role="group" aria-label="Device format"><button type="button" data-device="laptop" aria-pressed="true" data-v5="deviceDesk"></button><button type="button" data-device="phone" aria-pressed="false" data-v5="devicePhone"></button></div></div>
@@ -162,12 +163,12 @@
     screen.style.setProperty('--v5-scale',Math.max(.1,width/virtualWidth).toFixed(4));
   };
   const deviceResize=new ResizeObserver(scaleDevice);deviceResize.observe(screen);
-  function refreshProjectLabels(){const s=sources[activeProject];$('#v5-selected-name').textContent=nameFor(s);$('#v5-project-kind').textContent=t(s.kind==='live'?'deviceLive':'deviceStudy');$('#v5-project-link').href=s.url;const hint=$('[data-v5="deviceHint"]',device);if(hint)hint.textContent=t(s.interactive?'coffeeHint':'deviceHint');preview.title=t('accessible')+' — '+nameFor(s)}
+  function refreshProjectLabels(){const s=sources[activeProject];$('#v5-selected-name').textContent=nameFor(s);$('#v5-project-kind').textContent=t(s.kind==='live'?'deviceLive':'deviceStudy');$('#v5-project-link').href=s.url;preview.title=t('accessible')+' — '+nameFor(s)}
   function selectProject(index,load=true){
     if(index<0||index>=sources.length)return;
     activeProject=index;const s=sources[index];
     $$('[data-project]').forEach(btn=>btn.setAttribute('aria-pressed',String(+btn.dataset.project===index)));
-    zone.style.setProperty('--v5-hue',s.hue);screen.classList.toggle('is-interactive',!!s.interactive);preview.tabIndex=s.interactive?0:-1;refreshProjectLabels();
+    zone.style.setProperty('--v5-hue',s.hue);refreshProjectLabels();
     if(load){if(currentPreviewUrl!==s.url){screen.setAttribute('aria-busy','true');currentPreviewUrl=s.url;preview.src=s.url;}deviceLoaded=true}
   }
   $$('[data-project]').forEach(btn=>btn.addEventListener('click',()=>selectProject(+btn.dataset.project)));
@@ -175,8 +176,7 @@
   function setDevice(type){if(type!=='laptop'&&type!=='phone')return;deviceType=type;deviceEl.classList.toggle('is-laptop',type==='laptop');deviceEl.classList.toggle('is-phone',type==='phone');$$('[data-device]').forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.device===type)));scaleDevice()}
   $$('[data-device]').forEach(btn=>btn.addEventListener('click',()=>setDevice(btn.dataset.device)));
   if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){if(!deviceLoaded)selectProject(0);observer.disconnect()}},{rootMargin:'100px 0px'});observer.observe(zone)}else selectProject(0);
-  // GPU-friendly, desktop-only tilt. No continuous repaint on touch devices or in Balanced/Minimal modes.
-  if(!coarse.matches){let pending=0;zone.addEventListener('pointermove',e=>{if(motionMode!=='cinematic')return;if(pending)return;const rect=zone.getBoundingClientRect();const x=(e.clientX-rect.left)/rect.width-.5,y=(e.clientY-rect.top)/rect.height-.5;pending=requestAnimationFrame(()=>{pending=0;$('#v5-device-shell').style.setProperty('--v5-tilt-y',(x*7).toFixed(2)+'deg');$('#v5-device-shell').style.setProperty('--v5-tilt-x',(-y*5).toFixed(2)+'deg')})},{passive:true});zone.addEventListener('pointerleave',()=>{$('#v5-device-shell').style.setProperty('--v5-tilt-y','0deg');$('#v5-device-shell').style.setProperty('--v5-tilt-x','0deg')})}
+  // Device tilt is intentionally disabled in the interactive showcase.
 
   reduce.addEventListener?.('change',e=>{if(e.matches)setMode('minimal',false)});
   syncLanguage();selectProject(0,false);scaleDevice();
